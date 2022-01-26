@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3118211093820771423
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6344358962382069086, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_Name
+      value: _Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: cardName
+      value: Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: actions.Array.data[0].data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: actions.Array.data[1].data
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+--- !u!1 &8308486711391277313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6344358962382069086, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+  m_PrefabInstance: {fileID: 3118211093820771423}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2191703714723274388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8308486711391277313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 1
