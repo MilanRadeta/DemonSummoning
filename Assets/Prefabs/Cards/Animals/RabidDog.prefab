@@ -29,7 +29,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: cardName
-      value: Cat
+      value: Rabid Dog
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size

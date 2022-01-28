@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 415047521269880868, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2235519850411990812, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -21,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3457439158719970923, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_angularOffset
-      value: -75
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 3962828632844157299, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
@@ -33,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: cardName
-      value: Cat
+      value: Rainbow Parrot
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size

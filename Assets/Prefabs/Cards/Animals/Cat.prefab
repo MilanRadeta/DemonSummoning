@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593745814539383485, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_text
-      value: CAT
+      value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 3427953039943229076, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1497003812287849140, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_text
+      value: Animal
+      objectReference: {fileID: 0}
     - target: {fileID: 1777288231518031517, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -26,6 +30,10 @@ PrefabInstance:
     - target: {fileID: 6344358962382069086, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_Name
       value: _AnimalCard
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564035999560609345, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_text
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_RootOrder
@@ -77,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: cardName
-      value: AnimalCard
+      value: Animal
       objectReference: {fileID: 0}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: triggerNumbers.Array.size

@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1497003812287849140, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_text
+      value: BoyCard
+      objectReference: {fileID: 0}
     - target: {fileID: 1777288231518031517, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -27,10 +31,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: _BoyCard
       objectReference: {fileID: 0}
+    - target: {fileID: 6398556262637831326, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5e05119c531b7bf40b03e53cbe0223db, type: 3}
     - target: {fileID: 7143120803123589168, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d681311af67e5d04eb99cd968d150ee3, type: 3}
+    - target: {fileID: 7586252225261241594, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 7586252225261241594, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_RootOrder
       value: 0

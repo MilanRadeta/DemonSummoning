@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1085301316982099888
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 272398448089663842, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_Name
+      value: Glen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: cardName
+      value: Sweet Glen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: triggerNumbers.Array.data[0]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2631014265254574345, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3689761492888615549, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_text
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3783458063605188236, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856641918215690913, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5695396719710926472, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_text
+      value: Sweet Glen
+      objectReference: {fileID: 0}
+    - target: {fileID: 8354989035179596585, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}

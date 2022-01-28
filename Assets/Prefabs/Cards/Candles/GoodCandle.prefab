@@ -11,9 +11,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 517402603094904671, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 795376119609678608, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1727574419624088114, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2223034900578529192, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_text
@@ -33,9 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4575781952342994667, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_text
-      value: 'Good Candle
-
-'
+      value: Good Candle
       objectReference: {fileID: 0}
     - target: {fileID: 4881557653036016158, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_text
