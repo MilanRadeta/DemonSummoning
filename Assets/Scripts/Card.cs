@@ -9,7 +9,25 @@ public class Card : MonoBehaviour
     public CardType type;
     public List<int> triggerNumbers;
     public TMPro.TextMeshPro text;
+    public List<TMPro.TextMeshPro> triggerNumberText;
     public CardAction[] actions;
+
+    void Start()
+    {
+        for (int i = 0; i < triggerNumberText.Count; i++)
+        {
+            var text = triggerNumberText[i];
+            if (i < triggerNumbers.Count)
+            {
+                var value = triggerNumbers[i];
+                text.text = value.ToString();
+                continue;
+            }
+            text.text = "";
+            text.transform.parent.gameObject.SetActive(false);
+
+        }
+    }
 
     public void Execute(int roll)
     {
@@ -18,12 +36,13 @@ public class Card : MonoBehaviour
             Execute();
         }
     }
-    
+
     public void Execute()
     {
         foreach (var action in actions)
         {
-            if (!action.Execute()) {
+            if (!action.Execute())
+            {
                 break;
             }
         }

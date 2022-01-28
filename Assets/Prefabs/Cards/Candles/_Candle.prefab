@@ -641,6 +641,18 @@ PrefabInstance:
       propertyPath: actions.Array.data[1].data
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: triggerNumberText.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: triggerNumberText.Array.data[1]
+      value: 
+      objectReference: {fileID: 2223034900578529192}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: triggerNumberText.Array.data[2]
+      value: 
+      objectReference: {fileID: 8943378858634135060}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
 --- !u!1 &8308486711391277313 stripped

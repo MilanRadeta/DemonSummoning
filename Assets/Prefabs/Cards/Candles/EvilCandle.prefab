@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2223034900578529192, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3062567348837211429, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -26,6 +30,16 @@ PrefabInstance:
     - target: {fileID: 3741416255245238978, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575781952342994667, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: 'Evil Candle
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881557653036016158, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4903266903356677871, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_RootOrder
@@ -103,5 +117,9 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 8f0673c2664367b45be16cb28e0739dc, type: 3}
+    - target: {fileID: 8943378858634135060, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}

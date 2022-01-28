@@ -3887,6 +3887,8 @@ MonoBehaviour:
   type: 0
   triggerNumbers: 
   text: {fileID: 1497003812287849140}
+  triggerNumberText:
+  - {fileID: 7564035999560609345}
   actions: []
 --- !u!1 &7448145040076834268
 GameObject:
