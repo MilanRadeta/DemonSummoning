@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goldfish
       objectReference: {fileID: 0}
+    - target: {fileID: 8067220301411587223, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2c0468137fd48d343a7ef50f92d82f9e, type: 3}
     - target: {fileID: 9203641347078207474, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 

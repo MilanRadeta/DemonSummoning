@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RabidDog
       objectReference: {fileID: 0}
+    - target: {fileID: 8067220301411587223, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d03ab9e5a946fb24f9f34f808c4fd0ea, type: 3}
     - target: {fileID: 9203641347078207474, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 

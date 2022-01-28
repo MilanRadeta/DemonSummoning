@@ -11,7 +11,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 795376119609678608, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3062567348837211429, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681510203494353948, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
@@ -75,7 +83,15 @@ PrefabInstance:
       propertyPath: triggerNumbers.Array.data[2]
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6745502438917227145, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7189786148141214628, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581616060880505912, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
@@ -83,5 +99,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilCandle
       objectReference: {fileID: 0}
+    - target: {fileID: 8325503682175011009, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f0673c2664367b45be16cb28e0739dc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}

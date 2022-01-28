@@ -11,13 +11,33 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 795376119609678608, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3062567348837211429, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3681510203494353948, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3741416255245238978, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4009256473668859779, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575781952342994667, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: BEGINNER'S CANDLE
+      objectReference: {fileID: 0}
+    - target: {fileID: 4881557653036016158, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_text
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4903266903356677871, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_RootOrder
@@ -47,6 +67,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5309821235228811601, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5779071764433402761, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5925313720999710158, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -71,13 +99,33 @@ PrefabInstance:
       propertyPath: triggerNumbers.Array.data[1]
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6745502438917227145, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7189786148141214628, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581616060880505912, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8308486711391277313, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
       propertyPath: m_Name
       value: BeginnersCandle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325503682175011009, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325503682175011009, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325503682175011009, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -6242476716619054078, guid: 91759df2dae5ae54aba1947684ef3d9c, type: 3}
