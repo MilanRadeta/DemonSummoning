@@ -27,6 +27,21 @@ public class Deck : MonoBehaviour
         };
     }
 
+    void OnMouseDown()
+    {
+        if (Input.GetMouseButtonDown(0) && cards.Count > 0)
+        {
+            var card = cards.Pop();
+            card.FlipUp();
+            
+            if (alternativeDeck != null)
+            {
+                card.transform.SetParent(alternativeDeck.transform);
+            }
+            card.MoveToParent();
+        }
+    }
+
     public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
     {
         Reset();
@@ -113,11 +128,12 @@ public class Deck : MonoBehaviour
     private void RepositionCards()
     {
         int y = 0;
-        foreach (var card in cards)
+        foreach (var card in cards.Reverse())
         {
+
             card.transform.SetParent(gameObject.transform);
-            card.transform.position = Vector3.up * y++ * card.meshRenderer.bounds.extents.y;
-            card.transform.rotation = Quaternion.FromToRotation(Vector3.up, Vector3.down);
+            card.transform.localPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
+            card.transform.localRotation = Quaternion.Euler(new Vector3(1, 1, 0) * (faceUp ? 1 : 180));
         }
     }
 }

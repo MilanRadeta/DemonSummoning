@@ -10,7 +10,7 @@ public class Card : MonoBehaviour
     public string cardName;
     public List<int> triggerNumbers;
     public CardAction[] actions;
-    
+
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
@@ -32,6 +32,37 @@ public class Card : MonoBehaviour
             text.transform.parent.gameObject.SetActive(false);
 
         }
+    }
+
+    public void MoveToParent()
+    {
+        StartCoroutine(MoveAnimation(1));
+    }
+    public void FlipUp()
+    {
+        StartCoroutine(FlipUpAnimation(1));
+    }
+
+    private IEnumerator MoveAnimation(float duration) {
+        Vector3 startPosition = transform.localPosition;
+        Vector3 endPosition = Vector3.zero;
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            transform.localPosition = Vector3.Lerp(startPosition, endPosition, t / duration);
+            yield return null;
+        }
+        transform.localPosition = endPosition;
+    }
+
+    private IEnumerator FlipUpAnimation(float duration) {
+        Quaternion startRotation = transform.localRotation;
+        Quaternion endRotation = Quaternion.Euler(Vector3.zero);
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            transform.localRotation = Quaternion.Lerp(startRotation, endRotation, t / duration);
+            yield return null;
+        }
+        transform.localRotation = endRotation;
     }
 
     public void Execute(int roll)

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 406250921001234813, guid: 31a2594f0d20fb849b5e05fb427acb91, type: 3}
+      propertyPath: faceUp
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5073843448402833740, guid: 31a2594f0d20fb849b5e05fb427acb91, type: 3}
       propertyPath: m_Name
       value: DiscardDeck
