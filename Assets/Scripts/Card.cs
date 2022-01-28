@@ -9,9 +9,11 @@ public class Card : MonoBehaviour
     public CardType type;
     public string cardName;
     public List<int> triggerNumbers;
+    public CardAction[] actions;
+    
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
-    public CardAction[] actions;
+    public MeshRenderer meshRenderer;
 
     void OnValidate()
     {

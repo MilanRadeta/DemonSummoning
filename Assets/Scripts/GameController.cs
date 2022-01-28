@@ -32,68 +32,6 @@ public class GameController : MonoBehaviour
         InitDecksAndHands();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    void InitPlayers()
-    {
-        players = new Player[this.config.numberOfPlayers];
-        for (int i = 0; i < this.players.Length; i++)
-        {
-            this.players[i] = new Player();
-            this.players[i].Init(this, config.startingSouls);
-        }
-
-    }
-
-    void InitDecksAndHands()
-    {
-        InitDeck(this.config.availableDemons, c => c.type == CardType.DEMON, demonDeck);
-        InitDeck(this.config.availableCards, c => c.type == CardType.CANDLE, blockDeck);
-
-        foreach (var player in players)
-        {
-            player.BuyCard(this.blockDeck.TakeTopCard(), 0);
-            for (int i = 0; i < this.config.startingDemons; i++)
-            {
-                player.TakeCard(this.demonDeck.TakeTopCard());
-            }
-        }
-        InitDeck(this.config.availableCards, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck);
-
-        RefillBlock();
-    }
-
-    void InitDeck(GameConfig.CardCount[] availableCards, System.Func<Card, bool> predicate, Deck deck)
-    {
-        var cards = GenerateCards(availableCards, predicate);
-        deck.AddCards(cards);
-        deck.Shuffle();
-    }
-
-    List<Card> GenerateCards(GameConfig.CardCount[] cardCount, System.Func<Card, bool> predicate)
-    {
-        var cards = new List<Card>();
-        foreach (var item in cardCount)
-        {
-            if (!predicate(item.card))
-            {
-                continue;
-            }
-
-            for (int i = 0; i < item.count; i++)
-            {
-                var card = Instantiate(item.card);
-                card.gameObject.SetActive(false);
-                cards.Add(card);
-            }
-        }
-        return cards;
-    }
-
     public void ExecuteTurn()
     {
         while (!IsGameFinished)
@@ -171,5 +109,39 @@ public class GameController : MonoBehaviour
     public int[] RollDice(int numberOfDice = 2, int dieSides = 6)
     {
         return (new int[numberOfDice]).Select(c => Random.Range(0, dieSides) + 1).ToArray();
+    }
+
+    private void InitPlayers()
+    {
+        players = new Player[this.config.numberOfPlayers];
+        for (int i = 0; i < this.players.Length; i++)
+        {
+            this.players[i] = new Player();
+            this.players[i].Init(this, config.startingSouls);
+        }
+
+    }
+
+    private void InitDecksAndHands()
+    {
+        InitDeck(this.config.demonsConfig, c => c.type == CardType.DEMON, demonDeck);
+        InitDeck(this.config.cardsConfig, c => c.type == CardType.CANDLE, blockDeck);
+
+        foreach (var player in players)
+        {
+            player.BuyCard(this.blockDeck.TakeTopCard(), 0);
+            for (int i = 0; i < this.config.startingDemons; i++)
+            {
+                player.TakeCard(this.demonDeck.TakeTopCard());
+            }
+        }
+        InitDeck(this.config.cardsConfig, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck);
+
+        RefillBlock();
+    }
+
+    private void InitDeck(DeckConfig availableCards, System.Func<Card, bool> predicate, Deck deck)
+    {
+        deck.Init(availableCards.cards.Where(item => predicate(item.card)));
     }
 }

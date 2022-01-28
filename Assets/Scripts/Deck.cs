@@ -6,19 +6,37 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
 
+    public DeckConfig config;
     public Deck alternativeDeck;
+    public bool faceUp = false;
     private Stack<Card> cards = new Stack<Card>();
 
-    // Start is called before the first frame update
-    void Start()
+    void OnValidate()
     {
+        if (config.cards.Length > 0)
+        {
 
+            UnityEditor.EditorApplication.delayCall += () =>
+              {
+                  if (this == null)
+                  {
+                      return;
+                  }
+                  Init();
+              };
+        };
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
     {
-
+        Reset();
+        if (cardsConfig == null)
+        {
+            cardsConfig = config.cards;
+        }
+        var cards = GenerateCards();
+        AddCards(cards);
+        Shuffle();
     }
 
     public void AddCards(IEnumerable<Card> cards)
@@ -32,6 +50,7 @@ public class Deck : MonoBehaviour
     public void Shuffle()
     {
         this.cards = new Stack<Card>(this.cards.OrderBy(x => Random.value));
+        RepositionCards();
     }
 
     public void SwapDecks(Deck deck)
@@ -57,5 +76,48 @@ public class Deck : MonoBehaviour
             }
         }
         return this.cards.Pop();
+    }
+
+    private void Reset()
+    {
+        cards = new Stack<Card>();
+        while (transform.childCount > 0)
+        {
+            var child = transform.GetChild(0).gameObject;
+            if (Application.isEditor)
+            {
+                DestroyImmediate(child);
+            }
+            else
+            {
+                Destroy(child);
+            }
+        }
+    }
+
+    private List<Card> GenerateCards()
+    {
+        var cards = new List<Card>();
+        foreach (var item in config.cards)
+        {
+            for (int i = 0; i < item.count; i++)
+            {
+                var card = Instantiate(item.card);
+                cards.Add(card);
+                card.gameObject.SetActive(true);
+            }
+        }
+        return cards;
+    }
+
+    private void RepositionCards()
+    {
+        int y = 0;
+        foreach (var card in cards)
+        {
+            card.transform.SetParent(gameObject.transform);
+            card.transform.position = Vector3.up * y++ * card.meshRenderer.bounds.extents.y;
+            card.transform.rotation = Quaternion.FromToRotation(Vector3.up, Vector3.down);
+        }
     }
 }

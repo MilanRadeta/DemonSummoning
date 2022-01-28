@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 2899916219801931541}
   - component: {fileID: 1000543547933031716}
   - component: {fileID: 1777288231518031517}
-  - component: {fileID: 9173636340814851381}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -3605,20 +3604,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2536968739133596092}
   m_Mesh: {fileID: 0}
---- !u!64 &9173636340814851381
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2536968739133596092}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &4317708171910099477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3863,14 +3848,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6344358962382069086}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2921522757768135087}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9209282739074343953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3887,10 +3872,11 @@ MonoBehaviour:
   type: 0
   cardName: Card
   triggerNumbers: 07000000
+  actions: []
   text: {fileID: 1497003812287849140}
   triggerNumberText:
   - {fileID: 7564035999560609345}
-  actions: []
+  meshRenderer: {fileID: 1000543547933031716}
 --- !u!1 &7448145040076834268
 GameObject:
   m_ObjectHideFlags: 0
