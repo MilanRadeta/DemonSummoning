@@ -5,6 +5,7 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public Player Owner { get; set; }
+    public bool FaceUp { get { return faceUp;} set { faceUp = value; animator.SetBool("FaceUp", value);} }
     public CardAffinity affinity;
     public CardType type;
     public string cardName;
@@ -14,6 +15,8 @@ public class Card : MonoBehaviour
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
+    public Animator animator;
+    private bool faceUp = true;
 
     void OnValidate()
     {
@@ -38,9 +41,10 @@ public class Card : MonoBehaviour
     {
         StartCoroutine(MoveAnimation(1));
     }
+
     public void FlipUp()
     {
-        StartCoroutine(FlipUpAnimation(1));
+
     }
 
     private IEnumerator MoveAnimation(float duration) {
@@ -52,17 +56,6 @@ public class Card : MonoBehaviour
             yield return null;
         }
         transform.localPosition = endPosition;
-    }
-
-    private IEnumerator FlipUpAnimation(float duration) {
-        Quaternion startRotation = transform.localRotation;
-        Quaternion endRotation = Quaternion.Euler(Vector3.zero);
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            transform.localRotation = Quaternion.Lerp(startRotation, endRotation, t / duration);
-            yield return null;
-        }
-        transform.localRotation = endRotation;
     }
 
     public void Execute(int roll)

@@ -118,6 +118,7 @@ public class Deck : MonoBehaviour
             for (int i = 0; i < item.count; i++)
             {
                 var card = Instantiate(item.card);
+                card.FaceUp = faceUp;
                 cards.Add(card);
                 card.gameObject.SetActive(true);
             }
@@ -133,7 +134,6 @@ public class Deck : MonoBehaviour
 
             card.transform.SetParent(gameObject.transform);
             card.transform.localPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
-            card.transform.localRotation = Quaternion.Euler(new Vector3(1, 1, 0) * (faceUp ? 1 : 180));
         }
     }
 }
