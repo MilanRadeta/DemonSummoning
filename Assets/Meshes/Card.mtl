@@ -1,0 +1,10 @@
+newmtl CardFront
+map_Kd C:/UnityProjects/DemonSummoning/Assets/Textures/CardFront.png
+Kd 1 1 1
+d 1
+
+newmtl CardBack
+map_Kd C:/UnityProjects/DemonSummoning/Assets/Textures/CardBack.png
+Kd 1 1 1
+d 1
+
