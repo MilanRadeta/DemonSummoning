@@ -37,27 +37,6 @@ public class Card : MonoBehaviour
         }
     }
 
-    public void MoveToParent()
-    {
-        StartCoroutine(MoveAnimation(1));
-    }
-
-    public void FlipUp()
-    {
-
-    }
-
-    private IEnumerator MoveAnimation(float duration) {
-        Vector3 startPosition = transform.localPosition;
-        Vector3 endPosition = Vector3.zero;
-        for (float t = 0; t < duration; t += Time.deltaTime)
-        {
-            transform.localPosition = Vector3.Lerp(startPosition, endPosition, t / duration);
-            yield return null;
-        }
-        transform.localPosition = endPosition;
-    }
-
     public void Execute(int roll)
     {
         if (CanExecute(roll))

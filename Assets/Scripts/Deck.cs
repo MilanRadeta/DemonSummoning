@@ -13,43 +13,19 @@ public class Deck : MonoBehaviour
 
     void OnValidate()
     {
-        if (config.cards.Length > 0)
-        {
-
-            UnityEditor.EditorApplication.delayCall += () =>
-              {
-                  if (this == null)
-                  {
-                      return;
-                  }
-                  Init();
-              };
-        };
+        CardGenerator.RegenerateOnValidate(this, config?.cards, () => Init());
     }
 
-    void OnMouseDown()
+    public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null, bool reset = true)
     {
-        if (Input.GetMouseButtonDown(0) && cards.Count > 0)
-        {
-            var card = cards.Pop();
-            card.FlipUp();
-            
-            if (alternativeDeck != null)
-            {
-                card.transform.SetParent(alternativeDeck.transform);
-            }
-            card.MoveToParent();
+        if (reset) {
+            Reset();
         }
-    }
-
-    public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
-    {
-        Reset();
         if (cardsConfig == null)
         {
             cardsConfig = config.cards;
         }
-        var cards = GenerateCards();
+        var cards = new Stack<Card>(CardGenerator.GenerateCards(cardsConfig, faceUp));
         AddCards(cards);
         Shuffle();
     }
@@ -96,34 +72,7 @@ public class Deck : MonoBehaviour
     private void Reset()
     {
         cards = new Stack<Card>();
-        while (transform.childCount > 0)
-        {
-            var child = transform.GetChild(0).gameObject;
-            if (Application.isEditor)
-            {
-                DestroyImmediate(child);
-            }
-            else
-            {
-                Destroy(child);
-            }
-        }
-    }
-
-    private List<Card> GenerateCards()
-    {
-        var cards = new List<Card>();
-        foreach (var item in config.cards)
-        {
-            for (int i = 0; i < item.count; i++)
-            {
-                var card = Instantiate(item.card);
-                card.FaceUp = faceUp;
-                cards.Add(card);
-                card.gameObject.SetActive(true);
-            }
-        }
-        return cards;
+        CardGenerator.Delete(this);
     }
 
     private void RepositionCards()
@@ -131,7 +80,6 @@ public class Deck : MonoBehaviour
         int y = 0;
         foreach (var card in cards.Reverse())
         {
-
             card.transform.SetParent(gameObject.transform);
             card.transform.localPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
         }

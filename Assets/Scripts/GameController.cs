@@ -135,13 +135,13 @@ public class GameController : MonoBehaviour
                 player.TakeCard(this.demonDeck.TakeTopCard());
             }
         }
-        InitDeck(this.config.cardsConfig, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck);
+        InitDeck(this.config.cardsConfig, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck, false);
 
         RefillBlock();
     }
 
-    private void InitDeck(DeckConfig availableCards, System.Func<Card, bool> predicate, Deck deck)
+    private void InitDeck(DeckConfig availableCards, System.Func<Card, bool> predicate, Deck deck, bool reset = true)
     {
-        deck.Init(availableCards.cards.Where(item => predicate(item.card)));
+        deck.Init(availableCards.cards.Where(item => predicate(item.card)), reset);
     }
 }
