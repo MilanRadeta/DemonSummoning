@@ -5,7 +5,23 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public Player Owner { get; set; }
-    public bool FaceUp { get { return faceUp;} set { faceUp = value; animator.SetBool("FaceUp", value);} }
+    public bool FaceUp
+    {
+        set
+        {
+            animator.SetBool("FaceUp", value);
+            cardTransform.FaceUp = value;
+        }
+    }
+    public Vector3 TargetPosition
+    {
+        set
+        {
+            cardTransform.TargetPosition = value;
+        }
+    }
+
+    public CardTransform cardTransform;
     public CardAffinity affinity;
     public CardType type;
     public string cardName;
@@ -16,7 +32,6 @@ public class Card : MonoBehaviour
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
     public Animator animator;
-    private bool faceUp = true;
 
     void OnValidate()
     {

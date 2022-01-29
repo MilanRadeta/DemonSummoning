@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 8020342751237214896}
   - component: {fileID: 9209282739074343953}
   - component: {fileID: 5023467052631261793}
+  - component: {fileID: 1250717353104930177}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3465067e896494d88074d9db70b4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardTransform: {fileID: 1250717353104930177}
   affinity: 0
   type: 0
   cardName: Card
@@ -376,6 +378,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1250717353104930177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7900a04f237c45b4efaf9e3837df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7448145040076834268
 GameObject:
   m_ObjectHideFlags: 0
