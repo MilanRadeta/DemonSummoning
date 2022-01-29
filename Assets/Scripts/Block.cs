@@ -45,14 +45,18 @@ public class Block : MonoBehaviour
     {
         if (cards.Count > 0)
         {
-            int y = 0;
-            var delta = 360 / cards.Count;
+            var delta = 360f / cards.Count;
+            var transform = Instantiate(this.transform);
+            transform.SetParent(this.transform);
+            transform.localPosition = Vector3.forward;
             foreach (var card in cards)
             {
-                card.transform.SetParent(gameObject.transform);
-                card.transform.localPosition = Vector3.forward;
-                card.transform.RotateAround(transform.position, Vector3.up, delta * y++);
+                transform.RotateAround(this.transform.position, Vector3.up, delta);
+
+                card.transform.SetParent(this.transform);
+                card.TargetPosition = transform.localPosition;
             }
+            Remover.Destroy(transform.gameObject);
         }
     }
 

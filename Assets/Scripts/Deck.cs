@@ -77,11 +77,11 @@ public class Deck : MonoBehaviour
 
     private void RepositionCards()
     {
-        int y = 0;
+        int y = 0; 
         foreach (var card in cards.Reverse())
         {
             card.transform.SetParent(gameObject.transform);
-            card.transform.localPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
+            card.TargetPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
         }
     }
 }
