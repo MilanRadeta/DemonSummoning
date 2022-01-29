@@ -43,20 +43,12 @@ public class Block : MonoBehaviour
 
     private void RepositionCards()
     {
-        if (cards.Count > 0)
+        var positions = Positioner.PositionAround(this.transform, cards.Count);
+        var i = 0;
+        foreach (var card in cards)
         {
-            var delta = 360f / cards.Count;
-            var transform = Instantiate(this.transform);
-            transform.SetParent(this.transform);
-            transform.localPosition = Vector3.forward;
-            foreach (var card in cards)
-            {
-                transform.RotateAround(this.transform.position, Vector3.up, delta);
-
-                card.transform.SetParent(this.transform);
-                card.TargetPosition = transform.localPosition;
-            }
-            Remover.Destroy(transform.gameObject);
+            card.transform.SetParent(this.transform);
+            card.TargetPosition = positions[i++];
         }
     }
 
