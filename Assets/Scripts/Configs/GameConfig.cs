@@ -6,21 +6,6 @@ using UnityEngine;
 public class GameConfig
 {
 
-    [Range(1, 5)]
-    public int numberOfPlayers = 2;
-
-    [Range(0, 100)]
-    public int soulsToWin = 10;
-
-    [Range(0, 10)]
-    public int demonsToWin = 3;
-
-    [Range(0, 100)]
-    public int startingSouls = 5;
-
-    [Range(0, 10)]
-    public int startingDemons = 5;
-
     [Range(0, 50)]
     public int cardPrice = 3;
 
@@ -28,7 +13,7 @@ public class GameConfig
     public int blockCards = 5;
 
     public DeckConfig cardsConfig;
-
     public DeckConfig demonsConfig;
+    public PlayersConfig playersConfig;
 
 }

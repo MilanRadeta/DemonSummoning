@@ -6,29 +6,21 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameConfig config;
-    public GameReferences references;
+    public Players players;
 
-    public Player[] Players { get { return players.Clone() as Player[]; } }
+    public Player[] Players { get { return players.AllPlayers; } }
     public List<Card> BlockCards { get { return block.Cards; } }
-
-    public bool IsGameFinished { get { return this.activePlayer.IsWinner(this.config.soulsToWin, this.config.demonsToWin); } }
-
-    private Player[] players;
-    private int activePlayerIndex = 0;
-    private Player activePlayer { get { return players[activePlayerIndex]; } }
-    private Block block;
-    private Deck blockDeck;
-    private Deck demonDeck;
-    private Deck discardDeck;
+    public bool IsGameFinished { get { return this.players.IsActivePlayerWinner; } }
+    private Player activePlayer { get { return players.ActivePlayer; } }
+    public Block block;
+    public Deck blockDeck;
+    public Deck demonDeck;
+    public Deck discardDeck;
 
     // Start is called before the first frame update
     void Start()
     {
-        block = this.references.blockObject.GetComponent<Block>();
-        blockDeck = this.references.blockDeckObject.GetComponent<Deck>();
-        demonDeck = this.references.demonDeckObject.GetComponent<Deck>();
-        discardDeck = this.references.discardDeckObject.GetComponent<Deck>();
-        InitPlayers();
+        players.Init(this);
         InitDecksAndHands();
     }
 
@@ -42,8 +34,7 @@ public class GameController : MonoBehaviour
             // TODO optional card buy
             var roll = RollDice();
             RefillBlock();
-            this.activePlayerIndex++;
-            this.activePlayerIndex %= this.players.Length;
+            players.SwitchToNextPlayer();
         }
     }
 
@@ -111,30 +102,11 @@ public class GameController : MonoBehaviour
         return (new int[numberOfDice]).Select(c => Random.Range(0, dieSides) + 1).ToArray();
     }
 
-    private void InitPlayers()
-    {
-        players = new Player[this.config.numberOfPlayers];
-        for (int i = 0; i < this.players.Length; i++)
-        {
-            this.players[i] = new Player();
-            this.players[i].Init(this, config.startingSouls);
-        }
-
-    }
-
     private void InitDecksAndHands()
     {
         InitDeck(this.config.demonsConfig, c => c.type == CardType.DEMON, demonDeck);
         InitDeck(this.config.cardsConfig, c => c.type == CardType.CANDLE, blockDeck);
-
-        foreach (var player in players)
-        {
-            player.BuyCard(this.blockDeck.TakeTopCard(), 0);
-            for (int i = 0; i < this.config.startingDemons; i++)
-            {
-                player.TakeCard(this.demonDeck.TakeTopCard());
-            }
-        }
+        players.InitCards(this.blockDeck, this.demonDeck);
         InitDeck(this.config.cardsConfig, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck, false);
 
         RefillBlock();

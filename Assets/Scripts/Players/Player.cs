@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {
     public int Souls { get; set; } = 5;
     public List<Card> OpenCards { get { return openCards.ToList(); } }
+    public GameObject openCardsObj;
+    public GameObject handCardsObj;
     private List<Card> openCards = new List<Card>();
     private List<Card> handCards = new List<Card>();
     private GameController game;
