@@ -44,14 +44,7 @@ public static class CardGenerator
         while (obj.transform.childCount > 0)
         {
             var child = obj.transform.GetChild(0).gameObject;
-            if (Application.isEditor)
-            {
-                MonoBehaviour.DestroyImmediate(child);
-            }
-            else
-            {
-                MonoBehaviour.Destroy(child);
-            }
+            Remover.Destroy(child);
         }
     }
 
