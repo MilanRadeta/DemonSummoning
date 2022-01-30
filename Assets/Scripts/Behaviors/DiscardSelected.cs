@@ -7,11 +7,11 @@ public class DiscardSelected : CardAction
 {
     public GetCards getCards;
 
-    void Start()
+    void OnValidate()
     {
         if (getCards == null)
         {
-            Debug.LogError("DiscardSelected.selectCardsAction not assigned on " + gameObject.name);
+            throw new MissingReferenceException("DiscardSelected.selectCardsAction not assigned on " + gameObject.name);
         }
     }
 

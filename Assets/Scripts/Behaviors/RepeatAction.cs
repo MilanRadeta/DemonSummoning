@@ -8,16 +8,16 @@ public class RepeatAction : CardAction
     public CardAction action;
     public GetCards cardsGetter;
 
-    void Start()
+    void OnValidate()
     {
         if (action == null)
         {
-            Debug.LogError("RepeatAction.action not assigned on " + gameObject.name);
+            throw new MissingReferenceException("RepeatAction.action not assigned on " + gameObject.name);
         }
         
         if (cardsGetter == null)
         {
-            Debug.LogError("RepeatAction.cardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("RepeatAction.cardsGetter not assigned on " + gameObject.name);
         }
     }
 

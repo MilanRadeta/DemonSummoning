@@ -7,11 +7,11 @@ public class ActivateCards : CardAction
 {
     public GetCards cardsGetter;
 
-    void Start()
+    void OnValidate()
     {
         if (cardsGetter == null)
         {
-            Debug.LogError("RepeatAction.cardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("RepeatAction.cardsGetter not assigned on " + gameObject.name);
         }
     }
 

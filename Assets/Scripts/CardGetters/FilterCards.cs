@@ -9,11 +9,11 @@ public class FilterCards : GetCards
     public GetCards cardsGetter;
     public CardType[] allowedTypes;
 
-    void Start()
+    void OnValidate()
     {
         if (cardsGetter == null)
         {
-            Debug.LogError("FilterCards.cardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("FilterCards.cardsGetter not assigned on " + gameObject.name);
         }
     }
 
