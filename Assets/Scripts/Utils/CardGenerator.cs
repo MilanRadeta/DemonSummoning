@@ -8,16 +8,25 @@ public static class CardGenerator
 
     public static void RegenerateOnValidate(MonoBehaviour obj, IEnumerable<DeckConfig.CardCount> config, System.Action callback)
     {
-        if (obj != null && config?.Count() > 0)
-        {
+        RegenerateOnValidate(obj?.transform, config, callback);
+    }
 
+    public static void RegenerateOnValidate(GameObject obj, IEnumerable<DeckConfig.CardCount> config, System.Action callback)
+    {
+        RegenerateOnValidate(obj?.transform, config, callback);
+    }
+
+    public static void RegenerateOnValidate(Transform transform, IEnumerable<DeckConfig.CardCount> config, System.Action callback)
+    {
+        if (transform != null && config?.Count() > 0)
+        {
             UnityEditor.EditorApplication.delayCall += () =>
               {
-                  if (obj == null)
+                  if (transform == null)
                   {
                       return;
                   }
-                  Delete(obj);
+                  DeleteChildren(transform);
                   callback();
               };
         };
@@ -39,11 +48,11 @@ public static class CardGenerator
         return cards;
     }
 
-    public static void Delete(MonoBehaviour obj)
+    public static void DeleteChildren(Transform transform)
     {
-        while (obj.transform.childCount > 0)
+        while (transform?.childCount > 0)
         {
-            var child = obj.transform.GetChild(0).gameObject;
+            var child = transform.GetChild(0).gameObject;
             Remover.Destroy(child);
         }
     }
