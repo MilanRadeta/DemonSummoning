@@ -14,17 +14,6 @@ public class Block : MonoBehaviour
         CardGenerator.RegenerateOnValidate(this, config?.cards, () => Init());
     }
 
-    public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
-    {
-        Reset();
-        if (cardsConfig == null)
-        {
-            cardsConfig = config.cards;
-        }
-        cards = CardGenerator.GenerateCards(cardsConfig);
-        RepositionCards();
-    }
-
     public void AddCard(Card card)
     {
         this.cards.Add(card);
@@ -33,12 +22,6 @@ public class Block : MonoBehaviour
     public void TakeCard(Card card)
     {
         this.cards.Remove(card);
-    }
-
-    private void Reset()
-    {
-        cards = new List<Card>();
-        CardGenerator.Delete(this);
     }
 
     private void RepositionCards()
@@ -50,6 +33,20 @@ public class Block : MonoBehaviour
             card.transform.SetParent(this.transform);
             card.TargetPosition = positions[i++];
         }
+    }
+
+    private void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
+    {
+        if (this == null)
+        {
+            return;
+        }
+        if (cardsConfig == null)
+        {
+            cardsConfig = config.cards;
+        }
+        cards = CardGenerator.GenerateCards(cardsConfig, true);
+        RepositionCards();
     }
 
 

@@ -18,8 +18,13 @@ public class Deck : MonoBehaviour
 
     public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null, bool reset = true)
     {
-        if (reset) {
-            Reset();
+        if (this == null)
+        {
+            return;
+        }
+        if (reset)
+        {
+            this.cards = new Stack<Card>();
         }
         if (cardsConfig == null)
         {
@@ -69,15 +74,9 @@ public class Deck : MonoBehaviour
         return this.cards.Pop();
     }
 
-    private void Reset()
-    {
-        cards = new Stack<Card>();
-        CardGenerator.Delete(this);
-    }
-
     private void RepositionCards()
     {
-        int y = 0; 
+        int y = 0;
         foreach (var card in cards.Reverse())
         {
             card.transform.SetParent(gameObject.transform);
