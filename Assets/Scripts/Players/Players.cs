@@ -21,11 +21,19 @@ public class Players : MonoBehaviour
         CardGenerator.RegenerateOnValidate(this, deckConfig?.cards, () =>
         {
             Init();
+            foreach (var player in players)
+            {
+                player.deckConfig = deckConfig;
+                player.OnValidate();
+            }
         });
     }
 
     public void Init(GameController game = null)
     {
+        if (this == null) {
+            return;
+        }
         if (game != null)
         {
             this.config = game.config.playersConfig;

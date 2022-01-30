@@ -9,14 +9,32 @@ public class Player : MonoBehaviour
     public List<Card> OpenCards { get { return openCards.ToList(); } }
     public GameObject openCardsObj;
     public GameObject handCardsObj;
+    public DeckConfig deckConfig;
+    public GameController game;
+
     private List<Card> openCards = new List<Card>();
     private List<Card> handCards = new List<Card>();
-    private GameController game;
+
+
+    public void OnValidate()
+    {
+        if (this == null) {
+            return;
+        }
+        CardGenerator.RegenerateOnValidate(openCardsObj, deckConfig?.cards, () => {
+            CardGenerator.DeleteChildren(handCardsObj.transform);
+            Init(game, Souls);
+            RepositionCards();
+        });
+        
+    }
 
     public void Init(GameController game, int souls)
     {
         this.game = game;
         this.Souls = souls;
+        openCards = CardGenerator.GenerateCards(deckConfig?.cards, true);
+        handCards = CardGenerator.GenerateCards(deckConfig?.cards, false);
     }
 
     public void BuyCard(Card card, int price)
@@ -34,7 +52,7 @@ public class Player : MonoBehaviour
 
     public void SummonDemon(Card card, IEnumerable<Card> sacrifices)
     {
-        if (sacrifices != null)
+        if (sacrifices != null && game != null)
         {
             game.Discard(openCards.Where(c => sacrifices.Contains(c)));
         }
@@ -68,4 +86,30 @@ public class Player : MonoBehaviour
         }
         return cards;
     }
+
+    private void RepositionCards()
+    {
+        RepositionCards(openCards, openCardsObj);
+        RepositionCards(handCards, handCardsObj);
+    }
+    private void RepositionCards(IEnumerable<Card> cards, GameObject root)
+    {
+        var length = cards.Count();
+        var stepVector = new Vector3(0.5f, -0.01f, 0.125f);
+        var halfLength = (length - 1) / 2f;
+        var pos = stepVector * (-halfLength);
+
+        foreach (var card in cards)
+        {
+            card.transform.SetParent(root.transform);
+            var rotation = card.transform.localRotation.eulerAngles;
+            card.TargetPosition = pos;
+            card.TargetRotation = Vector3.zero;
+            pos += stepVector;
+            if (pos.z >= 0) {
+                stepVector.z = -stepVector.z;
+            }
+        }
+    }
+
 }
