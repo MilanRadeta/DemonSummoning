@@ -314,6 +314,8 @@ GameObject:
   - component: {fileID: 9209282739074343953}
   - component: {fileID: 5023467052631261793}
   - component: {fileID: 1250717353104930177}
+  - component: {fileID: 7411293624680041749}
+  - component: {fileID: 6148349890022112596}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -388,6 +390,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8a7900a04f237c45b4efaf9e3837df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translator: {fileID: 7411293624680041749}
+  rotator: {fileID: 6148349890022112596}
+--- !u!114 &7411293624680041749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: badd4c5a3c8e4d54a9190b7ffc4c1472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6148349890022112596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e228225dc138ca4e8ae24c63ddbe0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7448145040076834268

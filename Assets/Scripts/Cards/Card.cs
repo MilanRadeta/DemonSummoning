@@ -15,10 +15,13 @@ public class Card : MonoBehaviour
     }
     public Vector3 TargetPosition
     {
-        set
-        {
-            cardTransform.TargetPosition = value;
-        }
+        get { return cardTransform.TargetPosition; }
+        set { cardTransform.TargetPosition = value; }
+    }
+    public Vector3 TargetRotation
+    {
+        get { return cardTransform.TargetRotation; }
+        set { cardTransform.TargetRotation = value; }
     }
 
     public CardTransform cardTransform;

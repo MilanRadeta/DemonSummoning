@@ -10,43 +10,28 @@ public class CardTransform : MonoBehaviour
         {
             if (Application.isEditor)
             {
-                transform.rotation = Quaternion.Euler(0, 0, value ? 0 : 180);
+                transform.GetChild(0).rotation = Quaternion.Euler(0, 0, value ? 0 : 180);
             }
 
         }
     }
     public Vector3 TargetPosition
     {
-        get { return targetPosition; }
-        set
-        {
-            targetPosition = value;
-            distance = Vector3.Distance(value, transform.localPosition);
-            if (Application.isEditor)
-            {
-                transform.localPosition = targetPosition;
-            }
-        }
+        get { return translator.Target; }
+        set { translator.Target = value; }
     }
-    public float Speed { get; set; } = 1f;
-    private Vector3 targetPosition = Vector3.zero;
-    private float distance = 0f;
+    public Vector3 TargetRotation
+    {
+        get { return rotator.Target; }
+        set { rotator.Target = value; }
+    }
+    public Translator translator;
+    public Rotator rotator;
 
     void Update()
     {
-        UpdatePosition();
-    }
-
-    void UpdatePosition()
-    {
-        var epsilon = 0.001f;
-        if (Speed <= 0f || Vector3.Distance(transform.localPosition, TargetPosition) < epsilon)
-        {
-            transform.localPosition = TargetPosition;
-            return;
-        }
-        float step = distance * Speed * Time.deltaTime;
-        transform.localPosition = Vector3.MoveTowards(transform.localPosition, TargetPosition, step);
+        translator.Translate();
+        rotator.Translate();
     }
 
 }
