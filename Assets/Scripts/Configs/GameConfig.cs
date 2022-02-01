@@ -13,7 +13,6 @@ public class GameConfig
     public int blockCards = 5;
 
     public DeckConfig cardsConfig;
-    public DeckConfig demonsConfig;
     public PlayersConfig playersConfig;
 
 }

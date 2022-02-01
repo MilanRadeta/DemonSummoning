@@ -6,21 +6,19 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public List<Card> Cards { get { return cards.ToList(); } }
-    public DeckConfig config;
     private List<Card> cards = new List<Card>();
-
-    void OnValidate()
-    {
-        CardGenerator.RegenerateOnValidate(this, config?.cards, () => Init());
-    }
 
     public void AddCard(Card card)
     {
+        card.IsBlockCard = true;
+        card.FaceUp = true;
         this.cards.Add(card);
+        RepositionCards();
     }
 
     public void TakeCard(Card card)
     {
+        card.IsBlockCard = false;
         this.cards.Remove(card);
     }
 
@@ -33,20 +31,6 @@ public class Block : MonoBehaviour
             card.transform.SetParent(this.transform);
             card.TargetPosition = positions[i++];
         }
-    }
-
-    private void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null)
-    {
-        if (this == null)
-        {
-            return;
-        }
-        if (cardsConfig == null)
-        {
-            cardsConfig = config.cards;
-        }
-        cards = CardGenerator.GenerateCards(cardsConfig, true);
-        RepositionCards();
     }
 
 

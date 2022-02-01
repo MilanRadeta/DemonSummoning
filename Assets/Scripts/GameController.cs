@@ -17,7 +17,6 @@ public class GameController : MonoBehaviour
     public Deck demonDeck;
     public Deck discardDeck;
 
-    // Start is called before the first frame update
     void Start()
     {
         players.Init(this);
@@ -52,14 +51,20 @@ public class GameController : MonoBehaviour
         return this.activePlayer.CanBuyCard(this.config.cardPrice);
     }
 
-    public void RefillBlock()
+    public IEnumerator RefillBlock()
     {
+        yield return new WaitUntil(() => !this.blockDeck.IsMoving);
         var missingCards = this.config.blockCards - this.block.Cards.Count;
         for (int i = 0; i < missingCards; i++)
         {
             var card = this.TakeTopBlockCard();
             this.block.AddCard(card);
         }
+    }
+
+    public void BuyBlockCardForActivePlayer(Card card)
+    {
+        BuyBlockCard(activePlayer, card);
     }
 
     public void BuyBlockCard(Player player, Card card)
@@ -104,16 +109,21 @@ public class GameController : MonoBehaviour
 
     private void InitDecksAndHands()
     {
-        InitDeck(this.config.demonsConfig, c => c.type == CardType.DEMON, demonDeck);
-        InitDeck(this.config.cardsConfig, c => c.type == CardType.CANDLE, blockDeck);
-        players.InitCards(this.blockDeck, this.demonDeck);
-        InitDeck(this.config.cardsConfig, c => c.type != CardType.CANDLE && c.type != CardType.DEMON, blockDeck, false);
+        var cards = CardGenerator.GenerateCards(this.config.cardsConfig.cards, false).OrderBy(c => Random.value).ToList();
+        var candles = ExtractCardsOfType(cards, CardType.CANDLE);
+        var demons = ExtractCardsOfType(cards, CardType.DEMON);
+        players.InitCards(candles, demons);
+        cards.AddRange(candles);
+        demonDeck.Init(demons);
+        blockDeck.Init(cards);
 
-        RefillBlock();
+        StartCoroutine(RefillBlock());
     }
 
-    private void InitDeck(DeckConfig availableCards, System.Func<Card, bool> predicate, Deck deck, bool reset = true)
+    private Stack<Card> ExtractCardsOfType(List<Card> cards, CardType type)
     {
-        deck.Init(availableCards.cards.Where(item => predicate(item.card)), reset);
+        var cardsOfType = cards.Where(c => c.type == type).ToList();
+        cards.RemoveAll(c => c.type == type);
+        return new Stack<Card>(cardsOfType);
     }
 }

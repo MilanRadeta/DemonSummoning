@@ -15,26 +15,10 @@ public class Player : MonoBehaviour
     private List<Card> openCards = new List<Card>();
     private List<Card> handCards = new List<Card>();
 
-
-    public void OnValidate()
-    {
-        if (this == null) {
-            return;
-        }
-        CardGenerator.RegenerateOnValidate(openCardsObj, deckConfig?.cards, () => {
-            CardGenerator.DeleteChildren(handCardsObj.transform);
-            Init(game, Souls);
-            RepositionCards();
-        });
-        
-    }
-
     public void Init(GameController game, int souls)
     {
         this.game = game;
         this.Souls = souls;
-        openCards = CardGenerator.GenerateCards(deckConfig?.cards, true);
-        handCards = CardGenerator.GenerateCards(deckConfig?.cards, false);
     }
 
     public void BuyCard(Card card, int price)
@@ -42,12 +26,15 @@ public class Player : MonoBehaviour
         Souls -= price;
         openCards.Add(card);
         card.Owner = this;
+        card.FaceUp = true;
+        RepositionCards();
     }
 
     public void TakeCard(Card card)
     {
         handCards.Add(card);
         card.Owner = this;
+        RepositionCards();
     }
 
     public void SummonDemon(Card card, IEnumerable<Card> sacrifices)
@@ -59,6 +46,8 @@ public class Player : MonoBehaviour
         handCards.Remove(card);
         openCards.Add(card);
         card.Owner = this;
+        card.FaceUp = true;
+        RepositionCards();
     }
 
     public bool IsWinner(int soulsToWin, int demonsToWin)

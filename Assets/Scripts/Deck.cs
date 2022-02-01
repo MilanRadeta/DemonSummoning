@@ -6,32 +6,13 @@ using UnityEngine;
 public class Deck : MonoBehaviour
 {
 
-    public DeckConfig config;
+    public bool IsMoving { get { return this.cards.ToList().Exists(c => c.IsMoving); } }
     public Deck alternativeDeck;
-    public bool faceUp = false;
     private Stack<Card> cards = new Stack<Card>();
 
-    void OnValidate()
+    public void Init(IEnumerable<Card> cards)
     {
-        CardGenerator.RegenerateOnValidate(this, config?.cards, () => Init());
-    }
-
-    public void Init(IEnumerable<DeckConfig.CardCount> cardsConfig = null, bool reset = true)
-    {
-        if (this == null)
-        {
-            return;
-        }
-        if (reset)
-        {
-            this.cards = new Stack<Card>();
-        }
-        if (cardsConfig == null)
-        {
-            cardsConfig = config.cards;
-        }
-        var cards = new Stack<Card>(CardGenerator.GenerateCards(cardsConfig, faceUp));
-        AddCards(cards);
+        this.cards = new Stack<Card>(cards);
         Shuffle();
     }
 
@@ -41,6 +22,7 @@ public class Deck : MonoBehaviour
         {
             this.cards.Push(card);
         }
+        RepositionCards();
     }
 
     public void Shuffle()
@@ -79,8 +61,9 @@ public class Deck : MonoBehaviour
         int y = 0;
         foreach (var card in cards.Reverse())
         {
+            var baseVector = Vector3.up * y++;
             card.transform.SetParent(gameObject.transform);
-            card.TargetPosition = Vector3.up * card.meshRenderer.bounds.extents.y * y++;
+            card.TargetPosition = baseVector * card.meshRenderer.bounds.extents.y;
         }
     }
 }

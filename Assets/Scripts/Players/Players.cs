@@ -6,8 +6,8 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     public Player playerPrefab;
-    public PlayersConfig config;
     public DeckConfig deckConfig;
+    public GameController game;
 
     public Player[] AllPlayers { get { return players.Clone() as Player[]; } }
     public bool IsActivePlayerWinner { get { return this.ActivePlayer.IsWinner(this.config.soulsToWin, this.config.demonsToWin); } }
@@ -15,29 +15,11 @@ public class Players : MonoBehaviour
 
     private Player[] players;
     private int activePlayerIndex = 0;
+    private PlayersConfig config;
 
-    void OnValidate()
+    public void Init(GameController game)
     {
-        CardGenerator.RegenerateOnValidate(this, deckConfig?.cards, () =>
-        {
-            Init();
-            foreach (var player in players)
-            {
-                player.deckConfig = deckConfig;
-                player.OnValidate();
-            }
-        });
-    }
-
-    public void Init(GameController game = null)
-    {
-        if (this == null) {
-            return;
-        }
-        if (game != null)
-        {
-            this.config = game.config.playersConfig;
-        }
+        this.config = game.config.playersConfig;
         players = new Player[this.config.numberOfPlayers];
         for (int i = 0; i < this.players.Length; i++)
         {
@@ -50,14 +32,14 @@ public class Players : MonoBehaviour
 
     }
 
-    public void InitCards(Deck blockDeck, Deck demonDeck)
+    public void InitCards(Stack<Card> candles, Stack<Card> demons)
     {
         foreach (var player in players)
         {
-            player.BuyCard(blockDeck.TakeTopCard(), 0);
+            player.BuyCard(candles.Pop(), 0);
             for (int i = 0; i < this.config.startingDemons; i++)
             {
-                player.TakeCard(demonDeck.TakeTopCard());
+                player.TakeCard(demons.Pop());
             }
         }
     }
