@@ -5,14 +5,15 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
     public Player Owner { get; set; }
+    public bool IsBlockCard { get; set; }
     public bool FaceUp
     {
         set
         {
             animator.SetBool("FaceUp", value);
-            cardTransform.FaceUp = value;
         }
     }
+    public bool IsMoving { get { return cardTransform.IsMoving; } }
     public Vector3 TargetPosition
     {
         get { return cardTransform.TargetPosition; }
@@ -35,6 +36,7 @@ public class Card : MonoBehaviour
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
     public Animator animator;
+    private GameController game;
 
     void OnValidate()
     {
@@ -53,6 +55,18 @@ public class Card : MonoBehaviour
             text.transform.parent.gameObject.SetActive(false);
 
         }
+    }
+
+    void Start()
+    {
+        game = FindObjectOfType<GameController>();
+    }
+
+    void OnMouseDown()
+    {
+        Debug.Log("Clicked card");
+        Debug.Log(game);
+        game.BuyBlockCardForActivePlayer(this);
     }
 
     public void Execute(int roll)

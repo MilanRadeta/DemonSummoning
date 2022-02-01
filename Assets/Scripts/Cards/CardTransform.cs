@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class CardTransform : MonoBehaviour
 {
-    public bool FaceUp
-    {
-        set
-        {
-            if (Application.isEditor)
-            {
-                transform.GetChild(0).rotation = Quaternion.Euler(0, 0, value ? 0 : 180);
-            }
-
-        }
-    }
+    public bool IsMoving { get { return translator.IsMoving || rotator.IsMoving; } }
     public Vector3 TargetPosition
     {
         get { return translator.Target; }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Translator : MonoBehaviour
 {
 
+    public bool IsMoving { get { return Target != Current; } }
     public Vector3 Target
     {
         get { return target; }
@@ -12,10 +13,6 @@ public class Translator : MonoBehaviour
         {
             target = value;
             distance = Distance;
-            if (Application.isEditor)
-            {
-                Current = value;
-            }
         }
     }
     public float Speed { get; set; } = 1f;
