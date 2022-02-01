@@ -24,6 +24,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using System;
 
@@ -44,6 +45,21 @@ namespace ntw.CurvedTextMeshPro
         /// True if the text must be updated at this frame 
         /// </summary>
         private bool m_forceUpdate;
+        private List<Transform> oldAncestors;
+        private List<Transform> ancestors
+        {
+            get
+            {
+                var result = new List<Transform>();
+                var parent = gameObject.transform;
+                while (parent.parent != null)
+                {
+                    parent = parent.parent;
+                    result.Add(parent);
+                }
+                return result;
+            }
+        }
 
         /// <summary>
         /// Awake
@@ -62,16 +78,36 @@ namespace ntw.CurvedTextMeshPro
             m_forceUpdate = true;
         }
 
+        private bool HasSameAncestors(List<Transform> ancestors)
+        {
+            if (ancestors?.Count != oldAncestors?.Count)
+            {
+                return false;
+            }
+            for (int i = 0; i < ancestors.Count; i++)
+            {
+                if (ancestors[i] != oldAncestors[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         /// <summary>
         /// Update
         /// </summary>
         protected void Update()
         {
+            var ancestors = this.ancestors;
             //if the text and the parameters are the same of the old frame, don't waste time in re-computing everything
-            if (!m_forceUpdate && !m_TextComponent.havePropertiesChanged && !ParametersHaveChanged())
+            if (!m_forceUpdate && !m_TextComponent.havePropertiesChanged && !ParametersHaveChanged() && HasSameAncestors(ancestors))
             {
                 return;
             }
+
+            Debug.Log(ancestors.Equals(oldAncestors));
+            oldAncestors = ancestors;
 
             m_forceUpdate = false;
 
