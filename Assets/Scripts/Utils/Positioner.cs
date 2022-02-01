@@ -21,7 +21,7 @@ public static class Positioner
                 transform.RotateAround(center.position, Vector3.up, delta);
                 result[i] = transform.localPosition;
             }
-            Remover.Destroy(transform.gameObject);
+            MonoBehaviour.Destroy(transform.gameObject);
         }
         return result;
     }
