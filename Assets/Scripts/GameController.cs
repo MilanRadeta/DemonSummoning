@@ -16,22 +16,26 @@ public class GameController : MonoBehaviour
     public Deck blockDeck;
     public Deck demonDeck;
     public Deck discardDeck;
+    public Dice dice;
 
     void Start()
     {
         players.Init(this);
         InitDecksAndHands();
+        StartCoroutine(ExecuteTurn());
     }
 
-    public void ExecuteTurn()
+    public IEnumerator ExecuteTurn()
     {
         while (!IsGameFinished)
         {
+            yield return new WaitUntil(() => !this.blockDeck.IsMoving && !this.discardDeck.IsMoving && !this.block.IsMoving && this.block.Cards.Count >= this.config.blockCards);
             // TODO choose action
             // TODO roll dice mandatory
             // TODO optional demon summon
             // TODO optional card buy
-            var roll = RollDice();
+            RollDice();
+            yield return new WaitUntil(() => dice.HasNumbers());
             RefillBlock();
             players.SwitchToNextPlayer();
         }
@@ -102,9 +106,9 @@ public class GameController : MonoBehaviour
         Discard(new Card[] { card });
     }
 
-    public int[] RollDice(int numberOfDice = 2, int dieSides = 6)
+    public void RollDice()
     {
-        return (new int[numberOfDice]).Select(c => Random.Range(0, dieSides) + 1).ToArray();
+        dice.Roll();
     }
 
     private void InitDecksAndHands()

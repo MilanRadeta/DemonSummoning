@@ -106,7 +106,6 @@ namespace ntw.CurvedTextMeshPro
                 return;
             }
 
-            Debug.Log(ancestors.Equals(oldAncestors));
             oldAncestors = ancestors;
 
             m_forceUpdate = false;

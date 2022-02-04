@@ -55,6 +55,10 @@ public class Card : MonoBehaviour
             text.transform.parent.gameObject.SetActive(false);
 
         }
+        for (int i = 0; i < actions.Length - 1; i++)
+        {
+            actions[i].Next = actions[i + 1];
+        }
     }
 
     void Start()
@@ -69,23 +73,17 @@ public class Card : MonoBehaviour
         game.BuyBlockCardForActivePlayer(this);
     }
 
-    public void Execute(int roll)
+    public IEnumerator Execute(int roll)
     {
         if (CanExecute(roll))
         {
-            Execute();
+            yield return Execute();
         }
     }
 
-    public void Execute()
+    public IEnumerator Execute()
     {
-        foreach (var action in actions)
-        {
-            if (!action.Execute())
-            {
-                break;
-            }
-        }
+        yield return actions[0].ExecuteChain();
     }
 
     public bool CanExecute(int roll)

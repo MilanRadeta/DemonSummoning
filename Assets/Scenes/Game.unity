@@ -258,9 +258,17 @@ PrefabInstance:
       propertyPath: config.playersConfig.startingDemons
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4891940700137951983, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8178787720472772414, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
       propertyPath: m_Name
       value: GameController
+      objectReference: {fileID: 0}
+    - target: {fileID: 8178787720472772414, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8835352550038101847, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
       propertyPath: m_RootOrder

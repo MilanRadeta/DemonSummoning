@@ -7,6 +7,7 @@ public class Block : MonoBehaviour
 {
     public List<Card> Cards { get { return cards.ToList(); } }
     private List<Card> cards = new List<Card>();
+    public bool IsMoving { get { return this.cards.ToList().Exists(c => c.IsMoving); } }
 
     public void AddCard(Card card)
     {

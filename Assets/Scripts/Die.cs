@@ -18,7 +18,7 @@ public class Die : MonoBehaviour
         new Vector3(0, 90, 90),
         new Vector3(90, 0, 0),
     };
-    public int animationDurationInSeconds = 2;
+    public int animationDurationInSeconds = 1;
 
     public int Number
     {
@@ -34,8 +34,6 @@ public class Die : MonoBehaviour
             if (value >= MinValue && value <= MaxValue)
             {
                 animator.enabled = false;
-                Debug.Log(value);
-                Debug.Log(rotationsForDiceValue[value - 1]);
                 transform.rotation = Quaternion.Euler(rotationsForDiceValue[value - 1]);
             }
         }
