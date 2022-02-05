@@ -18,10 +18,4 @@ public class CardTransform : MonoBehaviour
     public Translator translator;
     public Rotator rotator;
 
-    void Update()
-    {
-        translator.Translate();
-        rotator.Translate();
-    }
-
 }

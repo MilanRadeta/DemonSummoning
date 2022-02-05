@@ -8,7 +8,9 @@ public class Players : MonoBehaviour
     public Player playerPrefab;
     public DeckConfig deckConfig;
     public GameController game;
+    public Rotator rotator;
 
+    public bool IsMoving { get { return rotator.IsMoving; } }
     public Player[] AllPlayers { get { return players.Clone() as Player[]; } }
     public bool IsActivePlayerWinner { get { return this.ActivePlayer.IsWinner(this.config.soulsToWin, this.config.demonsToWin); } }
     public Player ActivePlayer { get { return players[activePlayerIndex]; } }
@@ -48,6 +50,8 @@ public class Players : MonoBehaviour
     {
         this.activePlayerIndex++;
         this.activePlayerIndex %= this.players.Length;
+        var step = 360 / this.players.Length;
+        rotator.Target = new Vector3(0, -this.activePlayerIndex * step, 0);
     }
 
     private void RepositionPlayers()

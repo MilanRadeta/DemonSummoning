@@ -5,7 +5,7 @@ using UnityEngine;
 public class Translator : MonoBehaviour
 {
 
-    public bool IsMoving { get { return Target != Current; } }
+    public virtual bool IsMoving { get { return Target != Current; } }
     public Vector3 Target
     {
         get { return target; }
@@ -23,7 +23,7 @@ public class Translator : MonoBehaviour
     private Vector3 target = Vector3.zero;
     private float distance = 0f;
 
-    public void Translate()
+    void Update()
     {
         var epsilon = 0.001f;
         if (Speed <= 0f || Distance < epsilon)

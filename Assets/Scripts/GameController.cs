@@ -29,7 +29,7 @@ public class GameController : MonoBehaviour
     {
         while (!IsGameFinished)
         {
-            yield return new WaitUntil(() => !this.blockDeck.IsMoving && !this.discardDeck.IsMoving && !this.block.IsMoving && this.block.Cards.Count >= this.config.blockCards);
+            yield return new WaitUntil(IsNextTurnPossible);
             // TODO choose action
             // TODO roll dice mandatory
             // TODO optional demon summon
@@ -129,5 +129,17 @@ public class GameController : MonoBehaviour
         var cardsOfType = cards.Where(c => c.type == type).ToList();
         cards.RemoveAll(c => c.type == type);
         return new Stack<Card>(cardsOfType);
+    }
+
+    private bool IsAnythingMoving() {
+        return this.players.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
+    }
+
+    private bool IsBlockFilled() {
+        return this.block.Cards.Count >= this.config.blockCards;
+    }
+
+    private bool IsNextTurnPossible() {
+        return !IsAnythingMoving() && IsBlockFilled();
     }
 }
