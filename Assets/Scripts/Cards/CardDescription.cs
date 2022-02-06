@@ -7,25 +7,27 @@ public class CardDescription : MonoBehaviour
     public static CardDescription instance;
     public Transform cardSlot;
     public TMPro.TextMeshPro text;
-    public Vector3 position = new Vector3(0, 0.75f, 2.5f);
 
     public CardDescription()
     {
         instance = this;
     }
 
-    void Start() {
+    void Start()
+    {
         this.Hide();
     }
 
     public void Show(Card card)
     {
-        var position = new Vector3(this.position.x, this.position.y, this.position.z);
-        if (card.transform.position.z > 0)
+        if (ShouldSwitchPosition(card))
         {
-            position.y = -position.y;
+            transform.localPosition = new Vector3(
+                transform.localPosition.x,
+                -transform.localPosition.y,
+                transform.localPosition.z
+            );
         }
-        transform.localPosition = position;
 
         var oldCard = cardSlot.GetChild(0);
         Destroy(oldCard.gameObject);
@@ -36,7 +38,7 @@ public class CardDescription : MonoBehaviour
         newCard.transform.localPosition = Vector3.zero;
         newCard.transform.localRotation = Quaternion.Euler(Vector3.zero);
         newCard.transform.localScale = Vector3.one;
-        
+
         text.text = card.description;
 
 
@@ -46,5 +48,10 @@ public class CardDescription : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private bool ShouldSwitchPosition(Card card)
+    {
+        return Mathf.Sign(transform.localPosition.y) + Mathf.Sign(card.transform.position.z) != 0;
     }
 }
