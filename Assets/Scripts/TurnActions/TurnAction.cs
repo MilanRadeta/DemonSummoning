@@ -21,6 +21,15 @@ public abstract class TurnAction : MonoBehaviour
         coroutine = null;
     }
 
+    public void OnClicked()
+    {
+        if (CanExecute())
+        {
+            coroutine = Execute();
+            StartCoroutine(coroutine);
+        }
+    }
+
     void Start()
     {
         material = GetComponent<Renderer>().material;
@@ -29,15 +38,6 @@ public abstract class TurnAction : MonoBehaviour
     void Update()
     {
         material.color = CanExecute() ? Color.green : Color.red;
-    }
-
-    void OnMouseDown()
-    {
-        if (CanExecute())
-        {
-            coroutine = Execute();
-            StartCoroutine(coroutine);
-        }
     }
 
 }
