@@ -31,6 +31,9 @@ public class Card : MonoBehaviour
     public string cardName;
     public List<int> triggerNumbers;
     public CardAction[] actions;
+    
+    public delegate void ClickAction(Card card);
+    public event ClickAction OnClicked;
 
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
@@ -68,9 +71,9 @@ public class Card : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("Clicked card");
-        Debug.Log(game);
-        game.BuyBlockCardForActivePlayer(this);
+        if (OnClicked != null) {
+            OnClicked(this);
+        }
     }
 
     public IEnumerator Execute(int roll)

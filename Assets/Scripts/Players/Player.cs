@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public int Souls { get; set; } = 5;
     public List<Card> OpenCards { get { return openCards.ToList(); } }
+    public List<Card> HandCards { get { return handCards.ToList(); } }
     public GameObject openCardsObj;
     public GameObject handCardsObj;
     public DeckConfig deckConfig;
@@ -58,6 +59,11 @@ public class Player : MonoBehaviour
     public bool CanBuyCard(int price)
     {
         return this.Souls >= price;
+    }
+
+    public bool CanSummonDemon(int price)
+    {
+        return this.handCards.Count > 0 && this.openCards.Count >= price;
     }
 
     public IEnumerable<Card> DiscardCards(Card card)

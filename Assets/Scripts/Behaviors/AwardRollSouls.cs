@@ -18,8 +18,7 @@ public class AwardRollSouls : CardAction
     
     public override IEnumerator ExecuteChain()
     {
-        game.RollDice();
-        yield return new WaitUntil(() => game.dice.HasNumbers());
+        yield return game.RollDice();
         yield return base.ExecuteChain();
     }
 }

@@ -5,21 +5,26 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameConfig config;
-    public Players players;
+    public static GameController Instance {get; private set;}
 
     public Player[] Players { get { return players.AllPlayers; } }
     public List<Card> BlockCards { get { return block.Cards; } }
     public bool IsGameFinished { get { return this.players.IsActivePlayerWinner; } }
-    private Player activePlayer { get { return players.ActivePlayer; } }
+    public Player ActivePlayer { get { return players.ActivePlayer; } }
+    public List<TurnAction> Actions { get; set; } = new List<TurnAction>();
+    public GameConfig config;
+    public Players players;
     public Block block;
     public Deck blockDeck;
     public Deck demonDeck;
     public Deck discardDeck;
     public Dice dice;
+    private TurnAction[] initActions;
 
     void Start()
     {
+        Instance = this;
+        initActions = GetComponentsInChildren<TurnAction>();
         players.Init(this);
         InitDecksAndHands();
         StartCoroutine(ExecuteTurn());
@@ -30,13 +35,13 @@ public class GameController : MonoBehaviour
         while (!IsGameFinished)
         {
             yield return new WaitUntil(IsNextTurnPossible);
-            // TODO choose action
-            // TODO roll dice mandatory
-            // TODO optional demon summon
-            // TODO optional card buy
-            RollDice();
-            yield return new WaitUntil(() => dice.HasNumbers());
-            RefillBlock();
+            Actions = initActions.ToList();
+            while (Actions.Count > 0)
+            {
+                var oldCount = Actions.Count;
+                yield return new WaitUntil(() => oldCount != Actions.Count);
+            }
+            yield return RefillBlock();
             players.SwitchToNextPlayer();
         }
     }
@@ -45,14 +50,10 @@ public class GameController : MonoBehaviour
     {
         return this.blockDeck.TakeTopCard();
     }
+
     public Card TakeTopDemonCard()
     {
         return this.demonDeck.TakeTopCard();
-    }
-
-    public bool CanActivePlayerBuyCard()
-    {
-        return this.activePlayer.CanBuyCard(this.config.cardPrice);
     }
 
     public IEnumerator RefillBlock()
@@ -68,7 +69,7 @@ public class GameController : MonoBehaviour
 
     public void BuyBlockCardForActivePlayer(Card card)
     {
-        BuyBlockCard(activePlayer, card);
+        BuyBlockCard(ActivePlayer, card);
     }
 
     public void BuyBlockCard(Player player, Card card)
@@ -106,9 +107,20 @@ public class GameController : MonoBehaviour
         Discard(new Card[] { card });
     }
 
-    public void RollDice()
+    public IEnumerator RollDice()
     {
         dice.Roll();
+        yield return new WaitUntil(() => dice.HasNumbers());
+    }
+
+    public bool IsNextTurnPossible()
+    {
+        return !IsAnythingMoving() && IsBlockFilled();
+    }
+
+    public bool IsAnythingMoving()
+    {
+        return this.players.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
     }
 
     private void InitDecksAndHands()
@@ -131,15 +143,8 @@ public class GameController : MonoBehaviour
         return new Stack<Card>(cardsOfType);
     }
 
-    private bool IsAnythingMoving() {
-        return this.players.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
-    }
-
-    private bool IsBlockFilled() {
+    private bool IsBlockFilled()
+    {
         return this.block.Cards.Count >= this.config.blockCards;
-    }
-
-    private bool IsNextTurnPossible() {
-        return !IsAnythingMoving() && IsBlockFilled();
     }
 }

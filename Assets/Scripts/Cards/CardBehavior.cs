@@ -13,7 +13,7 @@ public class CardBehavior : MonoBehaviour
     void Start()
     {
         card = GetComponent<Card>();
-        game = FindObjectOfType<GameController>();
+        game = GameController.Instance;
     }
 
     public virtual bool CanExecute(int roll)
