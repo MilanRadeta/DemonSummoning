@@ -58,13 +58,7 @@ public class GameController : MonoBehaviour
 
     public IEnumerator RefillBlock()
     {
-        yield return new WaitUntil(() => !this.blockDeck.IsMoving);
-        var missingCards = this.config.blockCards - this.block.Cards.Count;
-        for (int i = 0; i < missingCards; i++)
-        {
-            var card = this.TakeTopBlockCard();
-            this.block.AddCard(card);
-        }
+        yield return block.Refill(this.blockDeck);
     }
 
     public void BuyBlockCardForActivePlayer(Card card)
@@ -132,6 +126,7 @@ public class GameController : MonoBehaviour
         cards.AddRange(candles);
         demonDeck.Init(demons);
         blockDeck.Init(cards);
+        block.Init(this);
 
         StartCoroutine(RefillBlock());
     }
