@@ -317,6 +317,7 @@ GameObject:
   - component: {fileID: 7411293624680041749}
   - component: {fileID: 6148349890022112596}
   - component: {fileID: 7932123742224509877}
+  - component: {fileID: 7891650196082528488}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -351,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3465067e896494d88074d9db70b4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FaceUp: 0
   cardTransform: {fileID: 1250717353104930177}
   affinity: 0
   type: 0
@@ -432,6 +434,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.05, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7891650196082528488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 9209282739074343953}
+          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+          m_MethodName: OnPointerClick
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7448145040076834268
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,9 +860,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
---- !u!4 &7874064138744326297 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
+--- !u!23 &8930786280019713478 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7981376702728908108, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
   m_PrefabInstance: {fileID: 7695792911027408754}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &812791318110532571 stripped
@@ -839,8 +870,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7028834261113109673, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
   m_PrefabInstance: {fileID: 7695792911027408754}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &8930786280019713478 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -7981376702728908108, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
+--- !u!4 &7874064138744326297 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
   m_PrefabInstance: {fileID: 7695792911027408754}
   m_PrefabAsset: {fileID: 0}

@@ -6,13 +6,7 @@ public class Card : MonoBehaviour
 {
     public Player Owner { get; set; }
     public bool IsBlockCard { get; set; }
-    public bool FaceUp
-    {
-        set
-        {
-            animator.SetBool("FaceUp", value);
-        }
-    }
+    public bool FaceUp = false;
     public bool IsMoving { get { return cardTransform.IsMoving; } }
     public Vector3 TargetPosition
     {
@@ -31,7 +25,7 @@ public class Card : MonoBehaviour
     public string cardName;
     public List<int> triggerNumbers;
     public CardAction[] actions;
-    
+
     public delegate void ClickAction(Card card);
     public event ClickAction OnClicked;
 
@@ -62,6 +56,7 @@ public class Card : MonoBehaviour
         {
             actions[i].Next = actions[i + 1];
         }
+
     }
 
     void Start()
@@ -69,9 +64,18 @@ public class Card : MonoBehaviour
         game = FindObjectOfType<GameController>();
     }
 
-    void OnMouseDown()
+    void Update()
     {
-        if (OnClicked != null) {
+        if (animator.isActiveAndEnabled && FaceUp != animator.GetBool("FaceUp"))
+        {
+            animator.SetBool("FaceUp", FaceUp);
+        }
+    }
+
+    public void OnPointerClick()
+    {
+        if (OnClicked != null)
+        {
             OnClicked(this);
         }
     }
