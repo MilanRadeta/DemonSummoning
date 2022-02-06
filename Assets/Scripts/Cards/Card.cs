@@ -23,6 +23,7 @@ public class Card : MonoBehaviour
     public CardAffinity affinity;
     public CardType type;
     public string cardName;
+    public string description;
     public List<int> triggerNumbers;
     public CardAction[] actions;
 
@@ -74,9 +75,26 @@ public class Card : MonoBehaviour
 
     public void OnPointerClick()
     {
-        if (OnClicked != null)
+        if (FaceUp && OnClicked != null)
         {
             OnClicked(this);
+        }
+    }
+
+    public void OnPointerEnter()
+    {
+        if (FaceUp)
+        {
+            CardDescription.instance.Show(this);
+        }
+
+    }
+
+    public void OnPointerExit()
+    {
+        if (FaceUp)
+        {
+            CardDescription.instance.Hide();
         }
     }
 

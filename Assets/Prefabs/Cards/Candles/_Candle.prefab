@@ -538,12 +538,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3673301909116454957, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3673301909116454957, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4925157424422250322, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5224558269185763323, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_Mesh
@@ -571,7 +575,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7586252225261241594, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_RootOrder
@@ -624,6 +628,11 @@ PrefabInstance:
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: cardName
       value: Candle
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: description
+      value: Collect a Soul. CANDLES can *NEVER* be stolen or discarded for any reason
+        (so you can't snuff (discard) them to help summon demons).
       objectReference: {fileID: 0}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: actions.Array.size
