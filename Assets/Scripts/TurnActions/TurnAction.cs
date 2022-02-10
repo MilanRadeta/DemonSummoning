@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class TurnAction : MonoBehaviour
 {
     protected GameController Game { get { return GameController.Instance; } }
-    private Material material;
+    private Image image;
     private static IEnumerator coroutine = null;
 
     public virtual bool CanExecute()
@@ -32,12 +33,12 @@ public abstract class TurnAction : MonoBehaviour
 
     void Start()
     {
-        material = GetComponent<Renderer>().material;
+        image = GetComponent<Image>();
     }
 
     void Update()
     {
-        material.color = CanExecute() ? Color.green : Color.red;
+        image.color = CanExecute() ? Color.green : Color.red;
     }
 
 }

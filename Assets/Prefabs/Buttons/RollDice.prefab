@@ -53,10 +53,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1465699633260923138, guid: 272d9c08cac5dd14c9a5396ba84012a5, type: 3}
       propertyPath: m_Name
-      value: RollDice Variant
+      value: RollDice
       objectReference: {fileID: 0}
     - target: {fileID: 5589882933863961298, guid: 272d9c08cac5dd14c9a5396ba84012a5, type: 3}
       propertyPath: m_text
+      value: Roll Dice
+      objectReference: {fileID: 0}
+    - target: {fileID: 8470360346385018956, guid: 272d9c08cac5dd14c9a5396ba84012a5, type: 3}
+      propertyPath: m_Text
       value: Roll Dice
       objectReference: {fileID: 0}
     - target: {fileID: 8830519085658419956, guid: 272d9c08cac5dd14c9a5396ba84012a5, type: 3}
