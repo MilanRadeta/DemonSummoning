@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardDescription : MonoBehaviour
 {
     public static CardDescription instance;
     public Transform cardSlot;
-    public TMPro.TextMeshPro text;
+    public Text text;
 
     public CardDescription()
     {
@@ -32,6 +33,7 @@ public class CardDescription : MonoBehaviour
         var oldCard = cardSlot.GetChild(0);
         Destroy(oldCard.gameObject);
         var newCard = Instantiate(card);
+        Layers.ChangeLayers(newCard.gameObject, LayerMask.NameToLayer("UI"));
         newCard.FaceUp = true;
         newCard.animator.enabled = false;
         newCard.transform.SetParent(cardSlot);
