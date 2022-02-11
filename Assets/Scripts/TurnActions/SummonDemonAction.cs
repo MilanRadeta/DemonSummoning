@@ -7,21 +7,22 @@ public class SummonDemonAction : TurnAction
 {
     private Card demon;
     private List<Card> sacrifices;
+    public Player ActivePlayer { get { return Players.Instance.ActivePlayer; } }
 
     public override bool CanExecute()
     {
-        return base.CanExecute() && Game.ActivePlayer.CanSummonDemon(Game.config.demonSacrifices);
+        return base.CanExecute() && ActivePlayer.CanSummonDemon(Game.config.demonSacrifices);
     }
 
     public override IEnumerator Execute()
     {
         sacrifices.Clear();
         demon = null;
-        Game.ActivePlayer.OpenCards.ForEach(c => c.OnClicked += ChooseSacrifice);
-        Game.ActivePlayer.HandCards.ForEach(c => c.OnClicked += ChooseDemon);
+        ActivePlayer.OpenCards.ForEach(c => c.OnClicked += ChooseSacrifice);
+        ActivePlayer.HandCards.ForEach(c => c.OnClicked += ChooseDemon);
         yield return new WaitUntil(() => demon != null && sacrifices.Count != Game.config.demonSacrifices);
-        Game.ActivePlayer.HandCards.ForEach(c => c.OnClicked -= ChooseDemon);
-        Game.ActivePlayer.OpenCards.ForEach(c => c.OnClicked -= ChooseSacrifice);
+        ActivePlayer.HandCards.ForEach(c => c.OnClicked -= ChooseDemon);
+        ActivePlayer.OpenCards.ForEach(c => c.OnClicked -= ChooseSacrifice);
         Game.SummonDemon(demon, sacrifices);
         yield return base.Execute();
     }

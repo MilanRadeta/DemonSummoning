@@ -5,13 +5,10 @@ using UnityEngine;
 
 public class GameController : SingletonBehaviour<GameController>
 {
-    public Player[] Players { get { return players.AllPlayers; } }
     public List<Card> BlockCards { get { return block.Cards; } }
-    public bool IsGameFinished { get { return this.players.IsActivePlayerWinner; } }
-    public Player ActivePlayer { get { return players.ActivePlayer; } }
-    public List<TurnAction> Actions { get; set; } = new List<TurnAction>();
+    public bool IsGameFinished { get { return Players.Instance.IsActivePlayerWinner; } }
+    public List<TurnAction> Actions { get; private set; } = new List<TurnAction>();
     public GameConfig config;
-    public Players players;
     public Block block;
     public Deck blockDeck;
     public Deck demonDeck;
@@ -23,7 +20,7 @@ public class GameController : SingletonBehaviour<GameController>
     {
         base.Start();
         initActions = GetComponentsInChildren<TurnAction>();
-        players.Init();
+        Players.Instance.Init();
         PlayerSouls.Instance.Init();
         InitDecksAndHands();
         StartCoroutine(ExecuteTurn());
@@ -41,7 +38,7 @@ public class GameController : SingletonBehaviour<GameController>
                 yield return new WaitUntil(() => oldCount != Actions.Count);
             }
             yield return RefillBlock();
-            players.SwitchToNextPlayer();
+            Players.Instance.SwitchToNextPlayer();
         }
     }
 
@@ -62,7 +59,7 @@ public class GameController : SingletonBehaviour<GameController>
 
     public void BuyBlockCardForActivePlayer(Card card)
     {
-        BuyBlockCard(ActivePlayer, card);
+        BuyBlockCard(Players.Instance.ActivePlayer, card);
     }
 
     public void BuyBlockCard(Player player, Card card)
@@ -113,7 +110,7 @@ public class GameController : SingletonBehaviour<GameController>
 
     public bool IsAnythingMoving()
     {
-        return this.players.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
+        return Players.Instance.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
     }
 
     private void InitDecksAndHands()
@@ -121,7 +118,7 @@ public class GameController : SingletonBehaviour<GameController>
         var cards = CardGenerator.GenerateCards(this.config.cardsConfig.cards, false).OrderBy(c => Random.value).ToList();
         var candles = ExtractCardsOfType(cards, CardType.CANDLE);
         var demons = ExtractCardsOfType(cards, CardType.DEMON);
-        players.InitCards(candles, demons);
+        Players.Instance.InitCards(candles, demons);
         cards.AddRange(candles);
         demonDeck.Init(demons);
         blockDeck.Init(cards);

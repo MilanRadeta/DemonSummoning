@@ -9,7 +9,7 @@ public class BuyBlockCardAction : TurnAction
     
     public override bool CanExecute()
     {
-        return base.CanExecute() && Game.ActivePlayer.CanBuyCard(Game.config.cardPrice);
+        return base.CanExecute() && Players.Instance.ActivePlayer.CanBuyCard(Game.config.cardPrice);
     }
 
     public override IEnumerator Execute()

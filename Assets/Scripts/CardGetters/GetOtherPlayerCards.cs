@@ -5,5 +5,5 @@ using UnityEngine;
 
 public class GetOtherPlayerCards : GetCards
 {
-    public override IEnumerable<Card> Cards { get { return Game.Players.Where(p => p != card.Owner).SelectMany(o => o.OpenCards); } }
+    public override IEnumerable<Card> Cards { get { return Players.Instance.AllPlayers.Where(p => p != card.Owner).SelectMany(o => o.OpenCards); } }
 }
