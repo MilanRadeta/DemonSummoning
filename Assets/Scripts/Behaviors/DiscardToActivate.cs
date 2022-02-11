@@ -11,7 +11,7 @@ public class DiscardToActivate : CardAction
         var answer = false;
         if (answer)
         {
-            game.Discard(card);
+            Game.Discard(card);
 
         }
         return answer;

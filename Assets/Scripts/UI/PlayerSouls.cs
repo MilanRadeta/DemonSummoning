@@ -6,10 +6,6 @@ using UnityEngine.UI;
 public class PlayerSouls : SingletonBehaviour<PlayerSouls>
 {
     public GameObject playerSoulPrefab;
-    private GameController game;
+    private GameController game { get { return GameController.Instance; } }
 
-    void Start()
-    {
-        game = GameController.Instance;
-    }
 }

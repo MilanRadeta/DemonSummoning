@@ -6,13 +6,12 @@ using UnityEngine;
 public abstract class CardAction : MonoBehaviour
 {
     public CardAction Next { get; set; }
+    protected GameController Game { get { return GameController.Instance; } }
     protected Card card;
-    protected GameController game;
 
     void Start()
     {
         card = GetComponent<Card>();
-        game = GameController.Instance;
     }
 
     public abstract bool Execute();

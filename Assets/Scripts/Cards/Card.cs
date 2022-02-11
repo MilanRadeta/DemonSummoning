@@ -34,7 +34,6 @@ public class Card : MonoBehaviour
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
     public Animator animator;
-    private GameController game;
 
     void OnValidate()
     {
@@ -58,11 +57,6 @@ public class Card : MonoBehaviour
             actions[i].Next = actions[i + 1];
         }
 
-    }
-
-    void Start()
-    {
-        game = FindObjectOfType<GameController>();
     }
 
     void Update()

@@ -6,13 +6,12 @@ using UnityEngine;
 public abstract class GetCards : MonoBehaviour
 {
     public abstract IEnumerable<Card> Cards { get; }
+    protected GameController Game { get { return GameController.Instance; } }
     protected Card card;
-    protected GameController game;
 
     void Start()
     {
         card = GetComponent<Card>();
-        game = FindObjectOfType<GameController>();
     }
 
 

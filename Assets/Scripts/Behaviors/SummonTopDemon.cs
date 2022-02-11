@@ -11,9 +11,9 @@ public class SummonTopDemon : CardAction
     {
         for (int i = 0; i < count; i++)
         {
-            var demon = game.TakeTopDemonCard();
+            var demon = Game.TakeTopDemonCard();
             demon.Owner = card.Owner;
-            game.SummonDemon(demon);
+            Game.SummonDemon(demon);
         }
         
         return true;

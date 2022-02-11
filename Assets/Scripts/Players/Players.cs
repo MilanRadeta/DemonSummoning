@@ -28,7 +28,7 @@ public class Players : SingletonBehaviour<Players>
             var playerObj = Instantiate(playerPrefab);
             playerObj.transform.SetParent(this.transform);
             this.players[i] = playerObj.GetComponent<Player>();
-            this.players[i].Init(game, config.startingSouls);
+            this.players[i].Init(config.startingSouls);
         }
         RepositionPlayers();
 

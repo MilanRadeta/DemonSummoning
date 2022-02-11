@@ -8,17 +8,16 @@ public class Player : MonoBehaviour
     public int Souls { get; set; } = 5;
     public List<Card> OpenCards { get { return openCards.ToList(); } }
     public List<Card> HandCards { get { return handCards.ToList(); } }
+    public GameController Game {get {return GameController.Instance;}}
     public GameObject openCardsObj;
     public GameObject handCardsObj;
     public DeckConfig deckConfig;
-    public GameController game;
 
     private List<Card> openCards = new List<Card>();
     private List<Card> handCards = new List<Card>();
 
-    public void Init(GameController game, int souls)
+    public void Init(int souls)
     {
-        this.game = game;
         this.Souls = souls;
     }
 
@@ -40,9 +39,9 @@ public class Player : MonoBehaviour
 
     public void SummonDemon(Card card, IEnumerable<Card> sacrifices)
     {
-        if (sacrifices != null && game != null)
+        if (sacrifices != null && Game != null)
         {
-            game.Discard(openCards.Where(c => sacrifices.Contains(c)));
+            Game.Discard(openCards.Where(c => sacrifices.Contains(c)));
         }
         handCards.Remove(card);
         openCards.Add(card);

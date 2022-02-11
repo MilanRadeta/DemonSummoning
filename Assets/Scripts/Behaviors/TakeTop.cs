@@ -12,14 +12,14 @@ public class TakeTop : CardAction
     {
         for (int i = 0; i < count; i++)
         {
-            var discard = game.TakeTopBlockCard();
+            var discard = Game.TakeTopBlockCard();
             if (allowedTypes.Length == 0 || allowedTypes.Contains(discard.type))
             {
                 card.Owner.BuyCard(discard, 0);
             }
             else
             {
-                game.Discard(discard);
+                Game.Discard(discard);
             }
         }
         return true;

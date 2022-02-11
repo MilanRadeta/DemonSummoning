@@ -8,7 +8,7 @@ public class AwardRollSouls : CardAction
 
     public override bool Execute()
     {
-        var rolls = game.dice.Numbers;
+        var rolls = Game.dice.Numbers;
         if (rolls[0] != rolls[1])
         {
             card.Owner.Souls += rolls.Aggregate((acc, x) => acc + x);
@@ -18,7 +18,7 @@ public class AwardRollSouls : CardAction
     
     public override IEnumerator ExecuteChain()
     {
-        yield return game.RollDice();
+        yield return Game.RollDice();
         yield return base.ExecuteChain();
     }
 }

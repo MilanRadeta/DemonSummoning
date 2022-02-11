@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class GetBlockCards : GetCards
 {
-    public override IEnumerable<Card> Cards { get { return game.BlockCards; } }
+    public override IEnumerable<Card> Cards { get { return Game.BlockCards; } }
 
 }

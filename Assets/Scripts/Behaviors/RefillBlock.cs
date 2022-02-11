@@ -8,7 +8,7 @@ public class RefillBlock : CardAction
 
     public override bool Execute()
     {
-        game.RefillBlock();
+        Game.RefillBlock();
         return true;
     }
 }

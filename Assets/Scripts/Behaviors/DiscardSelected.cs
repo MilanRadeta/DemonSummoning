@@ -22,7 +22,7 @@ public class DiscardSelected : CardAction
         {
             return false;
         }
-        game.Discard(cards);
+        Game.Discard(cards);
         return true;
     }
 }

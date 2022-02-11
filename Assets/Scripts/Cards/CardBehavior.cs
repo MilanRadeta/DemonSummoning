@@ -6,14 +6,13 @@ using UnityEngine;
 public class CardBehavior : MonoBehaviour
 {
     protected Card card;
-    protected GameController game;
+    protected GameController Game { get { return GameController.Instance; } }
     public CardCondition condition;
 
     // Start is called before the first frame update
     void Start()
     {
         card = GetComponent<Card>();
-        game = GameController.Instance;
     }
 
     public virtual bool CanExecute(int roll)
