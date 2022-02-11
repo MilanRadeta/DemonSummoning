@@ -19,10 +19,12 @@ public class GameController : SingletonBehaviour<GameController>
     public Dice dice;
     private TurnAction[] initActions;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         initActions = GetComponentsInChildren<TurnAction>();
-        players.Init(this);
+        players.Init();
+        PlayerSouls.Instance.Init();
         InitDecksAndHands();
         StartCoroutine(ExecuteTurn());
     }

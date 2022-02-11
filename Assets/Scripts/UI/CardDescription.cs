@@ -9,8 +9,9 @@ public class CardDescription : SingletonBehaviour<CardDescription>
     public Text text;
     private RectTransform rectTransform;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rectTransform = GetComponent<RectTransform>();
         this.Hide();
     }

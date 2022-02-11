@@ -19,14 +19,15 @@ public class Players : SingletonBehaviour<Players>
     private int activePlayerIndex = 0;
     private PlayersConfig config;
 
-    public void Init(GameController game)
+    public void Init()
     {
-        this.config = game.config.playersConfig;
+        this.config = GameController.Instance.config.playersConfig;
         players = new Player[this.config.numberOfPlayers];
         for (int i = 0; i < this.players.Length; i++)
         {
             var playerObj = Instantiate(playerPrefab);
             playerObj.transform.SetParent(this.transform);
+            playerObj.name = "Player " + (i + 1);
             this.players[i] = playerObj.GetComponent<Player>();
             this.players[i].Init(config.startingSouls);
         }

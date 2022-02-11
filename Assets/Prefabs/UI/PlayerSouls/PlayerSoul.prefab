@@ -90,6 +90,7 @@ GameObject:
   - component: {fileID: 7142440231557251368}
   - component: {fileID: 305607171150704856}
   - component: {fileID: 3847109714751271685}
+  - component: {fileID: 909108715846441877}
   m_Layer: 5
   m_Name: PlayerSoul
   m_TagString: Untagged
@@ -139,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.12520869, g: 0.9607843, b: 0.07843139, a: 0.392}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -156,6 +157,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &909108715846441877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511734832778978249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de211b4bc65e12746b5f0e00f62f2a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 1285169267309556899}
+  soulsText: {fileID: 226580986700846430}
+  soulsPrefix: 'Souls: '
 --- !u!1 &8328957237062065967
 GameObject:
   m_ObjectHideFlags: 0
