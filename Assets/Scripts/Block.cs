@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+public class Block : SingletonBehaviour<Block>
 {
     public int blockCards = 5;
     public List<Card> Cards { get { return cards.Where(c => c != null).ToList(); } }

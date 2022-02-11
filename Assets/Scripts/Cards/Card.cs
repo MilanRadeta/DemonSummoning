@@ -85,7 +85,7 @@ public class Card : MonoBehaviour
     {
         if (FaceUp)
         {
-            CardDescription.instance.Show(this);
+            CardDescription.Instance.Show(this);
         }
 
     }
@@ -94,7 +94,7 @@ public class Card : MonoBehaviour
     {
         if (FaceUp)
         {
-            CardDescription.instance.Hide();
+            CardDescription.Instance.Hide();
         }
     }
 

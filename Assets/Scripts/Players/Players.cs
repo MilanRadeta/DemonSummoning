@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Players : MonoBehaviour
+public class Players : SingletonBehaviour<Players>
 {
     public Player playerPrefab;
     public DeckConfig deckConfig;

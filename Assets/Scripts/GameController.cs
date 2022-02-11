@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GameController : MonoBehaviour
+public class GameController : SingletonBehaviour<GameController>
 {
-    public static GameController Instance {get; private set;}
-
     public Player[] Players { get { return players.AllPlayers; } }
     public List<Card> BlockCards { get { return block.Cards; } }
     public bool IsGameFinished { get { return this.players.IsActivePlayerWinner; } }
@@ -23,7 +21,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        Instance = this;
         initActions = GetComponentsInChildren<TurnAction>();
         players.Init(this);
         InitDecksAndHands();

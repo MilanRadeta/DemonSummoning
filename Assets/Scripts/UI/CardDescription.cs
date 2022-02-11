@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CardDescription : MonoBehaviour
+public class CardDescription : SingletonBehaviour<CardDescription>
 {
-    public static CardDescription instance;
     public Transform cardSlot;
     public Text text;
     private RectTransform rectTransform;
-
-    public CardDescription()
-    {
-        instance = this;
-    }
 
     void Start()
     {
