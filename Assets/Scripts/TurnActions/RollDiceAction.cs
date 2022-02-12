@@ -18,9 +18,9 @@ public class RollDiceAction : TurnAction
             var cards = player.OpenCards.Where(c => c.CanExecute(sum)).ToList();
             var filteredCards = cards.Where(c => c.CheckCondition()).ToList();
             while (filteredCards.Count() > 0) {
-                filteredCards.ForEach(c => c.OnClicked += Execute);
+                filteredCards.ForEach(c => c.OnClicked += Choose);
                 yield return new WaitUntil(() => card != null);
-                filteredCards.ForEach(c => c.OnClicked -= Execute);
+                filteredCards.ForEach(c => c.OnClicked -= Choose);
                 yield return card.Execute();
                 cards.Remove(card);
                 card = null;
@@ -31,7 +31,7 @@ public class RollDiceAction : TurnAction
         yield return base.Execute();
     }
 
-    private void Execute(Card card){
+    private void Choose(Card card){
         this.card = card;
     }
 

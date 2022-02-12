@@ -23,7 +23,7 @@ public class PlayerSoul : MonoBehaviour
     public string soulsPrefix;
     private readonly float textChangeSpeedInSeconds = 0.25f;
     private Player player;
-    private float souls;
+    private int souls;
     private Image image;
 
 
@@ -40,7 +40,7 @@ public class PlayerSoul : MonoBehaviour
         }
         if (player.Souls != souls)
         {
-            souls += (player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds;
+            souls += Mathf.Max(1, Mathf.RoundToInt((player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds));
             soulsText.text = soulsPrefix + (int)souls;
         }
         image.color = player == Players.Instance.ActivePlayer ? Color.green : Color.white;
