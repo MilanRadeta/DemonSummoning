@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913164513761486762, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: m_text
-      value: Rotten Annie
+      value: <color="green">Rotten</color> Annie
       objectReference: {fileID: 0}
     - target: {fileID: 4188916477776432003, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: m_Mesh
@@ -69,7 +69,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: cardName
-      value: Rotten Annie
+      value: <color="green">Rotten</color> Annie
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+      propertyPath: description
+      value: '<color="red">You may DISCARD this: </color> If you do, steal a BOY
+        or GIRL. *OR* gain one from THE BLOCK.'
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: triggerNumbers.Array.data[0]

@@ -27,6 +27,7 @@ public class Card : MonoBehaviour
     public CardAffinity affinity;
     public CardType type;
     public string cardName;
+    [TextArea(5, 5)]
     public string description;
     public List<int> triggerNumbers;
     public CardAction[] actions;

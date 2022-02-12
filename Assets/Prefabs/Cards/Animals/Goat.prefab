@@ -32,6 +32,12 @@ PrefabInstance:
       value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: description
+      value: <color="red">YOU MAY DISCARD EXACTLY 1 BOY AND 1 GIRL:</color> Summon
+        the top of the Demon Deck immediately, for free. (It counts as one of your
+        3 Demons towards victory.)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size
       value: 3
       objectReference: {fileID: 0}

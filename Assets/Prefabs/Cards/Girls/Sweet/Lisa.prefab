@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913164513761486762, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: m_text
-      value: Sweet Lisa
+      value: <color="yellow">Sweet</color> Lisa
       objectReference: {fileID: 0}
     - target: {fileID: 4188916477776432003, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: m_Mesh
@@ -69,7 +69,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: cardName
-      value: Sweet Lisa
+      value: <color="yellow">Sweet</color> Lisa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
+      propertyPath: description
+      value: '<color="green">For each of your SWEET BOYS and SWEET GIRLS (including
+        this one): </color> Collect a Soul.'
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: triggerNumbers.Array.data[0]

@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913164513761486762, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: m_text
-      value: Rotten Carrie
+      value: <color="green">Rotten</color> Carrie
       objectReference: {fileID: 0}
     - target: {fileID: 4188916477776432003, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: m_Mesh
@@ -69,8 +69,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: cardName
-      value: Rotten Carrie
+      value: <color="green">Rotten</color> Carrie
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+      propertyPath: description
+      value: Collect 2 Souls.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 3013209710428412636}
     - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 11
@@ -89,3 +101,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+--- !u!1 &6034277806420865794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+  m_PrefabInstance: {fileID: 2971680863577451330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3013209710428412636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 2

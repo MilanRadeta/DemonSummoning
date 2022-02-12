@@ -32,6 +32,12 @@ PrefabInstance:
       value: Owl
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: description
+      value: <color="red">YOU MAY DISCARD THIS:</color> If you do, collect 4 Souls
+        and replace any number of cards in THE BLOCK. (Discard them and immediately
+        refill their spots with new cards from The Block Deck).
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size
       value: 4
       objectReference: {fileID: 0}

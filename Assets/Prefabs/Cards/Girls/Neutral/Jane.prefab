@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: cardName
       value: Jane
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: description
+      value: Gain an ANIMAL from THE BLOCK.
+      objectReference: {fileID: 0}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
       propertyPath: m_Mesh
       value: 

@@ -189,8 +189,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Very long description about the effect of the card that will be performed
-    when the dice roll the total sum of the number depicted on the card itself.
+  m_Text: <color="red">Very long description</color> about the <color="green">effect
+    of the card</color> that will be performed when the dice roll the total sum of
+    the number depicted on the card itself.
 --- !u!1 &7785580232721505692
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.56350124, g: 0.6320754, b: 0.61378896, a: 1}
+  m_Color: {r: 0.7845319, g: 0.8113208, b: 0.80501753, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -292,6 +293,10 @@ PrefabInstance:
     - target: {fileID: 8020342751237214896, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
+      propertyPath: cardName
+      value: Card
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}

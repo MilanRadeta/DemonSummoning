@@ -13,7 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: cardName
-      value: Sweet Chuck
+      value: <color="yellow">Sweet</color> Chuck
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: description
+      value: '<color="red">If you have another SWEET KID: </color> Collect 2 Souls.'
       objectReference: {fileID: 0}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
@@ -77,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5695396719710926472, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: m_text
-      value: Sweet Chuck
+      value: <color="yellow">Sweet</color> Chuck
       objectReference: {fileID: 0}
     - target: {fileID: 8354989035179596585, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: m_Mesh

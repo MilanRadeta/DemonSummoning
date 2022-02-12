@@ -32,6 +32,11 @@ PrefabInstance:
       value: Cat
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: description
+      value: <color="red">Discard the top card of the BLOCK DECK:</color> If it's
+        an ANIMAL, gain it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size
       value: 1
       objectReference: {fileID: 0}

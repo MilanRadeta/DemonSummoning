@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: cardName
       value: Wanda
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: description
+      value: Activate each of your cards that Wanda has added a Soul to. Then, you
+        may put a Soul from *YOUR* supply onto another of your cards (that activate).
+        (If wanda is discarded, discard each Soul she has placed on your cards.)
+      objectReference: {fileID: 0}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
       propertyPath: m_Mesh
       value: 

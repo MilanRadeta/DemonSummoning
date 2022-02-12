@@ -32,6 +32,12 @@ PrefabInstance:
       value: Holy Cow
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: description
+      value: <color="red">YOU MAY DISCARD THIS:</color> GAIN 26 Souls... But if you
+        roll doubles, gain none. (this is a special roll and does not activate cards,
+        but it does work with Dublux and Re-rollzebub).
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size
       value: 2
       objectReference: {fileID: 0}

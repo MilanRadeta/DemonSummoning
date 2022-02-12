@@ -77,7 +77,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: cardName
-      value: Rotten Calvin
+      value: <color="green">Rotten</color> Calvin
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: description
+      value: '<color="red">If you have at least 3 ROTTEN KIDS: </color> Steal 2 Souls
+        (in any combination from other players and/or the supply).'
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: actions.Array.size
@@ -97,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899477500660812020, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: m_text
-      value: Rotten Calvin
+      value: <color="green">Rotten</color> Calvin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}

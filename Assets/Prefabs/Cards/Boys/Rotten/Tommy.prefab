@@ -77,7 +77,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: cardName
-      value: Rotten Tommy
+      value: <color="green">Rotten</color> Tommy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: description
+      value: <color="red">Discard the top of the BLOCK DECK:</color> If it's a GIRL,
+        gain it.
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
@@ -89,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6899477500660812020, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: m_text
-      value: Rotten Tommy
+      value: <color="green">Rotten</color> Tommy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}

@@ -32,6 +32,10 @@ PrefabInstance:
       value: Rabbit
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
+      propertyPath: description
+      value: <color="red">If you have at least 3 ANIMALs</color> Collect 2 Souls.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: actions.Array.size
       value: 2
       objectReference: {fileID: 0}

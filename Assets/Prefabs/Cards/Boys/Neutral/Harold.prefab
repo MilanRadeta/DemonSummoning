@@ -56,6 +56,12 @@ PrefabInstance:
       value: Harold
       objectReference: {fileID: 0}
     - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
+      propertyPath: description
+      value: Reveal and activate the top card of the BLOCK DECK. Then, discard that
+        card. (You must still pay additional costs, but you may still pay a *DISCARD
+        THIS* cost by discarding it from the top of the deck).
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
       propertyPath: actions.Array.size
       value: 3
       objectReference: {fileID: 0}
