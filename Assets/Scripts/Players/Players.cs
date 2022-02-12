@@ -55,6 +55,14 @@ public class Players : SingletonBehaviour<Players>
         rotator.Target = new Vector3(0, -this.activePlayerIndex * step, 0);
     }
 
+    public IEnumerable<Player> GetPlayersFromActivePlayer()
+    {
+        var players = this.players.ToList();
+        return players
+            .GetRange(activePlayerIndex, players.Count - activePlayerIndex)
+            .Concat(players.GetRange(0, activePlayerIndex));
+    }
+
     private void RepositionPlayers()
     {
         var positions = Positioner.PositionAround(this.transform, players.Length, 3);

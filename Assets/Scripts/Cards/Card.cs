@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
@@ -8,6 +10,8 @@ public class Card : MonoBehaviour
     public bool IsBlockCard { get; set; }
     public bool FaceUp = false;
     public bool IsMoving { get { return cardTransform.IsMoving; } }
+    public Animator Animator { get; private set; }
+    public Outline Outline { get; private set; }
     public Vector3 TargetPosition
     {
         get { return cardTransform.TargetPosition; }
@@ -33,7 +37,15 @@ public class Card : MonoBehaviour
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
     public MeshRenderer meshRenderer;
-    public Animator animator;
+    private bool IsUI { get { return gameObject.layer == Layers.UIIndex; } }
+    private EventTrigger eventTrigger;
+
+    void Awake()
+    {
+        Animator = GetComponent<Animator>();
+        Outline = GetComponentInChildren<Outline>();
+        eventTrigger = GetComponent<EventTrigger>();
+    }
 
     void OnValidate()
     {
@@ -61,10 +73,20 @@ public class Card : MonoBehaviour
 
     void Update()
     {
-        if (animator.isActiveAndEnabled && FaceUp != animator.GetBool("FaceUp"))
+        if (IsUI)
         {
-            animator.SetBool("FaceUp", FaceUp);
+            Animator.enabled = false;
+            Outline.enabled = false;
+            eventTrigger.enabled = false;
+            return;
         }
+
+        if (Animator.isActiveAndEnabled && FaceUp != Animator.GetBool("FaceUp"))
+        {
+            Animator.SetBool("FaceUp", FaceUp);
+        }
+
+        Outline.enabled = OnClicked != null;
     }
 
     public void OnPointerClick()
@@ -92,14 +114,6 @@ public class Card : MonoBehaviour
         }
     }
 
-    public IEnumerator Execute(int roll)
-    {
-        if (CanExecute(roll))
-        {
-            yield return Execute();
-        }
-    }
-
     public IEnumerator Execute()
     {
         yield return actions[0].ExecuteChain();
@@ -107,6 +121,12 @@ public class Card : MonoBehaviour
 
     public bool CanExecute(int roll)
     {
-        return triggerNumbers.Contains(roll);
+        return triggerNumbers.Contains(roll) && (type != CardType.DEMON || Players.Instance.ActivePlayer == Owner);
+    }
+
+    public bool CheckCondition()
+    {
+        var action = actions.ToList().Find(a => a is CheckCondition) as CheckCondition;
+        return action == null || action.Execute();
     }
 }

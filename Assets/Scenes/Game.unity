@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6830659617745495905, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8178787720472772414, guid: 47e883aadd3021744a7da95a66df5573, type: 3}
       propertyPath: m_Name
       value: GameController

@@ -364,7 +364,6 @@ MonoBehaviour:
   triggerNumberText:
   - {fileID: 7564035999560609345}
   meshRenderer: {fileID: 8930786280019713478}
-  animator: {fileID: 5023467052631261793}
 --- !u!95 &5023467052631261793
 Animator:
   serializedVersion: 3
@@ -887,6 +886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardMesh
       objectReference: {fileID: 0}
+    - target: {fileID: -4151352799506212149, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
       propertyPath: m_Name
       value: CardRoot
@@ -903,8 +906,31 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7028834261113109673, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
   m_PrefabInstance: {fileID: 7695792911027408754}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3219964329190872505 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4151352799506212149, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
+  m_PrefabInstance: {fileID: 7695792911027408754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7874064138744326297 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb47ac59a2417174bb72648b1ffa9900, type: 3}
   m_PrefabInstance: {fileID: 7695792911027408754}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5539080172512075779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3219964329190872505}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 1
+  outlineColor: {r: 1, g: 0.8286115, b: 0, a: 1}
+  outlineWidth: 5
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []

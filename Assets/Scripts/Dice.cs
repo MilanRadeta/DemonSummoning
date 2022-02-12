@@ -7,6 +7,7 @@ public class Dice : MonoBehaviour
 {
 
     public int[] Numbers { get { return dice.Select(d => d.Number).ToArray(); } }
+    public int Sum { get { return Numbers.Sum(); } }
     public float showDuration = 1f;
     private IEnumerable<Die> dice;
 

@@ -18,30 +18,25 @@ public class CardDescription : SingletonBehaviour<CardDescription>
 
     public void Show(Card card)
     {
-        if (card.transform.position.z > 0) {
+        if (card.transform.position.z > 0)
+        {
             rectTransform.anchorMin = new Vector2(0, 0);
             rectTransform.anchorMax = new Vector2(1, 0);
             rectTransform.anchoredPosition = new Vector2(0, Mathf.Abs(rectTransform.anchoredPosition.y));
-        } else {
+        }
+        else
+        {
             rectTransform.anchorMin = new Vector2(0, 1);
             rectTransform.anchorMax = new Vector2(1, 1);
             rectTransform.anchoredPosition = new Vector2(0, -Mathf.Abs(rectTransform.anchoredPosition.y));
         }
-        // if (ShouldSwitchPosition(card))
-        // {
-        //     // transform.localPosition = new Vector3(
-        //     //     transform.localPosition.x,
-        //     //     -transform.localPosition.y,
-        //     //     transform.localPosition.z
-        //     // );
-        // }
 
         var oldCard = cardSlot.GetChild(0);
         Destroy(oldCard.gameObject);
         var newCard = Instantiate(card);
-        Layers.ChangeLayers(newCard.gameObject, LayerMask.NameToLayer("UI"));
+        Layers.ChangeLayers(newCard.gameObject, LayerMask.NameToLayer(Layers.UI));
         newCard.FaceUp = true;
-        newCard.animator.enabled = false;
+        newCard.Animator.enabled = false;
         newCard.transform.SetParent(cardSlot);
         newCard.transform.localPosition = Vector3.zero;
         newCard.transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -56,10 +51,5 @@ public class CardDescription : SingletonBehaviour<CardDescription>
     public void Hide()
     {
         gameObject.SetActive(false);
-    }
-
-    private bool ShouldSwitchPosition(Card card)
-    {
-        return Mathf.Sign(transform.localPosition.y) + Mathf.Sign(card.transform.position.z) != 0;
     }
 }

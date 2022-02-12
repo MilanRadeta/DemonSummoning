@@ -6,11 +6,33 @@ using UnityEngine;
 public class RollDiceAction : TurnAction
 {
     
+    private Card card;
+
     public override IEnumerator Execute()
     {
         yield return Game.RollDice();
-        var cards = Players.Instance.AllPlayers.SelectMany(p => p.OpenCards).Where(p => p.type != CardType.DEMON || Players.Instance.ActivePlayer == p);
+        var sum = Game.dice.Sum;
+        var players = Players.Instance.GetPlayersFromActivePlayer();
+        foreach (var player in players)
+        {
+            var cards = player.OpenCards.Where(c => c.CanExecute(sum)).ToList();
+            var filteredCards = cards.Where(c => c.CheckCondition()).ToList();
+            while (filteredCards.Count() > 0) {
+                filteredCards.ForEach(c => c.OnClicked += Execute);
+                yield return new WaitUntil(() => card != null);
+                filteredCards.ForEach(c => c.OnClicked -= Execute);
+                yield return card.Execute();
+                cards.Remove(card);
+                card = null;
+                filteredCards = cards.Where(c => c.CheckCondition()).ToList();
+            }
+
+        }
         yield return base.Execute();
+    }
+
+    private void Execute(Card card){
+        this.card = card;
     }
 
 }
