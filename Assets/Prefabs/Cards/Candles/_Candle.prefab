@@ -641,7 +641,7 @@ PrefabInstance:
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: actions.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2191703714723274388}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: actions.Array.data[0].data
       value: 
