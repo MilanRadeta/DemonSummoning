@@ -86,6 +86,18 @@ PrefabInstance:
         the turn.)
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: actions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 6008789822552982413}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: actions.Array.data[1]
+      value: 
+      objectReference: {fileID: 7133924439652195114}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 11
       objectReference: {fileID: 0}
@@ -99,3 +111,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+--- !u!1 &8118582100618831931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1401186757893682974, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+  m_PrefabInstance: {fileID: 7194778060183379749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6008789822552982413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118582100618831931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42b96dc13c567949b7c6916ab7bc21e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7133924439652195114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118582100618831931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45b72e1ead724e418e9230506cec32b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 1

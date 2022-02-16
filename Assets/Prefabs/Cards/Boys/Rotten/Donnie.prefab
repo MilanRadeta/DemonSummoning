@@ -86,6 +86,14 @@ PrefabInstance:
         the supply).
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 8676388684805191166}
+    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 12
       objectReference: {fileID: 0}
@@ -99,3 +107,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+--- !u!1 &5043760278324880288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1401186757893682974, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
+  m_PrefabInstance: {fileID: 6236652804404696254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7161698798369244961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043760278324880288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea35aa44f6f29048b9378a29c458ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsGetter: {fileID: 8661854005858031638}
+  allowedTypes: 0200000001000000
+  allowedAffinities: 02000000
+--- !u!114 &8661854005858031638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043760278324880288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744ed7571bdeb364ebe6a7946cbfb2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8676388684805191166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043760278324880288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f51d4a9b7e7daf469cf25273c9f1549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 1
+  getCards: {fileID: 7161698798369244961}

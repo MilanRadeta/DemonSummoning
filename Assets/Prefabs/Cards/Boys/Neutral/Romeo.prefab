@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardsGetter: {fileID: 3518247990260242639}
   allowedTypes: 01000000
+  allowedAffinities: 
 --- !u!114 &7057925457446841523
 MonoBehaviour:
   m_ObjectHideFlags: 0
