@@ -11,7 +11,7 @@ public class ActivateCards : CardAction
     {
         if (CardsGetter == null)
         {
-            throw new MissingReferenceException("RepeatAction.CardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("ActivateCards.CardsGetter not assigned on " + gameObject.name);
         }
     }
 

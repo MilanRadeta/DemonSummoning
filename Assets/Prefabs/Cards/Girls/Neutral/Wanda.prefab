@@ -71,8 +71,16 @@ PrefabInstance:
       propertyPath: description
       value: Activate each of your cards that Wanda has added a Soul to. Then, you
         may put a Soul from *YOUR* supply onto another of your cards (that activate).
-        (If wanda is discarded, discard each Soul she has placed on your cards.)
+        (If Wanda is discarded, discard each Soul she has placed on your cards.)
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: -3688819007049816217}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -83,3 +91,91 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+--- !u!1 &9190992468131569474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+  m_PrefabInstance: {fileID: 364634639104788226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-7628786852313903887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744ed7571bdeb364ebe6a7946cbfb2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7291643690535741154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd1aaef588606684a83ef286d6b50b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4959058271121081874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 425733f1580853f49861693c3f92dc45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ValidCards: {fileID: -7628786852313903887}
+  EnchantedCards: {fileID: -7291643690535741154}
+--- !u!114 &-3688819007049816217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -7291643690535741154}
+--- !u!114 &-3062789431907857013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 087cc164b2dbc774ebbe3addc45a74af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: 8740766665469268306}
+  EnchantedCards: {fileID: -7291643690535741154}
+--- !u!114 &8740766665469268306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -4959058271121081874}
+  allowedTypes: 01000000020000000300000000000000
+  condition:
+    logicOperator: 1
+    requirements: []
+  count: 1

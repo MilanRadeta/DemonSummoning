@@ -92,7 +92,7 @@ PrefabInstance:
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: actions.Array.data[0]
       value: 
-      objectReference: {fileID: 8676388684805191166}
+      objectReference: {fileID: 2540315249637540315}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 12
@@ -112,6 +112,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1401186757893682974, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
   m_PrefabInstance: {fileID: 6236652804404696254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2540315249637540315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043760278324880288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8c4d2a753fc7447b07cf619e31812b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: 7161698798369244961}
+  action: {fileID: 5636843536413452290}
+--- !u!114 &5636843536413452290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5043760278324880288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cd17752f52c094392789b24cc0f3e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 1
 --- !u!114 &7161698798369244961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,17 +166,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 744ed7571bdeb364ebe6a7946cbfb2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8676388684805191166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5043760278324880288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f51d4a9b7e7daf469cf25273c9f1549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soulsToAward: 1
-  CardsGetter: {fileID: 7161698798369244961}

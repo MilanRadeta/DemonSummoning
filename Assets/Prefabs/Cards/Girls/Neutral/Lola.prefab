@@ -71,6 +71,14 @@ PrefabInstance:
       propertyPath: description
       value: '<color="green">For each of your BOYS: </color> Collect 1 Soul.'
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 2464441386661984616}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -81,3 +89,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+--- !u!1 &9190992468131569474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+  m_PrefabInstance: {fileID: 364634639104788226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8858901415415925632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 744ed7571bdeb364ebe6a7946cbfb2dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2464441386661984616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8c4d2a753fc7447b07cf619e31812b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: 2653985950411349331}
+  action: {fileID: 8910070027632894847}
+--- !u!114 &2653985950411349331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea35aa44f6f29048b9378a29c458ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -8858901415415925632}
+  allowedTypes: 02000000
+  allowedAffinities: 
+--- !u!114 &8910070027632894847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 1
