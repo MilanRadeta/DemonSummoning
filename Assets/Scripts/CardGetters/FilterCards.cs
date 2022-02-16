@@ -8,6 +8,7 @@ public class FilterCards : GetCards
 
     public GetCards cardsGetter;
     public CardType[] allowedTypes;
+    public CardAffinity[] allowedAffinities;
 
     void OnValidate()
     {
@@ -17,5 +18,19 @@ public class FilterCards : GetCards
         }
     }
 
-    public override IEnumerable<Card> Cards { get { return cardsGetter.Cards.Where(c => allowedTypes.Contains(c.type)); } }
+    public override IEnumerable<Card> Cards
+    {
+        get
+        {
+            return cardsGetter.Cards.Where(c =>
+                IsAllowed(allowedTypes, c.type) &&
+                IsAllowed(allowedAffinities, c.affinity)
+            );
+        }
+    }
+
+    private bool IsAllowed<T>(T[] list, T value)
+    {
+        return list.Count() == 0 || list.Contains(value);
+    }
 }
