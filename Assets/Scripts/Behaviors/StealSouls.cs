@@ -8,7 +8,7 @@ public class StealSouls : AwardSouls
 
     public override IEnumerator Execute()
     {
-        var otherPlayers = Players.Instance.AllPlayers.Where(p => p != card.Owner);
+        var otherPlayers = Players.Instance.GetOtherPlayers(card.Owner);
         for (int i = 0; i < soulsToAward; i++)
         {
             otherPlayers = otherPlayers.Where(p => p.Souls > 0);

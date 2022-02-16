@@ -63,6 +63,11 @@ public class Players : SingletonBehaviour<Players>
             .Concat(players.GetRange(0, activePlayerIndex));
     }
 
+    public IEnumerable<Player> GetOtherPlayers(Player ignore)
+    {
+        return players.Where(p => p != ignore);
+    }
+
     private void RepositionPlayers()
     {
         var positions = Positioner.PositionAround(this.transform, players.Length, 3);

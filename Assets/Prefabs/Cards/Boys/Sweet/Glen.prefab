@@ -20,6 +20,18 @@ PrefabInstance:
       value: Collect 2 Souls and choose another player to collect a Soul.
       objectReference: {fileID: 0}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: actions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: -5475572928375499805}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: actions.Array.data[1]
+      value: 
+      objectReference: {fileID: -2744072675618974775}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 5
       objectReference: {fileID: 0}
@@ -89,3 +101,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+--- !u!1 &920989687801956050 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 272398448089663842, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+  m_PrefabInstance: {fileID: 1085301316982099888}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-5475572928375499805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920989687801956050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 2
+--- !u!114 &-2744072675618974775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920989687801956050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84896e9a712ad534992ec1f4d6ef0800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soulsToAward: 1
