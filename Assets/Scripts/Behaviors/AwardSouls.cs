@@ -8,9 +8,9 @@ public class AwardSouls : CardAction
     [Range(1, 10)]
     public int soulsToAward = 1;
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         card.Owner.Souls += soulsToAward;
-        return true;
+        yield return ExecuteNext();
     }
 }

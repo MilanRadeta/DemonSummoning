@@ -6,9 +6,9 @@ using UnityEngine;
 public class RefillBlock : CardAction
 {
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
-        Game.RefillBlock();
-        return true;
+        yield return Game.RefillBlock();
+        yield return ExecuteNext();
     }
 }

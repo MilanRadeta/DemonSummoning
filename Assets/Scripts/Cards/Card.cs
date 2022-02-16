@@ -117,7 +117,7 @@ public class Card : MonoBehaviour
 
     public IEnumerator Execute()
     {
-        yield return actions[0].ExecuteChain();
+        yield return actions[0].Execute();
     }
 
     public bool CanExecute(int roll)
@@ -128,6 +128,6 @@ public class Card : MonoBehaviour
     public bool CheckCondition()
     {
         var action = actions.ToList().Find(a => a is CheckCondition) as CheckCondition;
-        return action == null || action.Execute();
+        return action == null || action.Check();
     }
 }

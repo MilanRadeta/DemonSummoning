@@ -21,13 +21,13 @@ public class RepeatAction : CardAction
         }
     }
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         var count = cardsGetter.Cards.Count();
         for (int i = 0; i < count; i++)
         {
-            action.Execute();
+            yield return action.Execute();
         }
-        return true;
+        yield return ExecuteNext();
     }
 }

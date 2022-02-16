@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class DiscardToActivate : CardAction
 {
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         // TODO Ask to discard
         var answer = false;
         if (answer)
         {
             Game.Discard(card);
-
+            yield return ExecuteNext();
         }
-        return answer;
     }
 }

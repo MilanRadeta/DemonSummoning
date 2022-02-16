@@ -7,9 +7,17 @@ public class CheckCondition : CardAction
 {
     public CardCondition condition;
 
-    public override bool Execute()
+    public bool Check()
     {
         return condition.Calculate(card.Owner.OpenCards);
+    }
+
+    public override IEnumerator Execute()
+    {
+        if (Check())
+        {
+            yield return ExecuteNext();
+        }
     }
 
 }

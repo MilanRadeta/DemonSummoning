@@ -15,13 +15,13 @@ public class ActivateCards : CardAction
         }
     }
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         var cards = cardsGetter.Cards;
         foreach (var card in cards)
         {
-            card.Execute();
+            yield return card.Execute();
         }
-        return true;
+        yield return ExecuteNext();
     }
 }

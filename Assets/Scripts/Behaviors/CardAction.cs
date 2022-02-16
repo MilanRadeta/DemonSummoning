@@ -14,12 +14,12 @@ public abstract class CardAction : MonoBehaviour
         card = GetComponent<Card>();
     }
 
-    public abstract bool Execute();
-    public virtual IEnumerator ExecuteChain()
+    public abstract IEnumerator Execute();
+    protected virtual IEnumerator ExecuteNext()
     {
-        if (Execute())
+        if (Next != null)
         {
-            yield return Next;
+            yield return Next.ExecuteNext();
         }
     }
 }

@@ -15,14 +15,13 @@ public class DiscardSelected : CardAction
         }
     }
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         var cards = getCards.Cards;
-        if (cards == null)
+        if (cards != null)
         {
-            return false;
+            Game.Discard(cards);
+            yield return ExecuteNext();
         }
-        Game.Discard(cards);
-        return true;
     }
 }

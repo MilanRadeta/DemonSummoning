@@ -7,7 +7,7 @@ public class SummonTopDemon : CardAction
 {
     public int count = 1;
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         for (int i = 0; i < count; i++)
         {
@@ -16,6 +16,6 @@ public class SummonTopDemon : CardAction
             Game.SummonDemon(demon);
         }
         
-        return true;
+        yield return ExecuteNext();
     }
 }

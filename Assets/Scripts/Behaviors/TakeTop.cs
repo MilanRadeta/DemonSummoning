@@ -8,7 +8,7 @@ public class TakeTop : CardAction
     public CardType[] allowedTypes;
     public int count = 1;
 
-    public override bool Execute()
+    public override IEnumerator Execute()
     {
         for (int i = 0; i < count; i++)
         {
@@ -22,6 +22,6 @@ public class TakeTop : CardAction
                 Game.Discard(discard);
             }
         }
-        return true;
+        yield return ExecuteNext();
     }
 }
