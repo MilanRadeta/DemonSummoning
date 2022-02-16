@@ -40,7 +40,8 @@ public class PlayerSoul : MonoBehaviour
         }
         if (player.Souls != souls)
         {
-            souls += Mathf.Max(1, Mathf.RoundToInt((player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds));
+            var diff = Mathf.RoundToInt((player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds);
+            souls += Math.Max(1, Math.Abs(diff)) * Math.Sign(player.Souls - souls);
             soulsText.text = soulsPrefix + (int)souls;
         }
         image.color = player == Players.Instance.ActivePlayer ? Color.green : Color.white;

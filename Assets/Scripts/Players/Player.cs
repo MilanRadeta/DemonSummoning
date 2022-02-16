@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     public void Init(int souls)
     {
-        this.Souls = souls;
+        Souls = souls;
     }
 
     public void BuyCard(Card card, int price)
