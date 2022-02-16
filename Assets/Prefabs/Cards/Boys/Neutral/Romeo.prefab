@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea35aa44f6f29048b9378a29c458ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsGetter: {fileID: 3518247990260242639}
+  CardsGetter: {fileID: 3518247990260242639}
   allowedTypes: 01000000
   allowedAffinities: 
 --- !u!114 &7057925457446841523
@@ -155,4 +155,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   action: {fileID: -1379373609346646737}
-  cardsGetter: {fileID: 3518247990260242639}
+  CardsGetter: {fileID: 4641461676802695757}

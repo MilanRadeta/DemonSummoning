@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getCards: {fileID: -5282161508258687709}
+  CardsGetter: {fileID: -5282161508258687709}
 --- !u!114 &8545800891929136122
 MonoBehaviour:
   m_ObjectHideFlags: 0

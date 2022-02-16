@@ -11,6 +11,14 @@ public class SelectCards : GetCards
     public int count = 1;
     protected List<Card> selected;
 
+    void OnValidate()
+    {
+        if (CardsGetter == null)
+        {
+            throw new MissingReferenceException("SelectCards.CardsGetter not assigned on " + gameObject.name);
+        }
+    }
+
     public override IEnumerable<Card> Cards
     {
         get

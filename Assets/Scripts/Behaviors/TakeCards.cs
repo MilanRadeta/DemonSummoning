@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class DiscardSelected : CardAction
+public class TakeCards : CardAction
 {
     public GetCards CardsGetter;
 
@@ -11,17 +11,16 @@ public class DiscardSelected : CardAction
     {
         if (CardsGetter == null)
         {
-            throw new MissingReferenceException("DiscardSelected.CardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("TakeCards.cardsGetter not assigned on " + gameObject.name);
         }
     }
 
     public override IEnumerator Execute()
     {
-        var cards = CardsGetter.Cards;
-        if (cards != null)
+        foreach (var card in CardsGetter.Cards)
         {
-            Game.Discard(cards);
-            yield return ExecuteNext();
+            card.Owner.BuyCard(card, 0);
         }
+        yield return ExecuteNext();
     }
 }

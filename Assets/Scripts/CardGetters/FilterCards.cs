@@ -6,15 +6,15 @@ using UnityEngine;
 public class FilterCards : GetCards
 {
 
-    public GetCards cardsGetter;
+    public GetCards CardsGetter;
     public CardType[] allowedTypes;
     public CardAffinity[] allowedAffinities;
 
     void OnValidate()
     {
-        if (cardsGetter == null)
+        if (CardsGetter == null)
         {
-            throw new MissingReferenceException("FilterCards.cardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("FilterCards.CardsGetter not assigned on " + gameObject.name);
         }
     }
 
@@ -22,7 +22,7 @@ public class FilterCards : GetCards
     {
         get
         {
-            return cardsGetter.Cards.Where(c =>
+            return CardsGetter.Cards.Where(c =>
                 IsAllowed(allowedTypes, c.type) &&
                 IsAllowed(allowedAffinities, c.affinity)
             );

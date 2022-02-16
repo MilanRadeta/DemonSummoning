@@ -6,7 +6,7 @@ using UnityEngine;
 public class RepeatAction : CardAction
 {
     public CardAction action;
-    public GetCards cardsGetter;
+    public GetCards CardsGetter;
 
     void OnValidate()
     {
@@ -15,15 +15,15 @@ public class RepeatAction : CardAction
             throw new MissingReferenceException("RepeatAction.action not assigned on " + gameObject.name);
         }
         
-        if (cardsGetter == null)
+        if (CardsGetter == null)
         {
-            throw new MissingReferenceException("RepeatAction.cardsGetter not assigned on " + gameObject.name);
+            throw new MissingReferenceException("RepeatAction.CardsGetter not assigned on " + gameObject.name);
         }
     }
 
     public override IEnumerator Execute()
     {
-        var count = cardsGetter.Cards.Count();
+        var count = CardsGetter.Cards.Count();
         for (int i = 0; i < count; i++)
         {
             yield return action.Execute();

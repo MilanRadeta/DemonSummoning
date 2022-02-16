@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsGetter: {fileID: -1117838638729056170}
+  CardsGetter: {fileID: -1117838638729056170}
 --- !u!114 &-1117838638729056170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,4 +163,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  getCards: {fileID: -1117838638729056170}
+  CardsGetter: {fileID: -1117838638729056170}

@@ -71,6 +71,14 @@ PrefabInstance:
       propertyPath: description
       value: Gain an ANIMAL from THE BLOCK.
       objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+      propertyPath: actions.Array.data[0]
+      value: 
+      objectReference: {fileID: 2186780152510853512}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -81,3 +89,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+--- !u!1 &9190992468131569474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
+  m_PrefabInstance: {fileID: 364634639104788226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-4031815523324315670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63415ea7cd193d0468ed22dc50115e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3209768438264075108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -4031815523324315670}
+  allowedTypes: 03000000
+  condition:
+    logicOperator: 1
+    requirements: []
+  count: 1
+--- !u!114 &2186780152510853512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190992468131569474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ff0000c516be744a092dbb37a59d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -3209768438264075108}
