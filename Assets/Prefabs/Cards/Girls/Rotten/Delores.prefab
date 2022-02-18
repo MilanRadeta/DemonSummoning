@@ -190,11 +190,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardsGetter: {fileID: -7630062346182781630}
   allowedTypes: 0200000001000000
+  allowedAffinities: 02000000
   condition:
     logicOperator: 1
-    requirements:
-    - affinity: 2
-      type: 5
-      relativeOperator: 0
-      count: 1
+    requirements: []
   count: 1

@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SelectCards : GetCards
+public class SelectCards : FilterCards
 {
-    public GetCards CardsGetter;
-    public CardType[] allowedTypes;
     public CardCondition condition;
     public int count = 1;
     protected List<Card> selected;
@@ -34,7 +32,7 @@ public class SelectCards : GetCards
     {
         return !selected.Contains(c)
             && selected.Count < count
-            && (allowedTypes.Length == 0 || allowedTypes.Contains(c.type))
+            && IsAllowed(c)
             && condition.Calculate(selected.Concat(new List<Card>() { c })); ;
     }
 

@@ -54,7 +54,7 @@ public class Card : MonoBehaviour
         {
             if (ReferenceEquals(startingAction, null))
             {
-                Debug.Log("Missing action on card " + name + "!");
+                throw new MissingReferenceException("Missing action on card " + name + "!");
             }
             else
             {
@@ -74,7 +74,7 @@ public class Card : MonoBehaviour
 
                 if (allActions.Count > 0)
                 {
-                    Debug.Log("Unused actions on card " + name + ": " + string.Join(",", allActions.Select(c => c.GetType())));
+                    throw new MissingReferenceException("Unused actions on card " + name + ": " + string.Join(",", allActions.Select(c => c.GetType())));
                 }
             }
         }

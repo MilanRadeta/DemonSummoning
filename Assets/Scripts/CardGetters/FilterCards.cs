@@ -22,14 +22,18 @@ public class FilterCards : GetCards
     {
         get
         {
-            return CardsGetter.Cards.Where(c =>
-                IsAllowed(allowedTypes, c.type) &&
-                IsAllowed(allowedAffinities, c.affinity)
-            );
+            return CardsGetter.Cards.Where(c => IsAllowed(c));
         }
     }
 
-    private bool IsAllowed<T>(T[] list, T value)
+
+    protected bool IsAllowed(Card card)
+    {
+        return IsAllowed(allowedTypes, card.type) &&
+                IsAllowed(allowedAffinities, card.affinity);
+    }
+
+    protected bool IsAllowed<T>(T[] list, T value)
     {
         return list.Count() == 0 || list.Contains(value);
     }
