@@ -79,7 +79,7 @@ PrefabInstance:
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: startingAction
       value: 
-      objectReference: {fileID: 523586133711546243}
+      objectReference: {fileID: 503391123884646445}
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 3

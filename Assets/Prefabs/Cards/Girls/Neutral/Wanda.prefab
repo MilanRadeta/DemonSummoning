@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Next: {fileID: 0}
+  Next: {fileID: -3062789431907857013}
   CardsGetter: {fileID: -7291643690535741154}
 --- !u!114 &-3062789431907857013
 MonoBehaviour:

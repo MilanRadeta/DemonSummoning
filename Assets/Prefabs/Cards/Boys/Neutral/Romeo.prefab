@@ -62,7 +62,7 @@ PrefabInstance:
     - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
       propertyPath: startingAction
       value: 
-      objectReference: {fileID: 7057925457446841523}
+      objectReference: {fileID: 162858941724938582}
     - target: {fileID: 1344632392492538466, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -112,6 +112,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: {fileID: 0}
   soulsToAward: 1
+--- !u!114 &162858941724938582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315174878603514784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8c4d2a753fc7447b07cf619e31812b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 0}
+  CardsGetter: {fileID: 4641461676802695757}
+  action: {fileID: -1379373609346646737}
 --- !u!114 &3518247990260242639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,18 +154,3 @@ MonoBehaviour:
   CardsGetter: {fileID: 3518247990260242639}
   allowedTypes: 01000000
   allowedAffinities: 
---- !u!114 &7057925457446841523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 315174878603514784}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21768c5f82f3a4c41b9fd5da695c4b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Next: {fileID: 0}
-  action: {fileID: -1379373609346646737}
-  CardsGetter: {fileID: 4641461676802695757}

@@ -47,9 +47,31 @@ public class Card : MonoBehaviour
         Outline = GetComponentInChildren<Outline>();
         eventTrigger = GetComponent<EventTrigger>();
 
-        if (!IsUI && ReferenceEquals(startingAction, null))
+        if (!IsUI)
         {
-            Debug.Log("Missing action on card " + name + "!");
+            if (ReferenceEquals(startingAction, null))
+            {
+                Debug.Log("Missing action on card " + name + "!");
+            }
+            else
+            {
+                var allActions = GetComponents<CardAction>().ToList();
+                var perCardActions = GetComponents<ExecutePerCard>().ToList();
+                var action = startingAction;
+                do {
+                    allActions.Remove(action);
+                    action = action.Next;
+                } while (action != null);
+
+                foreach (var perCardAction in perCardActions)
+                {
+                    allActions.Remove(perCardAction.action);
+                }
+                
+                if (allActions.Count > 0) {
+                    Debug.Log("Unused actions on card " + name + ": " + string.Join(",", allActions.Select(c => c.GetType())));
+                }
+            }
         }
     }
 
