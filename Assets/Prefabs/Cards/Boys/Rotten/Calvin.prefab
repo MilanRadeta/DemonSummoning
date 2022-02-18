@@ -85,17 +85,9 @@ PrefabInstance:
         (in any combination from other players and/or the supply).'
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: -3296940424400692641}
-    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: 6916028686188294346}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 9
@@ -127,6 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd87e0758f6f9624abbf0c41090fbd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 6916028686188294346}
   condition:
     logicOperator: 1
     requirements:
@@ -146,4 +139,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd17752f52c094392789b24cc0f3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 2

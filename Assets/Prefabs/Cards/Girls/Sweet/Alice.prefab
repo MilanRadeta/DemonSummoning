@@ -77,6 +77,10 @@ PrefabInstance:
         each discarded SWEET BOY and SWEET GIRL.
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
+      propertyPath: startingAction
+      value: 
+      objectReference: {fileID: 5858747130619263401}
+    - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 4
       objectReference: {fileID: 0}
@@ -90,3 +94,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
+--- !u!1 &1651066620079709537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
+  m_PrefabInstance: {fileID: 7812131160002790689}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5858747130619263401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651066620079709537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea0679e778051247b502fdb2fa09131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 0}
+  allowedTypes: 0100000002000000
+  allowedAffinities: 01000000
+  count: 2

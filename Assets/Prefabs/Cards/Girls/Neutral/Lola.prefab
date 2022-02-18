@@ -72,11 +72,7 @@ PrefabInstance:
       value: '<color="green">For each of your BOYS: </color> Collect 1 Soul.'
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2464441386661984616}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
@@ -118,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8c4d2a753fc7447b07cf619e31812b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: 2653985950411349331}
   action: {fileID: 8910070027632894847}
 --- !u!114 &2653985950411349331
@@ -147,4 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 1

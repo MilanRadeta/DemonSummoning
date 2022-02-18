@@ -85,17 +85,9 @@ PrefabInstance:
         collect 6 souls.
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2005867279998611055}
-    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: 7565621316977970522}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 10
@@ -145,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 7565621316977970522}
   CardsGetter: {fileID: 1580421783765326499}
 --- !u!114 &7565621316977970522
 MonoBehaviour:
@@ -158,6 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 6
 --- !u!114 &8746861045458323825
 MonoBehaviour:

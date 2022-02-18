@@ -62,21 +62,9 @@ PrefabInstance:
         THIS* cost by discarding it from the top of the deck).
       objectReference: {fileID: 0}
     - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 3104826134262878692}
-    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: -7354265101574785307}
-    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.data[2]
-      value: 
-      objectReference: {fileID: 6778294129837127826}
     - target: {fileID: 1344632392492538466, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -124,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 6778294129837127826}
   CardsGetter: {fileID: -1117838638729056170}
 --- !u!114 &-1117838638729056170
 MonoBehaviour:
@@ -149,7 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea0679e778051247b502fdb2fa09131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: -7354265101574785307}
   allowedTypes: 
+  allowedAffinities: 
   count: 1
 --- !u!114 &6778294129837127826
 MonoBehaviour:
@@ -163,4 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: -1117838638729056170}

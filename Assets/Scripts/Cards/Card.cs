@@ -30,7 +30,7 @@ public class Card : MonoBehaviour
     [TextArea(5, 5)]
     public string description;
     public List<int> triggerNumbers;
-    public CardAction[] actions;
+    public CardAction startingAction;
 
     public delegate void ClickAction(Card card);
     public event ClickAction OnClicked;
@@ -46,6 +46,11 @@ public class Card : MonoBehaviour
         Animator = GetComponent<Animator>();
         Outline = GetComponentInChildren<Outline>();
         eventTrigger = GetComponent<EventTrigger>();
+
+        if (!IsUI && ReferenceEquals(startingAction, null))
+        {
+            Debug.Log("Missing action on card " + name + "!");
+        }
     }
 
     void OnValidate()
@@ -63,11 +68,6 @@ public class Card : MonoBehaviour
             }
             text.text = "";
             text.transform.parent.gameObject.SetActive(false);
-
-        }
-        for (int i = 0; i < actions.Length - 1; i++)
-        {
-            actions[i].Next = actions[i + 1];
         }
 
     }
@@ -117,7 +117,7 @@ public class Card : MonoBehaviour
 
     public IEnumerator Execute()
     {
-        yield return actions[0].Execute();
+        yield return startingAction.Execute();
     }
 
     public bool CanExecute(int roll)
@@ -127,7 +127,10 @@ public class Card : MonoBehaviour
 
     public bool CheckCondition()
     {
-        var action = actions.ToList().Find(a => a is CheckCondition) as CheckCondition;
-        return action == null || action.Check();
+        if (startingAction is CheckCondition)
+        {
+            return (startingAction as CheckCondition).Check();
+        }
+        return true;
     }
 }

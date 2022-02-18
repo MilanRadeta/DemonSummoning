@@ -6,6 +6,7 @@ using UnityEngine;
 public class TakeTop : CardAction
 {
     public CardType[] allowedTypes;
+    public CardAffinity[] allowedAffinities;
     public int count = 1;
 
     public override IEnumerator Execute()
@@ -13,7 +14,7 @@ public class TakeTop : CardAction
         for (int i = 0; i < count; i++)
         {
             var discard = Game.TakeTopBlockCard();
-            if (allowedTypes.Length == 0 || allowedTypes.Contains(discard.type))
+            if (IsAllowed(allowedTypes, discard.type) && IsAllowed(allowedAffinities, discard.affinity))
             {
                 card.Owner.BuyCard(discard, 0);
             }
@@ -23,5 +24,10 @@ public class TakeTop : CardAction
             }
         }
         yield return ExecuteNext();
+    }
+
+    private bool IsAllowed<T>(T[] list, T value)
+    {
+        return list.Count() == 0 || list.Contains(value);
     }
 }

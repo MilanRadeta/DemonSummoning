@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class CardAction : MonoBehaviour
 {
-    public CardAction Next { get; set; }
+    public CardAction Next;
     protected GameController Game { get { return GameController.Instance; } }
     protected Card card;
 

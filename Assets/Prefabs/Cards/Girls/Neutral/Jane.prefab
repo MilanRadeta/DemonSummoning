@@ -72,11 +72,7 @@ PrefabInstance:
       value: Gain an ANIMAL from THE BLOCK.
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2186780152510853512}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
@@ -136,4 +132,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78ff0000c516be744a092dbb37a59d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: -3209768438264075108}

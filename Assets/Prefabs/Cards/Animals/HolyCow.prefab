@@ -38,17 +38,9 @@ PrefabInstance:
         but it does work with Dublux and Re-rollzebub).
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 4572749880623097094}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: 6775032346489260966}
     - target: {fileID: 5639727250776854936, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -116,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42b96dc13c567949b7c6916ab7bc21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 6775032346489260966}
 --- !u!114 &6775032346489260966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b23e9c2fd42382441ab786cd962be64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}

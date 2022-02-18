@@ -60,11 +60,7 @@ PrefabInstance:
       value: Collect a Soul.
       objectReference: {fileID: 0}
     - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 5369388463879723122}
     - target: {fileID: 1344632392492538466, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
@@ -110,4 +106,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 1

@@ -635,21 +635,9 @@ PrefabInstance:
         (so you can't snuff (discard) them to help summon demons).
       objectReference: {fileID: 0}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2191703714723274388}
-    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
-      propertyPath: actions.Array.data[0].data
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
-      propertyPath: actions.Array.data[1].data
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 9209282739074343953, guid: 6cbe972cdaa9d4344a26495c872ded1f, type: 3}
       propertyPath: triggerNumberText.Array.size
       value: 3
@@ -686,4 +674,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 1

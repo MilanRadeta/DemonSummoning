@@ -86,6 +86,10 @@ PrefabInstance:
         top of the Block Deck).
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+      propertyPath: startingAction
+      value: 
+      objectReference: {fileID: 5386420516966793547}
+    - target: {fileID: 6720996507766612239, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 10
       objectReference: {fileID: 0}
@@ -99,3 +103,98 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+--- !u!1 &6034277806420865794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8828048891353045056, guid: f2e9d0fb353809c4cb76541f73f98696, type: 3}
+  m_PrefabInstance: {fileID: 2971680863577451330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-8058661471244822295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea35aa44f6f29048b9378a29c458ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -7630062346182781630}
+  allowedTypes: 0200000001000000
+  allowedAffinities: 01000000
+--- !u!114 &-7630062346182781630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63415ea7cd193d0468ed22dc50115e34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2621377912251392961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78ff0000c516be744a092dbb37a59d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 0}
+  CardsGetter: {fileID: 6429865193917255829}
+--- !u!114 &3399210511079476374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8ec70f56e8c9c4a845ceb8115f44ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 2621377912251392961}
+--- !u!114 &5386420516966793547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 3399210511079476374}
+  CardsGetter: {fileID: -8058661471244822295}
+--- !u!114 &6429865193917255829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6034277806420865794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CardsGetter: {fileID: -7630062346182781630}
+  allowedTypes: 0200000001000000
+  condition:
+    logicOperator: 1
+    requirements:
+    - affinity: 2
+      type: 5
+      relativeOperator: 0
+      count: 1
+  count: 1

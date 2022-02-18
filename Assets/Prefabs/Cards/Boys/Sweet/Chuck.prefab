@@ -20,17 +20,9 @@ PrefabInstance:
       value: '<color="red">If you have another SWEET KID: </color> Collect 2 Souls.'
       objectReference: {fileID: 0}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 5361530408414924728}
-    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: -2135278492893052901}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 4
@@ -118,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 2
 --- !u!114 &5361530408414924728
 MonoBehaviour:
@@ -131,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd87e0758f6f9624abbf0c41090fbd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: -2135278492893052901}
   condition:
     logicOperator: 1
     requirements:

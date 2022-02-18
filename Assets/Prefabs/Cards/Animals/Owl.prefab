@@ -38,25 +38,9 @@ PrefabInstance:
         refill their spots with new cards from The Block Deck).
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2787910742671807194}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: -8557338612002726772}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[2]
-      value: 
-      objectReference: {fileID: 5081252129102681752}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[3]
-      value: 
-      objectReference: {fileID: 5486778531696102780}
     - target: {fileID: 5639727250776854936, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -124,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 5081252129102681752}
   soulsToAward: 4
 --- !u!114 &-8220310254361253484
 MonoBehaviour:
@@ -149,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42b96dc13c567949b7c6916ab7bc21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: -8557338612002726772}
 --- !u!114 &5081252129102681752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 5486778531696102780}
   CardsGetter: {fileID: 6730805497973380090}
 --- !u!114 &5486778531696102780
 MonoBehaviour:
@@ -174,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8ec70f56e8c9c4a845ceb8115f44ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
 --- !u!114 &6730805497973380090
 MonoBehaviour:
   m_ObjectHideFlags: 0

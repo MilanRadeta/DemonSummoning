@@ -37,17 +37,9 @@ PrefabInstance:
         top card of the BLOCK DECK.
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 8157709686415940317}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: 6034550674931349981}
     - target: {fileID: 5639727250776854936, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -115,7 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ea0679e778051247b502fdb2fa09131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   allowedTypes: 
+  allowedAffinities: 
   count: 1
 --- !u!114 &8157709686415940317
 MonoBehaviour:
@@ -129,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd87e0758f6f9624abbf0c41090fbd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 6034550674931349981}
   condition:
     logicOperator: 0
     requirements:

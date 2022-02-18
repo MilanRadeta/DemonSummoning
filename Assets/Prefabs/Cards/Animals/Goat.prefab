@@ -38,25 +38,9 @@ PrefabInstance:
         3 Demons towards victory.)
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: -8380778294029414861}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[1]
-      value: 
-      objectReference: {fileID: -7471750966168106705}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[2]
-      value: 
-      objectReference: {fileID: 1340365418466708547}
-    - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
-      propertyPath: actions.Array.data[3]
-      value: 
-      objectReference: {fileID: 1340365418466708547}
     - target: {fileID: 5639727250776854936, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -124,6 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd87e0758f6f9624abbf0c41090fbd90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: -7471750966168106705}
   condition:
     logicOperator: 0
     requirements:
@@ -159,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b1d68da82cfb234099fad0e7c0e5b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 1340365418466708547}
   CardsGetter: {fileID: 6894908186377864236}
 --- !u!114 &1340365418466708547
 MonoBehaviour:
@@ -172,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c744c13ad2d4ec4a9b28b50e20f5553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   count: 1
 --- !u!114 &6894908186377864236
 MonoBehaviour:

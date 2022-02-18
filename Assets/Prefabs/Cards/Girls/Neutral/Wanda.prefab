@@ -74,11 +74,7 @@ PrefabInstance:
         (If Wanda is discarded, discard each Soul she has placed on your cards.)
       objectReference: {fileID: 0}
     - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6720996507766612239, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: -3688819007049816217}
     - target: {fileID: 6757504768464807979, guid: 41b9ec93703cf384d85d0f3560aa9536, type: 3}
@@ -146,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: -7291643690535741154}
 --- !u!114 &-3062789431907857013
 MonoBehaviour:
@@ -159,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087cc164b2dbc774ebbe3addc45a74af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: 8740766665469268306}
   EnchantedCards: {fileID: -7291643690535741154}
 --- !u!114 &8740766665469268306

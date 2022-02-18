@@ -60,11 +60,7 @@ PrefabInstance:
       value: Activate all of you ANIMALS.
       objectReference: {fileID: 0}
     - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309320948600263494, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: -6388678871339803525}
     - target: {fileID: 1344632392492538466, guid: a17d1a5ca11aadd41bcef0e6ddbd3bb3, type: 3}
@@ -114,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 860942142999718408cb0635aeb1c230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: 2807232319894757575}
 --- !u!114 &461236381625825010
 MonoBehaviour:

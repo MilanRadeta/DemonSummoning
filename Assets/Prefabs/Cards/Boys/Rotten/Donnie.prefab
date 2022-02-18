@@ -86,11 +86,7 @@ PrefabInstance:
         the supply).
       objectReference: {fileID: 0}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
-      propertyPath: actions.Array.data[0]
+      propertyPath: startingAction
       value: 
       objectReference: {fileID: 2540315249637540315}
     - target: {fileID: 3797733957677289041, guid: 6d25e3d0afdc1954ea88ea493f3c2585, type: 3}
@@ -124,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb8c4d2a753fc7447b07cf619e31812b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   CardsGetter: {fileID: 7161698798369244961}
   action: {fileID: 5636843536413452290}
 --- !u!114 &5636843536413452290
@@ -138,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd17752f52c094392789b24cc0f3e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Next: {fileID: 0}
   soulsToAward: 1
 --- !u!114 &7161698798369244961
 MonoBehaviour:

@@ -490,7 +490,7 @@ MonoBehaviour:
   cardName: Card
   description: 
   triggerNumbers: 07000000
-  actions: []
+  startingAction: {fileID: 0}
   text: {fileID: 1497003812287849140}
   triggerNumberText:
   - {fileID: 7564035999560609345}
