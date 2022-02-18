@@ -10,6 +10,8 @@ public class Card : MonoBehaviour
     public bool IsBlockCard { get; set; }
     public bool FaceUp = false;
     public bool IsMoving { get { return cardTransform.IsMoving; } }
+
+    public bool SatisfiesCondition { get { return condition.Calculate(Owner.OpenCards); } }
     public Animator Animator { get; private set; }
     public Outline Outline { get; private set; }
     public Vector3 TargetPosition
@@ -31,6 +33,7 @@ public class Card : MonoBehaviour
     public string description;
     public List<int> triggerNumbers;
     public CardAction startingAction;
+    public CardCondition condition;
 
     public delegate void ClickAction(Card card);
     public event ClickAction OnClicked;
@@ -58,7 +61,8 @@ public class Card : MonoBehaviour
                 var allActions = GetComponents<CardAction>().ToList();
                 var perCardActions = GetComponents<ExecutePerCard>().ToList();
                 var action = startingAction;
-                do {
+                do
+                {
                     allActions.Remove(action);
                     action = action.Next;
                 } while (action != null);
@@ -67,8 +71,9 @@ public class Card : MonoBehaviour
                 {
                     allActions.Remove(perCardAction.action);
                 }
-                
-                if (allActions.Count > 0) {
+
+                if (allActions.Count > 0)
+                {
                     Debug.Log("Unused actions on card " + name + ": " + string.Join(",", allActions.Select(c => c.GetType())));
                 }
             }
@@ -145,14 +150,5 @@ public class Card : MonoBehaviour
     public bool CanExecute(int roll)
     {
         return triggerNumbers.Contains(roll) && (type != CardType.DEMON || Players.Instance.ActivePlayer == Owner);
-    }
-
-    public bool CheckCondition()
-    {
-        if (startingAction is CheckCondition)
-        {
-            return (startingAction as CheckCondition).Check();
-        }
-        return true;
     }
 }

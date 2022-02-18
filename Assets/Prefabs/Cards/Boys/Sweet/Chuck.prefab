@@ -22,10 +22,38 @@ PrefabInstance:
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: startingAction
       value: 
-      objectReference: {fileID: 5361530408414924728}
+      objectReference: {fileID: -2135278492893052901}
     - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: triggerNumbers.Array.data[0]
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[0].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[1].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[0].affinity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[1].affinity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[0].relativeOperator
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2594497756272816173, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
+      propertyPath: condition.requirements.Array.data[1].relativeOperator
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2631014265254574345, guid: cae5b4ae06bc63647a34fde6c2af3923, type: 3}
       propertyPath: m_Mesh
@@ -112,27 +140,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: {fileID: 0}
   soulsToAward: 2
---- !u!114 &5361530408414924728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920989687801956050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd87e0758f6f9624abbf0c41090fbd90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Next: {fileID: -2135278492893052901}
-  condition:
-    logicOperator: 1
-    requirements:
-    - affinity: 1
-      type: 2
-      relativeOperator: 2
-      count: 0
-    - affinity: 1
-      type: 1
-      relativeOperator: 2
-      count: 0

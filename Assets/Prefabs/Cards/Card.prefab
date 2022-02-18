@@ -491,6 +491,9 @@ MonoBehaviour:
   description: 
   triggerNumbers: 07000000
   startingAction: {fileID: 0}
+  condition:
+    logicOperator: 1
+    requirements: []
   text: {fileID: 1497003812287849140}
   triggerNumberText:
   - {fileID: 7564035999560609345}
