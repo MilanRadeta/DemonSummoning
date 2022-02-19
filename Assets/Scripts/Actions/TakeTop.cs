@@ -5,16 +5,22 @@ using UnityEngine;
 
 public class TakeTop : CardAction
 {
-    public CardType[] allowedTypes;
-    public CardAffinity[] allowedAffinities;
+    // TODO use getters? use other actions like DiscardSelected and TakeSelecteed
+    public CardFilter cardFilter;
     public int count = 1;
+
+    void OnValidate()
+    {
+
+        Debug.Log(name);
+    }
 
     public override IEnumerator Execute()
     {
         for (int i = 0; i < count; i++)
         {
             var discard = Game.TakeTopBlockCard();
-            if (IsAllowed(allowedTypes, discard.type) && IsAllowed(allowedAffinities, discard.affinity))
+            if (cardFilter.IsAllowed(discard))
             {
                 card.Owner.BuyCard(discard, 0);
             }
@@ -24,10 +30,5 @@ public class TakeTop : CardAction
             }
         }
         yield return ExecuteNext();
-    }
-
-    private bool IsAllowed<T>(T[] list, T value)
-    {
-        return list.Count() == 0 || list.Contains(value);
     }
 }

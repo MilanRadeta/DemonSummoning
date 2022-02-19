@@ -139,8 +139,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Next: {fileID: -7354265101574785307}
-  allowedTypes: 
-  allowedAffinities: 
+  cardFilter:
+    allowedTypes: 
+    allowedAffinities: 
   count: 1
 --- !u!114 &6778294129837127826
 MonoBehaviour:

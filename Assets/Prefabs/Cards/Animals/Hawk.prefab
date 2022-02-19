@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Next: {fileID: 0}
-  allowedTypes: 03000000
-  allowedAffinities: 
+  cardFilter:
+    allowedTypes: 03000000
+    allowedAffinities: 
   count: 7
