@@ -90,3 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedbe0ae595889d45a5d1ce52c5d9320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsCancelable: 1

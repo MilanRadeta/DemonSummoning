@@ -21,6 +21,11 @@ public class BuyBlockCardAction : TurnAction
         Game.BuyBlockCardForActivePlayer(card);
         yield return base.Execute();
     }
+
+    public override void OnCancel()
+    {
+        Game.block.Cards.ForEach(c => c.OnClicked -= BuyBlockCardForActivePlayer);
+    }
     
     private void BuyBlockCardForActivePlayer(Card card)
     {

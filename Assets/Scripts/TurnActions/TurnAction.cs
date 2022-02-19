@@ -6,28 +6,43 @@ using UnityEngine.UI;
 
 public abstract class TurnAction : MonoBehaviour
 {
+    public static bool HasCurrentAction { get { return currentAction != null; } }
+    public static bool IsCurrentActionCancelable { get { return HasCurrentAction && currentAction.IsCancelable; } }
+    public bool IsCancelable;
     protected GameController Game { get { return GameController.Instance; } }
-    private Image image;
-    private static IEnumerator coroutine = null;
+    protected Image image;
+    private static TurnAction currentAction = null;
+
+    public static void Cancel()
+    {
+        currentAction.StopAllCoroutines();
+        currentAction.OnCancel();
+        currentAction = null;
+    }
+
+    public virtual void OnCancel()
+    {
+
+    }
 
     public virtual bool CanExecute()
     {
-        return Game.Actions.Contains(this) && !Game.IsAnythingMoving() && TurnAction.coroutine == null;
+        return Game.Actions.Contains(this) && !Game.IsAnythingMoving() && TurnAction.currentAction == null;
     }
 
     public virtual IEnumerator Execute()
     {
         Game.Actions.Remove(this);
         yield return this;
-        coroutine = null;
+        currentAction = null;
     }
 
-    public void OnClicked()
+    public virtual void OnClicked()
     {
         if (CanExecute())
         {
-            coroutine = Execute();
-            StartCoroutine(coroutine);
+            currentAction = this;
+            StartCoroutine(Execute());
         }
     }
 
