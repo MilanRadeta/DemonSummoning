@@ -9,12 +9,6 @@ public class TakeTop : CardAction
     public CardFilter cardFilter;
     public int count = 1;
 
-    void OnValidate()
-    {
-
-        Debug.Log(name);
-    }
-
     public override IEnumerator Execute()
     {
         for (int i = 0; i < count; i++)
