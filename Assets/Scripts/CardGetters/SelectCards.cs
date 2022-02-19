@@ -33,7 +33,7 @@ public class SelectCards : FilterCards
         return !selected.Contains(c)
             && selected.Count < count
             && IsAllowed(c)
-            && condition.Calculate(selected.Concat(new List<Card>() { c })); ;
+            && condition.SatisfiesRequirements(selected.Concat(new List<Card>() { c })); ;
     }
 
     protected bool CanDeselect(Card card)
@@ -43,6 +43,6 @@ public class SelectCards : FilterCards
 
     protected bool CanConfirm()
     {
-        return condition.Calculate(selected);
+        return condition.SatisfiesRequirements(selected);
     }
 }

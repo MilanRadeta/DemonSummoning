@@ -11,7 +11,7 @@ public class CardCondition
     public LogicOperator logicOperator = LogicOperator.OR;
     public List<CardTypeCount> requirements;
 
-    public bool Calculate(IEnumerable<Card> cards)
+    public bool SatisfiesRequirements(IEnumerable<Card> cards)
     {
         if (requirements.Count == 0)
         {

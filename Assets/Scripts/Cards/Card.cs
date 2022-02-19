@@ -11,7 +11,7 @@ public class Card : MonoBehaviour
     public bool FaceUp = false;
     public bool IsMoving { get { return cardTransform.IsMoving; } }
 
-    public bool SatisfiesCondition { get { return condition.Calculate(Owner.OpenCards); } }
+    public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
     public Animator Animator { get; private set; }
     public Outline Outline { get; private set; }
     public Vector3 TargetPosition
