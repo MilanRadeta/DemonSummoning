@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593745814539383485, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_text
-      value: Cat
+      value: Dog
       objectReference: {fileID: 0}
     - target: {fileID: 3427953039943229076, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: m_Mesh
@@ -29,11 +29,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: cardName
-      value: Cat
+      value: Dog
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: description
-      value: <color="red">If you have  a BOY or GIRL:</color> Collect a Soul.
+      value: <color="red">If you have a BOY or GIRL:</color> Collect a Soul.
       objectReference: {fileID: 0}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: startingAction
