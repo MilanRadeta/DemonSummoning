@@ -178,8 +178,6 @@ MonoBehaviour:
   cardFilter:
     allowedTypes: 
     allowedAffinities: 
-  allowedTypes: 
-  allowedAffinities: 
   condition:
     logicOperator: 1
     requirements: []

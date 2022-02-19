@@ -155,5 +155,3 @@ MonoBehaviour:
   cardFilter:
     allowedTypes: 01000000
     allowedAffinities: 
-  allowedTypes: 01000000
-  allowedAffinities: 

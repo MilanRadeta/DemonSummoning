@@ -114,8 +114,6 @@ MonoBehaviour:
   cardFilter:
     allowedTypes: 03000000
     allowedAffinities: 
-  allowedTypes: 03000000
-  allowedAffinities: 
 --- !u!114 &4193918774742350287
 MonoBehaviour:
   m_ObjectHideFlags: 0
