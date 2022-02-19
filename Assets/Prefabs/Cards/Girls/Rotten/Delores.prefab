@@ -121,6 +121,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardsGetter: {fileID: -7630062346182781630}
+  cardFilter:
+    allowedTypes: 0200000001000000
+    allowedAffinities: 01000000
   allowedTypes: 0200000001000000
   allowedAffinities: 01000000
 --- !u!114 &-7630062346182781630
@@ -189,6 +192,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardsGetter: {fileID: -7630062346182781630}
+  cardFilter:
+    allowedTypes: 
+    allowedAffinities: 
   allowedTypes: 0200000001000000
   allowedAffinities: 02000000
   condition:

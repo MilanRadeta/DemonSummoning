@@ -21,7 +21,7 @@ public class SelectCards : FilterCards
     {
         get
         {
-            var cards = CardsGetter.Cards;
+            var cards = Cards;
             selected = new List<Card>();
             // TODO show choose dialog
             return selected;
@@ -32,7 +32,6 @@ public class SelectCards : FilterCards
     {
         return !selected.Contains(c)
             && selected.Count < count
-            && IsAllowed(c)
             && condition.SatisfiesRequirements(selected.Concat(new List<Card>() { c })); ;
     }
 

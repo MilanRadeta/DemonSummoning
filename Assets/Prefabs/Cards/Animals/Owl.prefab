@@ -175,6 +175,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardsGetter: {fileID: -8220310254361253484}
+  cardFilter:
+    allowedTypes: 
+    allowedAffinities: 
   allowedTypes: 
   allowedAffinities: 
   condition:

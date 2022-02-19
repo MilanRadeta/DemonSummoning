@@ -150,6 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CardsGetter: {fileID: 8661854005858031638}
+  cardFilter:
+    allowedTypes: 0200000001000000
+    allowedAffinities: 02000000
   allowedTypes: 0200000001000000
   allowedAffinities: 02000000
 --- !u!114 &8661854005858031638

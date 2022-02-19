@@ -7,8 +7,7 @@ public class FilterCards : GetCards
 {
 
     public GetCards CardsGetter;
-    public CardType[] allowedTypes;
-    public CardAffinity[] allowedAffinities;
+    public CardFilter cardFilter;
 
     void OnValidate()
     {
@@ -22,19 +21,7 @@ public class FilterCards : GetCards
     {
         get
         {
-            return CardsGetter.Cards.Where(c => IsAllowed(c));
+            return CardsGetter.Cards.Where(c => cardFilter.IsAllowed(c));
         }
-    }
-
-
-    protected bool IsAllowed(Card card)
-    {
-        return IsAllowed(allowedTypes, card.type) &&
-                IsAllowed(allowedAffinities, card.affinity);
-    }
-
-    protected bool IsAllowed<T>(T[] list, T value)
-    {
-        return list.Count() == 0 || list.Contains(value);
     }
 }
