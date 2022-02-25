@@ -8,10 +8,11 @@ public abstract class TurnAction : MonoBehaviour
 {
     public static bool HasCurrentAction { get { return currentAction != null; } }
     public static bool IsCurrentActionCancelable { get { return HasCurrentAction && currentAction.IsCancelable; } }
+    private static TurnAction currentAction = null;
+    
     public bool IsCancelable;
     protected GameController Game { get { return GameController.Instance; } }
     protected Image image;
-    private static TurnAction currentAction = null;
 
     public static void Cancel()
     {

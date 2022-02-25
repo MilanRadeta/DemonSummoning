@@ -144,6 +144,7 @@ public class Card : MonoBehaviour
 
     public IEnumerator Execute()
     {
+        CardAction.CurrentAction = startingAction;
         yield return startingAction.Execute();
     }
 
