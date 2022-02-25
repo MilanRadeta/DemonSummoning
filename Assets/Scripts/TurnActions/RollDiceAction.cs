@@ -22,6 +22,7 @@ public class RollDiceAction : TurnAction
                 yield return new WaitUntil(() => card != null);
                 filteredCards.ForEach(c => c.OnClicked -= Choose);
                 yield return card.Execute();
+                // TODO handle canceling cards
                 cards.Remove(card);
                 card = null;
                 filteredCards = cards.Where(c => c.SatisfiesCondition).ToList();
