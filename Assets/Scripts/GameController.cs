@@ -119,7 +119,6 @@ public class GameController : SingletonBehaviour<GameController>
         var candles = ExtractCardsOfType(cards, CardType.CANDLE);
         var demons = ExtractCardsOfType(cards, CardType.DEMON);
         Players.Instance.InitCards(candles, demons);
-        cards.AddRange(candles);
         demonDeck.Init(demons);
         blockDeck.Init(cards);
         block.Init(this);
