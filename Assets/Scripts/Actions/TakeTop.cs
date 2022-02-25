@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TakeTop : CardAction
 {
-    // TODO use getters? use other actions like DiscardSelected and TakeSelecteed
     public CardFilter cardFilter;
     public int count = 1;
 
