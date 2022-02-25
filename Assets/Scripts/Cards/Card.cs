@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
+    public static Card CurrentCard { get; set; }
+
     public Player Owner { get; set; }
     public bool IsBlockCard { get; set; }
     public bool FaceUp = false;
@@ -24,7 +26,8 @@ public class Card : MonoBehaviour
         get { return cardTransform.TargetRotation; }
         set { cardTransform.TargetRotation = value; }
     }
-
+    public bool IsConfirmable { get; set; } = false;
+    public bool Confirmed { get; set; } = false;
     public CardTransform cardTransform;
     public CardAffinity affinity;
     public CardType type;
@@ -144,8 +147,9 @@ public class Card : MonoBehaviour
 
     public IEnumerator Execute()
     {
-        CardAction.CurrentAction = startingAction;
+        Card.CurrentCard = this;
         yield return startingAction.Execute();
+        Card.CurrentCard = null;
     }
 
     public bool CanExecute(int roll)

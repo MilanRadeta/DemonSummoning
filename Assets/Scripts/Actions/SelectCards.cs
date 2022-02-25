@@ -6,7 +6,6 @@ using UnityEngine;
 public class SelectCards : CardAction
 {
     public List<Card> Selected { get; set; }
-    public override bool IsConfirmable { get { return condition.SatisfiesRequirements(Selected); } }
     public GetCards CardsGetter;
     public CardCondition condition;
     public int count = 1;
@@ -23,18 +22,21 @@ public class SelectCards : CardAction
     public override IEnumerator Execute()
     {
         Selected = new List<Card>();
-        Confirmed = false;
+        card.Confirmed = false;
 
-        while (!Confirmed)
+        while (!card.Confirmed)
         {
+            card.IsConfirmable = CanConfirm();
             selectedCard = null;
             var cards = CardsGetter.Cards.Where(c => CanSelect(c));
             cards.ToList().ForEach(c => c.OnClicked += Select);
             Selected.ForEach(c => c.OnClicked += Deselect);
-            yield return new WaitUntil(() => selectedCard != null || Confirmed);
+            yield return new WaitUntil(() => selectedCard != null || card.Confirmed);
             cards.ToList().ForEach(c => c.OnClicked -= Select);
             Selected.ForEach(c => c.OnClicked -= Deselect);
         }
+
+        card.Confirmed = false;
         yield return ExecuteNext();
     }
 
@@ -60,5 +62,10 @@ public class SelectCards : CardAction
     private bool CanDeselect(Card card)
     {
         return Selected.Contains(card);
+    }
+
+    private bool CanConfirm()
+    {
+        return condition.SatisfiesRequirements(Selected);
     }
 }

@@ -6,16 +6,17 @@ using UnityEngine;
 public class ConfirmAction : TurnAction
 {
 
+    // TODO add to scene
     public override bool CanExecute()
     {
-        return CardAction.CurrentAction?.IsConfirmable ?? false;
+        return Card.CurrentCard?.IsConfirmable ?? false;
     }
     
     public override void OnClicked()
     {
-        if (CardAction.CurrentAction) 
+        if (Card.CurrentCard) 
         {
-            CardAction.CurrentAction.Confirmed = true;
+            Card.CurrentCard.Confirmed = true;
         }
     }
 }

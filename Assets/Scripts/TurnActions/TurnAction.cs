@@ -10,7 +10,9 @@ public abstract class TurnAction : MonoBehaviour
     public static bool IsCurrentActionCancelable { get { return HasCurrentAction && currentAction.IsCancelable; } }
     private static TurnAction currentAction = null;
     
-    public bool IsCancelable;
+    public bool IsCancelable = false;
+    // TODO implement action visibility
+    public bool IsVisible = true;
     protected GameController Game { get { return GameController.Instance; } }
     protected Image image;
 
