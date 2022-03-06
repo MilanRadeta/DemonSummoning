@@ -74,7 +74,7 @@ PrefabInstance:
     - target: {fileID: 6720996507766612239, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: startingAction
       value: 
-      objectReference: {fileID: -8528109452829661453}
+      objectReference: {fileID: 7938433212727758863}
     - target: {fileID: 6757504768464807979, guid: 6a5659e870a904f4e94f86f531b6c0aa, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -128,11 +128,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectCardsAction: {fileID: 7938433212727758863}
+--- !u!114 &7938433212727758863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651066620079709537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4422fabcd2583664195479455697eccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: -8528109452829661453}
   CardsGetter: {fileID: -1655532741831488365}
-  cardFilter:
-    allowedTypes: 02000000
-    allowedAffinities: 
   condition:
     logicOperator: 1
-    requirements: []
+    requirements:
+    - affinity: 0
+      type: 2
+      relativeOperator: 0
+      count: 1
   count: 1

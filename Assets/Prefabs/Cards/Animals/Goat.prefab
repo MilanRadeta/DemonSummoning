@@ -40,7 +40,7 @@ PrefabInstance:
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: startingAction
       value: 
-      objectReference: {fileID: -7471750966168106705}
+      objectReference: {fileID: 2734955647730147271}
     - target: {fileID: 5257190336727200792, guid: 84a944f1722acb24d98c9346cb097d28, type: 3}
       propertyPath: condition.logicOperator
       value: 0
@@ -168,6 +168,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: {fileID: 0}
   count: 1
+--- !u!114 &2734955647730147271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702437103480808288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4422fabcd2583664195479455697eccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: -7471750966168106705}
+  CardsGetter: {fileID: -8253895356830667656}
+  condition:
+    logicOperator: 0
+    requirements:
+    - affinity: 0
+      type: 1
+      relativeOperator: 0
+      count: 1
+    - affinity: 0
+      type: 2
+      relativeOperator: 0
+      count: 1
+  count: 2
 --- !u!114 &6894908186377864236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,19 +206,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsGetter: {fileID: -8253895356830667656}
-  cardFilter:
-    allowedTypes: 0200000001000000
-    allowedAffinities: 
-  condition:
-    logicOperator: 0
-    requirements:
-    - affinity: 0
-      type: 2
-      relativeOperator: 0
-      count: 1
-    - affinity: 0
-      type: 1
-      relativeOperator: 0
-      count: 1
-  count: 2
+  SelectCardsAction: {fileID: 2734955647730147271}

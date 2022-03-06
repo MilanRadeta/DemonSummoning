@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a3e7fdf7792b343ae579dde86c0fe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Next: {fileID: 5081252129102681752}
+  Next: {fileID: -6227638702866717750}
   soulsToAward: 4
 --- !u!114 &-8220310254361253484
 MonoBehaviour:
@@ -122,6 +122,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63415ea7cd193d0468ed22dc50115e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6227638702866717750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702437103480808288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4422fabcd2583664195479455697eccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Next: {fileID: 5081252129102681752}
+  CardsGetter: {fileID: -8220310254361253484}
+  condition:
+    logicOperator: 0
+    requirements: []
+  count: 5
 --- !u!114 &2787910742671807194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,11 +192,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2124da8c6abc644eaac19e593ae059e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardsGetter: {fileID: -8220310254361253484}
-  cardFilter:
-    allowedTypes: 
-    allowedAffinities: 
-  condition:
-    logicOperator: 1
-    requirements: []
-  count: 5
+  SelectCardsAction: {fileID: -6227638702866717750}
