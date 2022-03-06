@@ -484,6 +484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FaceUp: 0
+  outlineColor: {r: 1, g: 0.827451, b: 0, a: 1}
+  selectedOutlineColor: {r: 1, g: 0, b: 0, a: 1}
   cardTransform: {fileID: 1250717353104930177}
   affinity: 0
   type: 0
