@@ -28,6 +28,9 @@ public class Card : MonoBehaviour
     }
     public bool IsConfirmable { get; set; } = false;
     public bool Confirmed { get; set; } = false;
+    public bool Selected {get; set; } = false;
+    public Color outlineColor;
+    public Color selectedOutlineColor;
     public CardTransform cardTransform;
     public CardAffinity affinity;
     public CardType type;
@@ -118,6 +121,7 @@ public class Card : MonoBehaviour
         }
 
         Outline.enabled = OnClicked != null;
+        Outline.OutlineColor = Selected ? selectedOutlineColor : outlineColor;
     }
 
     public void OnPointerClick()

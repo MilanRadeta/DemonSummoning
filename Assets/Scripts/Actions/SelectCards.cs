@@ -44,12 +44,14 @@ public class SelectCards : CardAction
     {
         Selected.Add(c);
         selectedCard = c;
+        c.Selected = true;
     }
 
     private void Deselect(Card c)
     {
         Selected.Remove(c);
         selectedCard = c;
+        c.Selected = false;
     }
 
     private bool CanSelect(Card c)
