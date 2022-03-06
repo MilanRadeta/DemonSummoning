@@ -23,4 +23,12 @@ public static class CardGenerator
         return cards;
     }
 
+    public static Stack<Card> ExtractCardsOfType(List<Card> cards, CardType type)
+    {
+        var cardsOfType = cards.Where(c => c.type == type).ToList();
+        cards.RemoveAll(c => c.type == type);
+        return new Stack<Card>(cardsOfType);
+    }
+
+
 }

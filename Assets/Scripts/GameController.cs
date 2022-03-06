@@ -7,7 +7,7 @@ public class GameController : SingletonBehaviour<GameController>
 {
     public List<Card> BlockCards { get { return block.Cards; } }
     public bool IsGameFinished { get { return Players.Instance.IsActivePlayerWinner; } }
-    public List<TurnAction> Actions { get; private set; } = new List<TurnAction>();
+    public List<TurnAction> Actions { get; protected set; } = new List<TurnAction>();
     public GameConfig config;
     public Block block;
     public Deck blockDeck;
@@ -20,13 +20,19 @@ public class GameController : SingletonBehaviour<GameController>
     {
         base.Start();
         initActions = GetComponentsInChildren<TurnAction>();
-        Players.Instance.Init();
-        PlayerSouls.Instance.Init();
-        InitDecksAndHands();
-        StartCoroutine(ExecuteTurn());
+        StartCoroutine(Init());
     }
 
-    public IEnumerator ExecuteTurn()
+    private IEnumerator Init() {
+        yield return new WaitUntil(() => Players.Instance != null);
+        Players.Instance.Init();
+        yield return new WaitUntil(() => PlayerSouls.Instance != null);
+        PlayerSouls.Instance.Init();
+        InitDecksAndHands();
+        yield return ExecuteTurn();
+    }
+
+    public virtual IEnumerator ExecuteTurn()
     {
         while (!IsGameFinished)
         {
@@ -113,24 +119,17 @@ public class GameController : SingletonBehaviour<GameController>
         return Players.Instance.IsMoving || this.blockDeck.IsMoving || this.discardDeck.IsMoving || this.block.IsMoving;
     }
 
-    private void InitDecksAndHands()
+    protected virtual void InitDecksAndHands()
     {
         var cards = CardGenerator.GenerateCards(this.config.cardsConfig.cards, false).OrderBy(c => Random.value).ToList();
-        var candles = ExtractCardsOfType(cards, CardType.CANDLE);
-        var demons = ExtractCardsOfType(cards, CardType.DEMON);
+        var candles = CardGenerator.ExtractCardsOfType(cards, CardType.CANDLE);
+        var demons = CardGenerator.ExtractCardsOfType(cards, CardType.DEMON);
         Players.Instance.InitCards(candles, demons);
         demonDeck.Init(demons);
         blockDeck.Init(cards);
         block.Init(this);
 
         StartCoroutine(RefillBlock());
-    }
-
-    private Stack<Card> ExtractCardsOfType(List<Card> cards, CardType type)
-    {
-        var cardsOfType = cards.Where(c => c.type == type).ToList();
-        cards.RemoveAll(c => c.type == type);
-        return new Stack<Card>(cardsOfType);
     }
 
     private bool IsBlockFilled()
