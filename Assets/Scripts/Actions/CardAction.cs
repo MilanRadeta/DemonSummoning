@@ -16,11 +16,13 @@ public abstract class CardAction : MonoBehaviour
     }
 
     public abstract IEnumerator Execute();
+
+    // TODO calls to ExecuteNext not working
     protected virtual IEnumerator ExecuteNext()
     {
         if (Next != null)
         {
-            yield return Next.ExecuteNext();
+            yield return Next.Execute();
         }
     }
 }

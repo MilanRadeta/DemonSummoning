@@ -28,12 +28,13 @@ public class SelectCards : CardAction
         {
             card.IsConfirmable = CanConfirm();
             selectedCard = null;
-            var cards = CardsGetter.Cards.Where(c => CanSelect(c));
-            cards.ToList().ForEach(c => c.OnClicked += Select);
-            Selected.ForEach(c => c.OnClicked += Deselect);
+            var cards = CardsGetter.Cards.Where(c => CanSelect(c)).ToList();
+            var selected = Selected.ToList();
+            cards.ForEach(c => c.OnClicked += Select);
+            selected.ForEach(c => c.OnClicked += Deselect);
             yield return new WaitUntil(() => selectedCard != null || card.Confirmed);
-            cards.ToList().ForEach(c => c.OnClicked -= Select);
-            Selected.ForEach(c => c.OnClicked -= Deselect);
+            cards.ForEach(c => c.OnClicked -= Select);
+            selected.ForEach(c => c.OnClicked -= Deselect);
         }
 
         card.Confirmed = false;
@@ -43,15 +44,15 @@ public class SelectCards : CardAction
     private void Select(Card c)
     {
         Selected.Add(c);
-        selectedCard = c;
         c.Selected = true;
+        selectedCard = c;
     }
 
     private void Deselect(Card c)
     {
         Selected.Remove(c);
-        selectedCard = c;
         c.Selected = false;
+        selectedCard = c;
     }
 
     private bool CanSelect(Card c)

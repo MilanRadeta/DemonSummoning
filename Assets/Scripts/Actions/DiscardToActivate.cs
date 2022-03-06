@@ -7,12 +7,7 @@ public class DiscardToActivate : CardAction
 {
     public override IEnumerator Execute()
     {
-        // TODO Ask to discard
-        var answer = false;
-        if (answer)
-        {
-            Game.Discard(card);
-            yield return ExecuteNext();
-        }
+        Game.Discard(card);
+        yield return ExecuteNext();
     }
 }
