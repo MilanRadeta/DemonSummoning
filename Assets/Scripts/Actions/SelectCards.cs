@@ -11,6 +11,8 @@ public class SelectCards : CardAction
     public CardCondition condition;
     public int count = 1;
     private Card selectedCard;
+    private List<Card> selectables;
+    private List<Card> deselectables;
 
     public override IEnumerator Execute()
     {
@@ -19,49 +21,57 @@ public class SelectCards : CardAction
 
         while (!card.Confirmed)
         {
-            card.IsConfirmable = CanConfirm();
-            selectedCard = null;
-            var cards = CardsGetter.Cards.Where(c => CanSelect(c)).ToList();
-            var selected = Selected.ToList();
-            cards.ForEach(c => c.OnClicked += Select);
-            selected.ForEach(c => c.OnClicked += Deselect);
-            yield return new WaitUntil(() => selectedCard != null || card.Confirmed);
-            cards.ForEach(c => c.OnClicked -= Select);
-            selected.ForEach(c => c.OnClicked -= Deselect);
+            card.IsConfirmable = condition.SatisfiesRequirements(Selected);
+            yield return WaitForSelection();
         }
 
         card.Confirmed = false;
         yield return ExecuteNext();
     }
 
-    private void Select(Card c)
+    private IEnumerator WaitForSelection()
     {
-        Selected.Add(c);
-        c.Selected = true;
+        this.selectables = CardsGetter.Cards.Where(c => CanSelect(c)).ToList();
+        this.deselectables = Selected.ToList();
+        RegisterHandlers();
+        selectedCard = null;
+        yield return new WaitUntil(() => selectedCard != null || card.Confirmed);
+        UnregisterHandlers();
+    }
+
+    private void RegisterHandlers()
+    {
+        selectables.ForEach(c => c.OnClicked += Select);
+        deselectables.ForEach(c => c.OnClicked += Deselect);
+    }
+
+    private void UnregisterHandlers()
+    {
+        selectables.ForEach(c => c.OnClicked -= Select);
+        deselectables.ForEach(c => c.OnClicked -= Deselect);
+    }
+
+    private void ToggleSelect(Card c, bool value)
+    {
+        if (value)
+        {
+            Selected.Add(c);
+        }
+        else
+        {
+            Selected.Remove(c);
+        }
+        c.Selected = value;
         selectedCard = c;
     }
 
-    private void Deselect(Card c)
-    {
-        Selected.Remove(c);
-        c.Selected = false;
-        selectedCard = c;
-    }
+    private void Select(Card c) { ToggleSelect(c, true); }
+    private void Deselect(Card c) { ToggleSelect(c, false); }
 
     private bool CanSelect(Card c)
     {
         return !Selected.Contains(c)
             && Selected.Count < count
             && condition.SatisfiesRequirements(Selected.Concat(new List<Card>() { c })); ;
-    }
-
-    private bool CanDeselect(Card card)
-    {
-        return Selected.Contains(card);
-    }
-
-    private bool CanConfirm()
-    {
-        return condition.SatisfiesRequirements(Selected);
     }
 }
