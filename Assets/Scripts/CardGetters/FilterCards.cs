@@ -6,16 +6,9 @@ using UnityEngine;
 public class FilterCards : GetCards
 {
 
+    [NotNull]
     public GetCards CardsGetter;
     public CardFilter cardFilter;
-
-    void OnValidate()
-    {
-        if (CardsGetter == null)
-        {
-            throw new MissingReferenceException("FilterCards.CardsGetter not assigned on " + gameObject.name);
-        }
-    }
 
     public override IEnumerable<Card> Cards
     {

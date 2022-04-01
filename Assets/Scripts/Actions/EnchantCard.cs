@@ -1,25 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
 public class EnchantCard : CardAction
 {
+    [NotNull]
     public GetCards CardsGetter;
+    [NotNull]
     public GetEnchantedCards EnchantedCards;
-
-    void OnValidate()
-    {
-        if (CardsGetter == null)
-        {
-            throw new MissingReferenceException("EnchantCard.CardsGetter not assigned on " + gameObject.name);
-        }
-        
-        if (EnchantedCards == null)
-        {
-            throw new MissingReferenceException("EnchantCard.EnchantedCards not assigned on " + gameObject.name);
-        }
-    }
 
     public override IEnumerator Execute()
     {

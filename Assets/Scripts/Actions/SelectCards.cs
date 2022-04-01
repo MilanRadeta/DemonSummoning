@@ -6,18 +6,11 @@ using UnityEngine;
 public class SelectCards : CardAction
 {
     public List<Card> Selected { get; set; }
+    [NotNull]
     public GetCards CardsGetter;
     public CardCondition condition;
     public int count = 1;
     private Card selectedCard;
-
-    void OnValidate()
-    {
-        if (CardsGetter == null)
-        {
-            throw new MissingReferenceException("SelectCards.CardsGetter not assigned on " + gameObject.name);
-        }
-    }
 
     public override IEnumerator Execute()
     {

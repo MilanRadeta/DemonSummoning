@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public abstract class CardAction : MonoBehaviour
@@ -17,7 +15,6 @@ public abstract class CardAction : MonoBehaviour
 
     public abstract IEnumerator Execute();
 
-    // TODO calls to ExecuteNext not working
     protected virtual IEnumerator ExecuteNext()
     {
         if (Next != null)

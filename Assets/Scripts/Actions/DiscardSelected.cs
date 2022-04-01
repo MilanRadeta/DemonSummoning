@@ -1,19 +1,9 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 
 public class DiscardSelected : CardAction
 {
+    [NotNull]
     public GetCards CardsGetter;
-
-    void OnValidate()
-    {
-        if (CardsGetter == null)
-        {
-            throw new MissingReferenceException("DiscardSelected.CardsGetter not assigned on " + gameObject.name);
-        }
-    }
 
     public override IEnumerator Execute()
     {
