@@ -484,8 +484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FaceUp: 0
-  outlineColor: {r: 1, g: 0.827451, b: 0, a: 1}
-  selectedOutlineColor: {r: 1, g: 0, b: 0, a: 1}
+  outlineColors:
+    selectable: {r: 1, g: 0.82745105, b: 0, a: 0}
+    deselectable: {r: 1, g: 0, b: 0, a: 0}
   cardTransform: {fileID: 1250717353104930177}
   affinity: 0
   type: 0
@@ -499,6 +500,9 @@ MonoBehaviour:
   text: {fileID: 1497003812287849140}
   triggerNumberText:
   - {fileID: 7564035999560609345}
+  cardText:
+    text: {fileID: 1497003812287849140}
+    triggerNumberText: []
   meshRenderer: {fileID: 8930786280019713478}
 --- !u!1 &7448145040076834268
 GameObject:

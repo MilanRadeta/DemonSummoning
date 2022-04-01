@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour
 {
@@ -12,10 +10,8 @@ public class Card : MonoBehaviour
     public bool IsBlockCard { get; set; }
     public bool FaceUp = false;
     public bool IsMoving { get { return cardTransform.IsMoving; } }
-
     public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
-    public Animator Animator { get; private set; }
-    public Outline Outline { get; private set; }
+    public CardComponents components { get; private set; }
     public Vector3 TargetPosition
     {
         get { return cardTransform.TargetPosition; }
@@ -28,9 +24,9 @@ public class Card : MonoBehaviour
     }
     public bool IsConfirmable { get; set; } = false;
     public bool Confirmed { get; set; } = false;
-    public bool Selected {get; set; } = false;
-    public Color outlineColor;
-    public Color selectedOutlineColor;
+    public bool Selected { get; set; } = false;
+    public bool Clickable { get { return OnClicked != null; } }
+    public CardOutlineColor outlineColors;
     public CardTransform cardTransform;
     public CardAffinity affinity;
     public CardType type;
@@ -38,90 +34,43 @@ public class Card : MonoBehaviour
     [TextArea(5, 5)]
     public string description;
     public List<int> triggerNumbers;
+    [NotNull]
     public CardAction startingAction;
     public CardCondition condition;
 
     public delegate void ClickAction(Card card);
     public event ClickAction OnClicked;
 
-    public TMPro.TextMeshPro text;
-    public List<TMPro.TextMeshPro> triggerNumberText;
+    public CardText cardText;
     public MeshRenderer meshRenderer;
-    private bool IsUI { get { return gameObject.layer == Layers.UIIndex; } }
-    private EventTrigger eventTrigger;
 
-    void Awake()
-    {
-        Animator = GetComponent<Animator>();
-        Outline = GetComponentInChildren<Outline>();
-        eventTrigger = GetComponent<EventTrigger>();
-
-        if (!IsUI)
-        {
-            if (ReferenceEquals(startingAction, null))
-            {
-                throw new MissingReferenceException("Missing action on card " + name + "!");
-            }
-            else
-            {
-                var allActions = GetComponents<CardAction>().ToList();
-                var perCardActions = GetComponents<ExecutePerCard>().ToList();
-                var action = startingAction;
-                do
-                {
-                    allActions.Remove(action);
-                    action = action.Next;
-                } while (action != null);
-
-                foreach (var perCardAction in perCardActions)
-                {
-                    allActions.Remove(perCardAction.action);
-                }
-
-                if (allActions.Count > 0)
-                {
-                    throw new MissingReferenceException("Unused actions on card " + name + ": " + string.Join(",", allActions.Select(c => c.GetType())));
-                }
-            }
-        }
-    }
 
     void OnValidate()
     {
-        text.text = cardName;
-        for (int i = 0; i < triggerNumberText.Count; i++)
-        {
-            var text = triggerNumberText[i];
-            if (i < triggerNumbers.Count)
-            {
-                var value = triggerNumbers[i];
-                text.text = value.ToString();
-                text.transform.parent.gameObject.SetActive(true);
-                continue;
-            }
-            text.text = "";
-            text.transform.parent.gameObject.SetActive(false);
-        }
+        cardText.SetText(this);
+    }
 
+    void Awake()
+    {
+        components = new CardComponents(this);
+        var validator = new CardValidator(this);
+        validator.CheckForUnusedActions();
     }
 
     void Update()
     {
-        if (IsUI)
-        {
-            Animator.enabled = false;
-            Outline.enabled = false;
-            eventTrigger.enabled = false;
-            return;
-        }
+        components.Update();
+    }
 
-        if (Animator.isActiveAndEnabled && FaceUp != Animator.GetBool("FaceUp"))
-        {
-            Animator.SetBool("FaceUp", FaceUp);
-        }
-
-        Outline.enabled = OnClicked != null;
-        Outline.OutlineColor = Selected ? selectedOutlineColor : outlineColor;
+    public void CreateUiCopy(Transform parent)
+    {
+        var newCard = Instantiate(this.transform.GetChild(0));
+        Layers.ChangeLayers(newCard.gameObject, LayerMask.NameToLayer(Layers.UI));
+        var transform = newCard.transform;
+        transform.SetParent(parent);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.Euler(Vector3.zero);
+        transform.localScale = Vector3.one;
     }
 
     public void OnPointerClick()

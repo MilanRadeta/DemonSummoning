@@ -9,7 +9,7 @@ public class NotNullDrawer : PropertyDrawer
     {
         EditorGUI.BeginProperty(position, label, property);
 
-        if (property.objectReferenceValue == null)
+        if (ReferenceEquals(property.objectReferenceValue, null))
         {
             GUI.color = Color.red;
             var targetObject = property.serializedObject.targetObject;

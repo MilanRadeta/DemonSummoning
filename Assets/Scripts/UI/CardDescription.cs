@@ -13,35 +13,21 @@ public class CardDescription : SingletonBehaviour<CardDescription>
     {
         base.Start();
         rectTransform = GetComponent<RectTransform>();
-        this.Hide();
+        Hide();
     }
 
     public void Show(Card card)
     {
-        if (card.transform.position.z > 0)
-        {
-            rectTransform.anchorMin = new Vector2(0, 0);
-            rectTransform.anchorMax = new Vector2(1, 0);
-            rectTransform.anchoredPosition = new Vector2(0, Mathf.Abs(rectTransform.anchoredPosition.y));
-        }
-        else
-        {
-            rectTransform.anchorMin = new Vector2(0, 1);
-            rectTransform.anchorMax = new Vector2(1, 1);
-            rectTransform.anchoredPosition = new Vector2(0, -Mathf.Abs(rectTransform.anchoredPosition.y));
-        }
+        var minMaxY = card.transform.position.z > 0 ? 0 : 1;
+        var anchorY = Mathf.Abs(rectTransform.anchoredPosition.y);
+        anchorY *= (minMaxY > 0 ? -1 : 1);
+        rectTransform.anchorMin = new Vector2(0, minMaxY);
+        rectTransform.anchorMax = new Vector2(1, minMaxY);
+        rectTransform.anchoredPosition = new Vector2(0, anchorY);
 
         var oldCard = cardSlot.GetChild(0);
         Destroy(oldCard.gameObject);
-        var newCard = Instantiate(card);
-        Layers.ChangeLayers(newCard.gameObject, LayerMask.NameToLayer(Layers.UI));
-        newCard.FaceUp = true;
-        newCard.Animator.enabled = false;
-        newCard.transform.SetParent(cardSlot);
-        newCard.transform.localPosition = Vector3.zero;
-        newCard.transform.localRotation = Quaternion.Euler(Vector3.zero);
-        newCard.transform.localScale = Vector3.one;
-
+        card.CreateUiCopy(cardSlot);
         text.text = card.description;
 
 
