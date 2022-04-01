@@ -7,7 +7,13 @@ public class GetNonEnchantedCards : GetCards
     public GetCards ValidCards;
     [NotNull]
     public GetEnchantedCards EnchantedCards;
-    
-    public override IEnumerable<Card> Cards { get { return ValidCards.Cards.Where(c => !EnchantedCards.Cards.Contains(c)); } }
+
+    public override IEnumerable<Card> Cards
+    {
+        get
+        {
+            return ValidCards.Cards.Where(c => !EnchantedCards.Cards.Contains(c));
+        }
+    }
 
 }
