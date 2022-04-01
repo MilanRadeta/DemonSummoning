@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 6148349890022112596}
   - component: {fileID: 1250717353104930177}
   - component: {fileID: 9209282739074343953}
+  - component: {fileID: 1967273810429780909}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -389,8 +390,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9209282739074343953}
-          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        - m_Target: {fileID: 1967273810429780909}
+          m_TargetAssemblyTypeName: CardEventHandler, Assembly-CSharp
           m_MethodName: OnPointerClick
           m_Mode: 1
           m_Arguments:
@@ -405,8 +406,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9209282739074343953}
-          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        - m_Target: {fileID: 1967273810429780909}
+          m_TargetAssemblyTypeName: CardEventHandler, Assembly-CSharp
           m_MethodName: OnPointerEnter
           m_Mode: 1
           m_Arguments:
@@ -421,8 +422,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 9209282739074343953}
-          m_TargetAssemblyTypeName: Card, Assembly-CSharp
+        - m_Target: {fileID: 1967273810429780909}
+          m_TargetAssemblyTypeName: CardEventHandler, Assembly-CSharp
           m_MethodName: OnPointerExit
           m_Mode: 1
           m_Arguments:
@@ -483,11 +484,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3465067e896494d88074d9db70b4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FaceUp: 0
   outlineColors:
     selectable: {r: 1, g: 0.82745105, b: 0, a: 0}
     deselectable: {r: 1, g: 0, b: 0, a: 0}
-  cardTransform: {fileID: 1250717353104930177}
   affinity: 0
   type: 0
   cardName: Card
@@ -497,13 +496,23 @@ MonoBehaviour:
   condition:
     logicOperator: 1
     requirements: []
-  text: {fileID: 1497003812287849140}
-  triggerNumberText:
-  - {fileID: 7564035999560609345}
   cardText:
     text: {fileID: 1497003812287849140}
     triggerNumberText: []
   meshRenderer: {fileID: 8930786280019713478}
+  FaceUp: 0
+--- !u!114 &1967273810429780909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aefffb2e09b08d439c10b719fce048b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7448145040076834268
 GameObject:
   m_ObjectHideFlags: 0

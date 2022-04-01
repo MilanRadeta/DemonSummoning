@@ -96,7 +96,6 @@ public class Player : MonoBehaviour
         foreach (var card in cards)
         {
             card.transform.SetParent(root.transform);
-            var rotation = card.transform.localRotation.eulerAngles;
             card.TargetPosition = pos;
             card.TargetRotation = Vector3.zero;
             pos += stepVector;

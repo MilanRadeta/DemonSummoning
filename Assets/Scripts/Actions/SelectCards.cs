@@ -17,15 +17,15 @@ public class SelectCards : CardAction
     public override IEnumerator Execute()
     {
         Selected = new List<Card>();
-        card.Confirmed = false;
+        card.IsConfirmed = false;
 
-        while (!card.Confirmed)
+        while (!card.IsConfirmed)
         {
             card.IsConfirmable = condition.SatisfiesRequirements(Selected);
             yield return WaitForSelection();
         }
 
-        card.Confirmed = false;
+        card.IsConfirmed = false;
         yield return ExecuteNext();
     }
 
@@ -35,7 +35,7 @@ public class SelectCards : CardAction
         this.deselectables = Selected.ToList();
         RegisterHandlers();
         selectedCard = null;
-        yield return new WaitUntil(() => selectedCard != null || card.Confirmed);
+        yield return new WaitUntil(() => selectedCard != null || card.IsConfirmed);
         UnregisterHandlers();
     }
 
@@ -61,7 +61,7 @@ public class SelectCards : CardAction
         {
             Selected.Remove(c);
         }
-        c.Selected = value;
+        c.IsSelected = value;
         selectedCard = c;
     }
 

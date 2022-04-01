@@ -2,32 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CardTransform), typeof(CardEventHandler))]
 public class Card : MonoBehaviour
 {
-    public static Card CurrentCard { get; set; }
-
-    public Player Owner { get; set; }
-    public bool IsBlockCard { get; set; }
-    public bool FaceUp = false;
-    public bool IsMoving { get { return cardTransform.IsMoving; } }
-    public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
-    public CardComponents components { get; private set; }
-    public Vector3 TargetPosition
-    {
-        get { return cardTransform.TargetPosition; }
-        set { cardTransform.TargetPosition = value; }
-    }
-    public Vector3 TargetRotation
-    {
-        get { return cardTransform.TargetRotation; }
-        set { cardTransform.TargetRotation = value; }
-    }
-    public bool IsConfirmable { get; set; } = false;
-    public bool Confirmed { get; set; } = false;
-    public bool Selected { get; set; } = false;
-    public bool Clickable { get { return OnClicked != null; } }
     public CardOutlineColor outlineColors;
-    public CardTransform cardTransform;
     public CardAffinity affinity;
     public CardType type;
     public string cardName;
@@ -37,13 +15,24 @@ public class Card : MonoBehaviour
     [NotNull]
     public CardAction startingAction;
     public CardCondition condition;
-
-    public delegate void ClickAction(Card card);
-    public event ClickAction OnClicked;
-
     public CardText cardText;
     public MeshRenderer meshRenderer;
 
+    public event CardEventHandler.ClickAction OnClicked;
+
+    public static Card CurrentCard { get; set; }
+    public Player Owner { get; set; }
+    public bool IsBlockCard { get; set; }
+    public bool FaceUp = false;
+    public bool IsMoving { get { return components.CardTransform.IsMoving; } }
+    public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
+    public CardComponents components { get; private set; }
+    public bool IsConfirmable { get; set; } = false;
+    public bool IsConfirmed { get; set; } = false;
+    public bool IsSelected { get; set; } = false;
+    public bool IsClickable { get { return OnClicked != null; } }
+    public Vector3 TargetPosition { set { components.TargetPosition = value; } }
+    public Vector3 TargetRotation { set { components.TargetRotation = value; } }
 
     void OnValidate()
     {
@@ -73,31 +62,6 @@ public class Card : MonoBehaviour
         transform.localScale = Vector3.one;
     }
 
-    public void OnPointerClick()
-    {
-        if (FaceUp && OnClicked != null)
-        {
-            OnClicked(this);
-        }
-    }
-
-    public void OnPointerEnter()
-    {
-        if (FaceUp)
-        {
-            CardDescription.Instance.Show(this);
-        }
-
-    }
-
-    public void OnPointerExit()
-    {
-        if (FaceUp)
-        {
-            CardDescription.Instance.Hide();
-        }
-    }
-
     public IEnumerator Execute()
     {
         Card.CurrentCard = this;
@@ -108,5 +72,13 @@ public class Card : MonoBehaviour
     public bool CanExecute(int roll)
     {
         return triggerNumbers.Contains(roll) && (type != CardType.DEMON || Players.Instance.ActivePlayer == Owner);
+    }
+
+    public void ExecuteOnClicked()
+    {
+        if (OnClicked != null)
+        {
+            OnClicked(this);
+        }
     }
 }

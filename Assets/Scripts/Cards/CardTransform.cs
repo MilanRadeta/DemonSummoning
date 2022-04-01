@@ -1,7 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Translator), typeof(Rotator))]
 public class CardTransform : MonoBehaviour
 {
+    public Translator translator;
+    public Rotator rotator;
     public bool IsMoving { get { return translator.IsMoving || rotator.IsMoving; } }
     public Vector3 TargetPosition
     {
@@ -13,7 +16,5 @@ public class CardTransform : MonoBehaviour
         get { return rotator.Target; }
         set { rotator.Target = value; }
     }
-    public Translator translator;
-    public Rotator rotator;
 
 }

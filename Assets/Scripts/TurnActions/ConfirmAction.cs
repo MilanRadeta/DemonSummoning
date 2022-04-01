@@ -16,7 +16,7 @@ public class ConfirmAction : TurnAction
     {
         if (Card.CurrentCard) 
         {
-            Card.CurrentCard.Confirmed = true;
+            Card.CurrentCard.IsConfirmed = true;
         }
     }
 }
