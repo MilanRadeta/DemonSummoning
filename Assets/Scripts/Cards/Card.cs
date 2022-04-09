@@ -5,25 +5,25 @@ using UnityEngine;
 [RequireComponent(typeof(CardTransform), typeof(CardEventHandler))]
 public class Card : MonoBehaviour
 {
-    public CardOutlineColor outlineColors;
-    public CardAffinity affinity;
-    public CardType type;
+    public static Card CurrentCard { get; private set; }
+
     public string cardName;
     [TextArea(5, 5)]
     public string description;
+    public bool FaceUp = false;
+    public CardAffinity affinity;
+    public CardType type;
     public List<int> triggerNumbers;
     [NotNull]
     public CardAction startingAction;
     public CardCondition condition;
+    public CardOutlineColor outlineColors;
     public CardText cardText;
     public MeshRenderer meshRenderer;
 
     public event CardEventHandler.ClickAction OnClicked;
 
-    public static Card CurrentCard { get; set; }
     public Player Owner { get; set; }
-    public bool IsBlockCard { get; set; }
-    public bool FaceUp = false;
     public bool IsMoving { get { return components.CardTransform.IsMoving; } }
     public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
     public CardComponents components { get; private set; }

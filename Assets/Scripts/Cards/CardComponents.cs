@@ -1,5 +1,4 @@
 
-using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,12 +6,13 @@ public class CardComponents
 {
     public Vector3 TargetPosition { set { CardTransform.TargetPosition = value; } }
     public Vector3 TargetRotation { set { CardTransform.TargetRotation = value; } }
-    public Animator Animator { get; private set; }
-    public Outline Outline { get; private set; }
-    public EventTrigger EventTrigger { get; private set; }
-    public CardTransform CardTransform { get; private set; }
-    public CardEventHandler EventHandler { get; private set; }
-    private Card card;
+    public readonly Animator Animator;
+    public readonly Outline Outline;
+    public readonly EventTrigger EventTrigger;
+    public readonly CardTransform CardTransform;
+    public readonly CardEventHandler EventHandler;
+    private readonly Card card;
+    private readonly string FACE_UP_KEY = "FaceUp";
 
     public CardComponents(Card card)
     {
@@ -26,9 +26,9 @@ public class CardComponents
 
     public void Update()
     {
-        if (Animator.isActiveAndEnabled && card.FaceUp != Animator.GetBool("FaceUp"))
+        if (Animator.isActiveAndEnabled && card.FaceUp != Animator.GetBool(FACE_UP_KEY))
         {
-            Animator.SetBool("FaceUp", card.FaceUp);
+            Animator.SetBool(FACE_UP_KEY, card.FaceUp);
         }
 
         Outline.enabled = card.IsClickable;

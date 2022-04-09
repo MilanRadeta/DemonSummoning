@@ -16,7 +16,6 @@ public class Block : SingletonBehaviour<Block>
 
     public void AddCard(Card card)
     {
-        card.IsBlockCard = true;
         card.FaceUp = true;
         var addNew = true;
         for (int i = 0; i < cards.Count; i++)
@@ -37,7 +36,6 @@ public class Block : SingletonBehaviour<Block>
 
     public void TakeCard(Card card)
     {
-        card.IsBlockCard = false;
         var index = this.cards.IndexOf(card);
         this.cards[index] = null;
     }
