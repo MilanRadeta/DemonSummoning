@@ -46,8 +46,7 @@ public class Block : SingletonBehaviour<Block>
         var i = 0;
         foreach (var card in cards)
         {
-            card.transform.SetParent(this.transform);
-            card.TargetPosition = positions[i++];
+            card.SetTransform(transform, positions[i++], Vector3.zero);
         }
     }
 

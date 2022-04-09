@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int Souls { get; set; } = 5;
+    public int Souls = 5;
     public List<Card> OpenCards { get { return openCards.ToList(); } }
     public List<Card> HandCards { get { return handCards.ToList(); } }
     public GameController Game {get {return GameController.Instance;}}
-    public GameObject openCardsObj;
-    public GameObject handCardsObj;
-    public DeckConfig deckConfig;
+    public Transform openCardsObj;
+    public Transform handCardsObj;
 
     private List<Card> openCards = new List<Card>();
     private List<Card> handCards = new List<Card>();
@@ -86,7 +85,8 @@ public class Player : MonoBehaviour
         RepositionCards(openCards, openCardsObj);
         RepositionCards(handCards, handCardsObj);
     }
-    private void RepositionCards(IEnumerable<Card> cards, GameObject root)
+
+    private void RepositionCards(IEnumerable<Card> cards, Transform root)
     {
         var length = cards.Count();
         var stepVector = new Vector3(0.5f, -0.01f, 0.125f);
@@ -95,9 +95,7 @@ public class Player : MonoBehaviour
 
         foreach (var card in cards)
         {
-            card.transform.SetParent(root.transform);
-            card.TargetPosition = pos;
-            card.TargetRotation = Vector3.zero;
+            card.SetTransform(root, pos, Vector3.zero);
             pos += stepVector;
             if (pos.z >= 0) {
                 stepVector.z = -stepVector.z;

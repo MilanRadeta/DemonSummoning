@@ -62,8 +62,7 @@ public class Deck : MonoBehaviour
         foreach (var card in cards.Reverse())
         {
             var baseVector = Vector3.up * y++;
-            card.transform.SetParent(gameObject.transform);
-            card.TargetPosition = baseVector * card.meshRenderer.bounds.extents.y;
+            card.SetTransform(transform, baseVector * card.meshRenderer.bounds.extents.y, Vector3.zero);
         }
     }
 }

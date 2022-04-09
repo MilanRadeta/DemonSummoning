@@ -45,11 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f27f08ba75891f459a6a220575152e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openCardsObj: {fileID: 6607533987441107232}
-  handCardsObj: {fileID: 6607533988080404154}
-  deckConfig:
-    cards: []
-  game: {fileID: 0}
+  Souls: 5
+  openCardsObj: {fileID: 6607533987441107233}
+  handCardsObj: {fileID: 6607533988080404155}
 --- !u!1 &6607533987441107232
 GameObject:
   m_ObjectHideFlags: 0

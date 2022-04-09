@@ -4,8 +4,6 @@ using UnityEngine.EventSystems;
 
 public class CardComponents
 {
-    public Vector3 TargetPosition { set { CardTransform.TargetPosition = value; } }
-    public Vector3 TargetRotation { set { CardTransform.TargetRotation = value; } }
     public readonly Animator Animator;
     public readonly Outline Outline;
     public readonly EventTrigger EventTrigger;

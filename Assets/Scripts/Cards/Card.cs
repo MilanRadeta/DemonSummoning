@@ -31,8 +31,6 @@ public class Card : MonoBehaviour
     public bool IsConfirmed { get; set; } = false;
     public bool IsSelected { get; set; } = false;
     public bool IsClickable { get { return OnClicked != null; } }
-    public Vector3 TargetPosition { set { components.TargetPosition = value; } }
-    public Vector3 TargetRotation { set { components.TargetRotation = value; } }
 
     void OnValidate()
     {
@@ -80,5 +78,12 @@ public class Card : MonoBehaviour
         {
             OnClicked(this);
         }
+    }
+
+    public void SetTransform(Transform root, Vector3 position, Vector3 rotation)
+    {
+        transform.SetParent(root);
+        components.CardTransform.TargetPosition = position;
+        components.CardTransform.TargetRotation = Vector3.zero;
     }
 }
