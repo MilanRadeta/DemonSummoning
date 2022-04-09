@@ -484,23 +484,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db3465067e896494d88074d9db70b4ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineColors:
-    selectable: {r: 1, g: 0.82745105, b: 0, a: 0}
-    deselectable: {r: 1, g: 0, b: 0, a: 0}
-  affinity: 0
-  type: 0
   cardName: Card
   description: 
+  FaceUp: 0
+  affinity: 0
+  type: 0
   triggerNumbers: 07000000
   startingAction: {fileID: 0}
   condition:
     logicOperator: 1
     requirements: []
+  outlineColors:
+    selectable: {r: 1, g: 0.827451, b: 0, a: 1}
+    deselectable: {r: 1, g: 0, b: 0, a: 1}
   cardText:
     text: {fileID: 1497003812287849140}
     triggerNumberText: []
   meshRenderer: {fileID: 8930786280019713478}
-  FaceUp: 0
 --- !u!114 &1967273810429780909
 MonoBehaviour:
   m_ObjectHideFlags: 0

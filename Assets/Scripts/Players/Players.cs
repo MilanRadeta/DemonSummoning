@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,8 +5,6 @@ using UnityEngine;
 public class Players : SingletonBehaviour<Players>
 {
     public Player playerPrefab;
-    public DeckConfig deckConfig;
-    public GameController game;
     public Rotator rotator;
 
     public bool IsMoving { get { return rotator.IsMoving; } }
@@ -26,10 +23,8 @@ public class Players : SingletonBehaviour<Players>
         for (int i = 0; i < this.players.Length; i++)
         {
             var playerObj = Instantiate(playerPrefab);
-            playerObj.transform.SetParent(this.transform);
-            playerObj.name = "Player " + (i + 1);
             this.players[i] = playerObj.GetComponent<Player>();
-            this.players[i].Init(config.startingSouls);
+            this.players[i].Init("Player " + (i + 1), config.startingSouls);
         }
         RepositionPlayers();
 
@@ -70,15 +65,11 @@ public class Players : SingletonBehaviour<Players>
 
     private void RepositionPlayers()
     {
-        var positions = Positioner.PositionAround(this.transform, players.Length, 3);
+        var positions = Positioner.PositionAround(transform, players.Length, 3);
         var i = 0;
         foreach (var player in players)
         {
-            var pos = positions[i++];
-            player.transform.SetParent(this.transform);
-            player.transform.localPosition = pos;
-            player.transform.LookAt(this.transform);
-            player.transform.localPosition = pos;
+            player.SetTransform(transform, positions[i++]);
         }
     }
 }

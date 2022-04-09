@@ -31,7 +31,11 @@ public class CardComponents
 
         Outline.enabled = card.IsClickable;
         var colors = card.outlineColors;
-        Outline.OutlineColor = card.IsSelected ? colors.deselectable : colors.selectable;
+        var outlineColor = card.IsSelected ? colors.deselectable : colors.selectable;
+        if (!Outline.OutlineColor.Equals(outlineColor))
+        {
+            Outline.OutlineColor = outlineColor;
+        }
     }
 
     private void Enable(bool value = true)

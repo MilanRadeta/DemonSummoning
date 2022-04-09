@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +16,7 @@ public class PlayerSoul : MonoBehaviour
             soulsText.text = soulsPrefix + player.Souls;
         }
     }
+    public RectTransform rectTransform { get; private set; }
     public Text nameText;
     public Text soulsText;
     public string soulsPrefix;
@@ -30,6 +29,7 @@ public class PlayerSoul : MonoBehaviour
     void Start()
     {
         image = GetComponent<Image>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     void Update()
@@ -45,7 +45,17 @@ public class PlayerSoul : MonoBehaviour
             soulsText.text = soulsPrefix + (int)souls;
         }
         image.color = player == Players.Instance.ActivePlayer ? Color.green : Color.white;
-        
+
+    }
+
+    public void SetTransform(float posY)
+    {
+        this.transform.SetParent(PlayerSouls.Instance.transform);
+        rectTransform.localScale = Vector3.one;
+        rectTransform.localEulerAngles = Vector3.zero;
+        rectTransform.anchoredPosition3D = new Vector3(0, posY, 0);
+        rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y);
+        rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y);
     }
 
 }

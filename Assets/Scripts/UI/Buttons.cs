@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Buttons : MonoBehaviour
 {
@@ -10,11 +6,15 @@ public class Buttons : MonoBehaviour
 
     void OnValidate()
     {
-        buttons = GetComponentsInChildren<TurnAction>();
-        PositionButtons();
+        Init();
     }
 
     void Start()
+    {
+        Init();
+    }
+
+    void Init()
     {
         buttons = GetComponentsInChildren<TurnAction>();
         PositionButtons();
