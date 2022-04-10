@@ -50,7 +50,6 @@ public class PlayerSoul : MonoBehaviour
 
     public void SetTransform(float posY)
     {
-        Init();
         this.transform.SetParent(PlayerSouls.Instance.transform);
         rectTransform.localScale = Vector3.one;
         rectTransform.localEulerAngles = Vector3.zero;
