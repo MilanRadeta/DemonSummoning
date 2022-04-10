@@ -1,12 +1,20 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-[System.Serializable]
-public class CardText
+[RequireComponent(typeof(Card))]
+public class CardText : MonoBehaviour
 {
     public TMPro.TextMeshPro text;
     public List<TMPro.TextMeshPro> triggerNumberText;
+    private Card card;
+
+    void OnValidate()
+    {
+        card = GetComponent<Card>();
+        SetText();
+    }
     
-    public void SetText(Card card)
+    private void SetText()
     {
         text.text = card.cardName;
         for (int i = 0; i < triggerNumberText.Count; i++)

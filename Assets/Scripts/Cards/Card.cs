@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CardText))]
 [RequireComponent(typeof(CardValidator))]
 [RequireComponent(typeof(CardAnimator))]
 [RequireComponent(typeof(CardTransform))]
@@ -21,7 +22,6 @@ public class Card : MonoBehaviour
     [NotNull]
     public CardAction startingAction;
     public CardCondition condition;
-    public CardText cardText;
     public MeshRenderer meshRenderer;
 
     public event CardEventHandler.ClickAction OnClicked;
@@ -35,11 +35,6 @@ public class Card : MonoBehaviour
     public bool IsClickable { get { return OnClicked != null; } }
 
     private CardTransform cardTransform;
-
-    void OnValidate()
-    {
-        cardText.SetText(this);
-    }
 
     void Awake()
     {

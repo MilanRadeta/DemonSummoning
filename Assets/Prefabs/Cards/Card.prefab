@@ -320,6 +320,9 @@ GameObject:
   - component: {fileID: 9209282739074343953}
   - component: {fileID: 1967273810429780909}
   - component: {fileID: 8985971803229306445}
+  - component: {fileID: 5716305113558345415}
+  - component: {fileID: 2558836907249733376}
+  - component: {fileID: 4782718658924440296}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -495,9 +498,6 @@ MonoBehaviour:
   condition:
     logicOperator: 1
     requirements: []
-  cardText:
-    text: {fileID: 1497003812287849140}
-    triggerNumberText: []
   meshRenderer: {fileID: 8930786280019713478}
 --- !u!114 &1967273810429780909
 MonoBehaviour:
@@ -525,6 +525,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectable: {r: 1, g: 0.917207, b: 0.0141509175, a: 1}
   deselectable: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &5716305113558345415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6a26e70ce6e9543adbebe97c629c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 1497003812287849140}
+  triggerNumberText:
+  - {fileID: 7564035999560609345}
+--- !u!114 &2558836907249733376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77480bb4606e27a45869dea5907748f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4782718658924440296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344358962382069086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87993feca7365f74b9e5daf8170f1f36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7448145040076834268
 GameObject:
   m_ObjectHideFlags: 0
