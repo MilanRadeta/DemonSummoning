@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Card), typeof(Outline))]
+[RequireComponent(typeof(Card))]
 public class CardOutlineColor : MonoBehaviour
 {
     public Color selectable;
@@ -11,7 +11,7 @@ public class CardOutlineColor : MonoBehaviour
     void Start()
     {
         card = GetComponent<Card>();
-        outline = GetComponent<Outline>();
+        outline = GetComponentInChildren<Outline>();
     }
 
     void Update()

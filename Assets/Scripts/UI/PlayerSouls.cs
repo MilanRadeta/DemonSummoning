@@ -16,6 +16,7 @@ public class PlayerSouls : SingletonBehaviour<PlayerSouls>
         foreach (var player in Players.Instance.AllPlayers)
         {
             var ui = Instantiate(playerSoulPrefab).GetComponent<PlayerSoul>();
+            ui.Init();
             ui.Player = player;
             ui.SetTransform(posY);
             ui.gameObject.SetActive(true);

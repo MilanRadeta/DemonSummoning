@@ -28,8 +28,7 @@ public class PlayerSoul : MonoBehaviour
 
     void Start()
     {
-        image = GetComponent<Image>();
-        rectTransform = GetComponent<RectTransform>();
+        Init();
     }
 
     void Update()
@@ -43,8 +42,15 @@ public class PlayerSoul : MonoBehaviour
 
     }
 
+    public void Init() 
+    {
+        image = image ?? GetComponent<Image>();
+        rectTransform = rectTransform ?? GetComponent<RectTransform>();
+    }
+
     public void SetTransform(float posY)
     {
+        Init();
         this.transform.SetParent(PlayerSouls.Instance.transform);
         rectTransform.localScale = Vector3.one;
         rectTransform.localEulerAngles = Vector3.zero;
