@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 public class CardComponents
 {
     public readonly Animator Animator;
-    public readonly Outline Outline;
     public readonly EventTrigger EventTrigger;
     public readonly CardTransform CardTransform;
     public readonly CardEventHandler EventHandler;
@@ -16,7 +15,6 @@ public class CardComponents
     {
         this.card = card;
         Animator = card.GetComponent<Animator>();
-        Outline = card.GetComponentInChildren<Outline>();
         EventTrigger = card.GetComponent<EventTrigger>();
         CardTransform = card.GetComponent<CardTransform>();
         EventHandler = card.GetComponent<CardEventHandler>();
@@ -28,32 +26,6 @@ public class CardComponents
         {
             Animator.SetBool(FACE_UP_KEY, card.FaceUp);
         }
-
-        Outline.enabled = card.IsClickable;
-        var colors = card.outlineColors;
-        var outlineColor = card.IsSelected ? colors.deselectable : colors.selectable;
-        if (!Outline.OutlineColor.Equals(outlineColor))
-        {
-            Outline.OutlineColor = outlineColor;
-        }
     }
-
-    private void Enable(bool value = true)
-    {
-        Animator.enabled = value;
-        Outline.enabled = value;
-        EventTrigger.enabled = value;
-    }
-
-    public void Disable(bool value = true)
-    {
-        Enable(!value);
-    }
-
-    public void Rotate(Vector3 value)
-    {
-        CardTransform.TargetRotation = value;
-    }
-
 
 }

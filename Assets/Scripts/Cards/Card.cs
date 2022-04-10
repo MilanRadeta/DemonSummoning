@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CardTransform), typeof(CardEventHandler))]
+[RequireComponent(typeof(CardTransform), typeof(CardEventHandler), typeof(CardOutlineColor))]
 public class Card : MonoBehaviour
 {
     public static Card CurrentCard { get; private set; }
@@ -17,7 +17,6 @@ public class Card : MonoBehaviour
     [NotNull]
     public CardAction startingAction;
     public CardCondition condition;
-    public CardOutlineColor outlineColors;
     public CardText cardText;
     public MeshRenderer meshRenderer;
 
