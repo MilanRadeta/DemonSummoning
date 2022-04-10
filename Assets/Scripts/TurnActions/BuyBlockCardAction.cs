@@ -15,7 +15,7 @@ public class BuyBlockCardAction : TurnAction
         card = null;
         Game.block.Cards.ForEach(c => c.OnClicked += BuyBlockCardForActivePlayer);
         yield return new WaitUntil(() => card != null);
-        Game.block.Cards.ForEach(c => c.OnClicked -= BuyBlockCardForActivePlayer);
+        OnCancel();
         Game.BuyBlockCardForActivePlayer(card);
         yield return base.Execute();
     }

@@ -11,14 +11,15 @@ public class PlayerSouls : SingletonBehaviour<PlayerSouls>
         {
             Destroy(child.gameObject);
         }
+
         float posY = 0;
         foreach (var player in Players.Instance.AllPlayers)
         {
             var ui = Instantiate(playerSoulPrefab).GetComponent<PlayerSoul>();
             ui.Player = player;
             ui.SetTransform(posY);
-            posY -= ui.rectTransform.rect.height;
             ui.gameObject.SetActive(true);
+            posY -= ui.rectTransform.rect.height;
         }
     }
 }

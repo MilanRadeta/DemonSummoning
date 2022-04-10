@@ -38,12 +38,7 @@ public class PlayerSoul : MonoBehaviour
         {
             return;
         }
-        if (player.Souls != souls)
-        {
-            var diff = Mathf.RoundToInt((player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds);
-            souls += Math.Max(1, Math.Abs(diff)) * Math.Sign(player.Souls - souls);
-            soulsText.text = soulsPrefix + (int)souls;
-        }
+        UpdateSouls();
         image.color = player == Players.Instance.ActivePlayer ? Color.green : Color.white;
 
     }
@@ -56,6 +51,17 @@ public class PlayerSoul : MonoBehaviour
         rectTransform.anchoredPosition3D = new Vector3(0, posY, 0);
         rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y);
         rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y);
+    }
+
+    private void UpdateSouls()
+    {
+        if (player.Souls != souls)
+        {
+            var diff = Mathf.RoundToInt((player.Souls - souls) * Time.deltaTime / textChangeSpeedInSeconds);
+            souls += Math.Max(1, Math.Abs(diff)) * Math.Sign(player.Souls - souls);
+            soulsText.text = soulsPrefix + (int)souls;
+        }
+
     }
 
 }

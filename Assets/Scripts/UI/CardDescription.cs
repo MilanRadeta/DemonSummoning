@@ -28,7 +28,6 @@ public class CardDescription : SingletonBehaviour<CardDescription>
         card.CreateUiCopy(cardSlot);
         text.text = card.description;
 
-
         gameObject.SetActive(true);
     }
 
