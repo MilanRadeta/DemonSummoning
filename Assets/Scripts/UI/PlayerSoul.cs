@@ -25,7 +25,6 @@ public class PlayerSoul : MonoBehaviour
     private int souls;
     private Image image;
 
-
     void Start()
     {
         Init();

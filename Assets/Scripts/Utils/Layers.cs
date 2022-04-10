@@ -4,7 +4,6 @@ public static class Layers
 {
 
     public static string UI = "UI";
-    public static int UIIndex = LayerMask.NameToLayer(Layers.UI);
 
     public static void ChangeLayers(GameObject obj, int layer)
     {

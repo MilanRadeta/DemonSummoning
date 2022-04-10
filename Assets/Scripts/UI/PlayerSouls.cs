@@ -3,7 +3,6 @@ using UnityEngine;
 public class PlayerSouls : SingletonBehaviour<PlayerSouls>
 {
     public GameObject playerSoulPrefab;
-    private GameController game { get { return GameController.Instance; } }
 
     public void Init()
     {

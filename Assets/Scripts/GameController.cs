@@ -121,9 +121,9 @@ public class GameController : SingletonBehaviour<GameController>
 
     protected virtual void InitDecksAndHands()
     {
-        var cards = CardGenerator.GenerateCards(this.config.cardsConfig.cards, false).OrderBy(c => Random.value).ToList();
-        var candles = CardGenerator.ExtractCardsOfType(cards, CardType.CANDLE);
-        var demons = CardGenerator.ExtractCardsOfType(cards, CardType.DEMON);
+        var cards = CardUtils.GenerateCards(this.config.cardsConfig.cards, false).OrderBy(c => Random.value).ToList();
+        var candles = CardUtils.ExtractCardsOfType(cards, CardType.CANDLE);
+        var demons = CardUtils.ExtractCardsOfType(cards, CardType.DEMON);
         Players.Instance.InitCards(candles, demons);
         demonDeck.Init(demons);
         blockDeck.Init(cards);

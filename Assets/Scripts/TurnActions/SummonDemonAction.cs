@@ -17,30 +17,37 @@ public class SummonDemonAction : TurnAction
     {
         sacrifices.Clear();
         demon = null;
-        ActivePlayer.OpenCards.ForEach(c => c.OnClicked += ChooseSacrifice);
+        ActivePlayer.OpenCards.ForEach(c => c.OnClicked += ToggleSacrifice);
         ActivePlayer.HandCards.ForEach(c => c.OnClicked += ChooseDemon);
         yield return new WaitUntil(() => demon != null && sacrifices.Count != Game.config.demonSacrifices);
         ActivePlayer.HandCards.ForEach(c => c.OnClicked -= ChooseDemon);
-        ActivePlayer.OpenCards.ForEach(c => c.OnClicked -= ChooseSacrifice);
+        ActivePlayer.OpenCards.ForEach(c => c.OnClicked -= ToggleSacrifice);
         Game.SummonDemon(demon, sacrifices);
         yield return base.Execute();
     }
 
-    private void ChooseSacrifice(Card card)
+    private void ToggleSacrifice(Card card)
     {
         if (sacrifices.Contains(card))
         {
             sacrifices.Remove(card);
+            card.IsSelected = true;
         }
         else
         {
             sacrifices.Add(card);
+            card.IsSelected = false;
         }
     }
 
     private void ChooseDemon(Card card)
     {
+        if (demon != null)
+        {
+            demon.IsSelected = false;
+        }
         demon = card;
+        demon.IsSelected = true;
     }
 
 

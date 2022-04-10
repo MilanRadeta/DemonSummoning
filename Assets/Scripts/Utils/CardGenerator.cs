@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public static class CardGenerator
+public static class CardUtils
 {
 
     public static List<Card> GenerateCards(IEnumerable<DeckConfig.CardCount> config, bool faceUp = true)
