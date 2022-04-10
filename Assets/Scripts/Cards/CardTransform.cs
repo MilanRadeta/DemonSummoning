@@ -16,5 +16,12 @@ public class CardTransform : MonoBehaviour
         get { return rotator.Target; }
         set { rotator.Target = value; }
     }
+    
+    public void SetTransform(Transform root, Vector3 position, Vector3 rotation)
+    {
+        transform.SetParent(root);
+        TargetPosition = position;
+        TargetRotation = rotation;
+    }
 
 }

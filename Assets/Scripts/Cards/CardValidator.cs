@@ -1,15 +1,18 @@
 using System.Linq;
 using UnityEngine;
 
-public class CardValidator
+[RequireComponent(typeof(Card))]
+public class CardValidator : MonoBehaviour
 {
     private Card card;
 
-    public CardValidator(Card card) {
-        this.card = card;
+    void Start()
+    {
+        card = GetComponent<Card>();
+        CheckForUnusedActions();
     }
-    
-    public void CheckForUnusedActions()
+
+    private void CheckForUnusedActions()
     {
         var allActions = card.GetComponents<CardAction>().ToList();
         var action = card.startingAction;

@@ -83,9 +83,10 @@ public class Player : MonoBehaviour
 
     public void SetTransform(Transform parent, Vector3 position)
     {
-        transform.SetParent(transform);
+        transform.SetParent(parent);
         transform.localPosition = position;
-        transform.LookAt(transform);
+        transform.LookAt(parent);
+        transform.localPosition = position;
     }
 
     private void RepositionCards()

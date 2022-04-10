@@ -2,7 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CardTransform), typeof(CardEventHandler), typeof(CardOutlineColor))]
+[RequireComponent(typeof(CardValidator))]
+[RequireComponent(typeof(CardAnimator))]
+[RequireComponent(typeof(CardTransform))]
+[RequireComponent(typeof(CardEventHandler))]
+[RequireComponent(typeof(CardOutlineColor))]
 public class Card : MonoBehaviour
 {
     public static Card CurrentCard { get; private set; }
@@ -23,13 +27,14 @@ public class Card : MonoBehaviour
     public event CardEventHandler.ClickAction OnClicked;
 
     public Player Owner { get; set; }
-    public bool IsMoving { get { return components.CardTransform.IsMoving; } }
+    public bool IsMoving { get { return cardTransform.IsMoving; } }
     public bool SatisfiesCondition { get { return condition.SatisfiesRequirements(Owner.OpenCards); } }
-    public CardComponents components { get; private set; }
     public bool IsConfirmable { get; set; } = false;
     public bool IsConfirmed { get; set; } = false;
     public bool IsSelected { get; set; } = false;
     public bool IsClickable { get { return OnClicked != null; } }
+
+    private CardTransform cardTransform;
 
     void OnValidate()
     {
@@ -38,14 +43,7 @@ public class Card : MonoBehaviour
 
     void Awake()
     {
-        components = new CardComponents(this);
-        var validator = new CardValidator(this);
-        validator.CheckForUnusedActions();
-    }
-
-    void Update()
-    {
-        components.Update();
+        cardTransform = GetComponent<CardTransform>();
     }
 
     public void CreateUiCopy(Transform parent)
@@ -81,8 +79,6 @@ public class Card : MonoBehaviour
 
     public void SetTransform(Transform root, Vector3 position, Vector3 rotation)
     {
-        transform.SetParent(root);
-        components.CardTransform.TargetPosition = position;
-        components.CardTransform.TargetRotation = Vector3.zero;
+        cardTransform.SetTransform(root, position, rotation);
     }
 }
